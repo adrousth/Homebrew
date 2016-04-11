@@ -1,0 +1,651 @@
+2016-04-08 10:44:58,680 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-04-08 10:44:58,693 13   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-04-08 10:44:58,695 15   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-04-08 10:44:58,698 18   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-04-08 10:44:58,732 52   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-04-08 10:44:58,735 55   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-04-08 10:44:58,866 186  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Grain.hbm.xml
+2016-04-08 10:44:58,952 272  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrder.hbm.xml
+2016-04-08 10:44:58,974 294  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Hop.hbm.xml
+2016-04-08 10:44:58,989 309  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: HopOrder.hbm.xml
+2016-04-08 10:44:59,007 327  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Member.hbm.xml
+2016-04-08 10:44:59,020 340  [main] INFO  org.hibernate.cfg.Configuration  - HHH000041: Configured SessionFactory: null
+2016-04-08 10:44:59,086 406  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2016-04-08 10:44:59,092 412  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000115: Hibernate connection pool size: 20
+2016-04-08 10:44:59,092 412  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000006: Autocommit mode: false
+2016-04-08 10:44:59,092 412  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/homebrew]
+2016-04-08 10:44:59,093 413  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000046: Connection properties: {user=root, password=****}
+2016-04-08 10:44:59,472 792  [main] INFO  org.hibernate.dialect.Dialect  - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-04-08 10:44:59,484 804  [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder  - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-04-08 10:44:59,568 888  [main] INFO  org.hibernate.engine.transaction.internal.TransactionFactoryInitiator  - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2016-04-08 10:44:59,575 895  [main] INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory  - HHH000397: Using ASTQueryTranslatorFactory
+2016-04-08 10:48:33,792 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-04-08 10:48:33,839 47   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-04-08 10:48:33,839 47   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-04-08 10:48:33,839 47   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-04-08 10:48:33,886 94   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-04-08 10:48:33,886 94   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-04-08 10:48:34,131 339  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Grain.hbm.xml
+2016-04-08 10:48:34,275 483  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrder.hbm.xml
+2016-04-08 10:48:34,313 521  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Hop.hbm.xml
+2016-04-08 10:48:34,348 556  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: HopOrder.hbm.xml
+2016-04-08 10:48:34,378 586  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Member.hbm.xml
+2016-04-08 10:48:34,392 600  [main] INFO  org.hibernate.cfg.Configuration  - HHH000041: Configured SessionFactory: null
+2016-04-08 10:48:34,467 675  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2016-04-08 10:48:34,477 685  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000115: Hibernate connection pool size: 20
+2016-04-08 10:48:34,477 685  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000006: Autocommit mode: false
+2016-04-08 10:48:34,477 685  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/homebrew]
+2016-04-08 10:48:34,478 686  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000046: Connection properties: {user=root, password=****}
+2016-04-08 10:48:34,921 1129 [main] INFO  org.hibernate.dialect.Dialect  - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-04-08 10:48:34,936 1144 [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder  - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-04-08 10:48:35,041 1249 [main] INFO  org.hibernate.engine.transaction.internal.TransactionFactoryInitiator  - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2016-04-08 10:48:35,048 1256 [main] INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory  - HHH000397: Using ASTQueryTranslatorFactory
+2016-04-08 10:51:14,473 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-04-08 10:51:14,485 12   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-04-08 10:51:14,487 14   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-04-08 10:51:14,490 17   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-04-08 10:51:14,521 48   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-04-08 10:51:14,521 48   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-04-08 10:51:14,637 164  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Grain.hbm.xml
+2016-04-08 10:51:14,725 252  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrder.hbm.xml
+2016-04-08 10:51:14,766 293  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Hop.hbm.xml
+2016-04-08 10:51:14,797 324  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: HopOrder.hbm.xml
+2016-04-08 10:51:14,827 354  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Member.hbm.xml
+2016-04-08 10:51:14,837 364  [main] INFO  org.hibernate.cfg.Configuration  - HHH000041: Configured SessionFactory: null
+2016-04-08 10:51:14,897 424  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2016-04-08 10:51:14,903 430  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000115: Hibernate connection pool size: 20
+2016-04-08 10:51:14,903 430  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000006: Autocommit mode: false
+2016-04-08 10:51:14,904 431  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/homebrew]
+2016-04-08 10:51:14,904 431  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000046: Connection properties: {user=root, password=****}
+2016-04-08 10:51:15,244 771  [main] INFO  org.hibernate.dialect.Dialect  - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-04-08 10:51:15,257 784  [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder  - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-04-08 10:51:15,350 877  [main] INFO  org.hibernate.engine.transaction.internal.TransactionFactoryInitiator  - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2016-04-08 10:51:15,356 883  [main] INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory  - HHH000397: Using ASTQueryTranslatorFactory
+2016-04-08 10:52:01,654 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-04-08 10:52:01,664 10   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-04-08 10:52:01,667 13   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-04-08 10:52:01,669 15   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-04-08 10:52:01,700 46   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-04-08 10:52:01,701 47   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-04-08 10:52:01,801 147  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Grain.hbm.xml
+2016-04-08 10:52:01,917 263  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrder.hbm.xml
+2016-04-08 10:52:01,955 301  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Hop.hbm.xml
+2016-04-08 10:52:01,975 321  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: HopOrder.hbm.xml
+2016-04-08 10:52:01,996 342  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Member.hbm.xml
+2016-04-08 10:52:02,012 358  [main] INFO  org.hibernate.cfg.Configuration  - HHH000041: Configured SessionFactory: null
+2016-04-08 10:52:02,093 439  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2016-04-08 10:52:02,100 446  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000115: Hibernate connection pool size: 20
+2016-04-08 10:52:02,100 446  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000006: Autocommit mode: false
+2016-04-08 10:52:02,101 447  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/homebrew]
+2016-04-08 10:52:02,101 447  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000046: Connection properties: {user=root, password=****}
+2016-04-08 10:52:02,497 843  [main] INFO  org.hibernate.dialect.Dialect  - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-04-08 10:52:02,512 858  [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder  - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-04-08 10:52:02,606 952  [main] INFO  org.hibernate.engine.transaction.internal.TransactionFactoryInitiator  - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2016-04-08 10:52:02,614 960  [main] INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory  - HHH000397: Using ASTQueryTranslatorFactory
+2016-04-08 10:53:29,154 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-04-08 10:53:29,163 9    [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-04-08 10:53:29,165 11   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-04-08 10:53:29,167 13   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-04-08 10:53:29,197 43   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-04-08 10:53:29,199 45   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-04-08 10:53:29,278 124  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Grain.hbm.xml
+2016-04-08 10:53:29,345 191  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrder.hbm.xml
+2016-04-08 10:53:29,363 209  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Hop.hbm.xml
+2016-04-08 10:53:29,376 222  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: HopOrder.hbm.xml
+2016-04-08 10:53:29,391 237  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Member.hbm.xml
+2016-04-08 10:53:29,401 247  [main] INFO  org.hibernate.cfg.Configuration  - HHH000041: Configured SessionFactory: null
+2016-04-08 10:53:29,448 294  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2016-04-08 10:53:29,452 298  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000115: Hibernate connection pool size: 20
+2016-04-08 10:53:29,452 298  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000006: Autocommit mode: false
+2016-04-08 10:53:29,453 299  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/homebrew]
+2016-04-08 10:53:29,453 299  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000046: Connection properties: {user=root, password=****}
+2016-04-08 10:53:29,711 557  [main] INFO  org.hibernate.dialect.Dialect  - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-04-08 10:53:29,720 566  [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder  - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-04-08 10:53:29,796 642  [main] INFO  org.hibernate.engine.transaction.internal.TransactionFactoryInitiator  - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2016-04-08 10:53:29,802 648  [main] INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory  - HHH000397: Using ASTQueryTranslatorFactory
+2016-04-08 13:29:10,261 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-04-08 13:29:10,395 134  [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-04-08 13:29:10,477 216  [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-04-08 13:29:10,480 219  [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-04-08 13:29:10,862 601  [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-04-08 13:29:10,862 601  [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-04-08 13:29:11,193 932  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Grain.hbm.xml
+2016-04-08 13:29:11,518 1257 [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrder.hbm.xml
+2016-04-08 13:29:11,581 1320 [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Hop.hbm.xml
+2016-04-08 13:29:11,629 1368 [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: HopOrder.hbm.xml
+2016-04-08 13:29:11,680 1419 [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Member.hbm.xml
+2016-04-08 13:29:11,713 1452 [main] INFO  org.hibernate.cfg.Configuration  - HHH000041: Configured SessionFactory: null
+2016-04-08 13:29:12,089 1828 [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2016-04-08 13:29:12,099 1838 [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000115: Hibernate connection pool size: 20
+2016-04-08 13:29:12,099 1838 [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000006: Autocommit mode: false
+2016-04-08 13:29:12,100 1839 [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/homebrew]
+2016-04-08 13:29:12,100 1839 [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000046: Connection properties: {user=root, password=****}
+2016-04-08 13:29:12,905 2644 [main] INFO  org.hibernate.dialect.Dialect  - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-04-08 13:29:12,963 2702 [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder  - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-04-08 13:29:13,175 2914 [main] INFO  org.hibernate.engine.transaction.internal.TransactionFactoryInitiator  - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2016-04-08 13:29:13,205 2944 [main] INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory  - HHH000397: Using ASTQueryTranslatorFactory
+2016-04-08 13:37:09,490 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-04-08 13:37:09,506 16   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-04-08 13:37:09,512 22   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-04-08 13:37:09,516 26   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-04-08 13:37:09,566 76   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-04-08 13:37:09,566 76   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-04-08 13:37:09,708 218  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Grain.hbm.xml
+2016-04-08 13:37:09,830 340  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrder.hbm.xml
+2016-04-08 13:37:09,855 365  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Hop.hbm.xml
+2016-04-08 13:37:09,876 386  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: HopOrder.hbm.xml
+2016-04-08 13:37:09,894 404  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Member.hbm.xml
+2016-04-08 13:37:09,908 418  [main] INFO  org.hibernate.cfg.Configuration  - HHH000041: Configured SessionFactory: null
+2016-04-08 13:37:10,001 511  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2016-04-08 13:37:10,059 569  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000115: Hibernate connection pool size: 20
+2016-04-08 13:37:10,059 569  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000006: Autocommit mode: false
+2016-04-08 13:37:10,060 570  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/homebrew]
+2016-04-08 13:37:10,061 571  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000046: Connection properties: {user=root, password=****}
+2016-04-08 13:37:10,393 903  [main] INFO  org.hibernate.dialect.Dialect  - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-04-08 13:37:10,409 919  [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder  - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-04-08 13:37:10,522 1032 [main] INFO  org.hibernate.engine.transaction.internal.TransactionFactoryInitiator  - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2016-04-08 13:37:10,531 1041 [main] INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory  - HHH000397: Using ASTQueryTranslatorFactory
+2016-04-08 13:37:47,575 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-04-08 13:37:47,589 14   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-04-08 13:37:47,594 19   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-04-08 13:37:47,597 22   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-04-08 13:37:47,638 63   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-04-08 13:37:47,639 64   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-04-08 13:37:47,750 175  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Grain.hbm.xml
+2016-04-08 13:37:47,863 288  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrder.hbm.xml
+2016-04-08 13:37:47,884 309  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Hop.hbm.xml
+2016-04-08 13:37:47,902 327  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: HopOrder.hbm.xml
+2016-04-08 13:37:47,916 341  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Member.hbm.xml
+2016-04-08 13:37:47,933 358  [main] INFO  org.hibernate.cfg.Configuration  - HHH000041: Configured SessionFactory: null
+2016-04-08 13:37:48,037 462  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2016-04-08 13:37:48,047 472  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000115: Hibernate connection pool size: 20
+2016-04-08 13:37:48,047 472  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000006: Autocommit mode: false
+2016-04-08 13:37:48,048 473  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/homebrew]
+2016-04-08 13:37:48,048 473  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000046: Connection properties: {user=root, password=****}
+2016-04-08 13:37:48,380 805  [main] INFO  org.hibernate.dialect.Dialect  - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-04-08 13:37:48,398 823  [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder  - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-04-08 13:37:48,516 941  [main] INFO  org.hibernate.engine.transaction.internal.TransactionFactoryInitiator  - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2016-04-08 13:37:48,531 956  [main] INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory  - HHH000397: Using ASTQueryTranslatorFactory
+2016-04-08 13:37:49,363 1788 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+2016-04-08 13:37:49,363 1788 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'joe@smith.org' for key 'member_email_uindex'
+2016-04-08 13:39:25,059 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-04-08 13:39:25,073 14   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-04-08 13:39:25,077 18   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-04-08 13:39:25,081 22   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-04-08 13:39:25,122 63   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-04-08 13:39:25,122 63   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-04-08 13:39:25,228 169  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Grain.hbm.xml
+2016-04-08 13:39:25,335 276  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrder.hbm.xml
+2016-04-08 13:39:25,356 297  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Hop.hbm.xml
+2016-04-08 13:39:25,376 317  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: HopOrder.hbm.xml
+2016-04-08 13:39:25,392 333  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Member.hbm.xml
+2016-04-08 13:39:25,410 351  [main] INFO  org.hibernate.cfg.Configuration  - HHH000041: Configured SessionFactory: null
+2016-04-08 13:39:25,494 435  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2016-04-08 13:39:25,502 443  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000115: Hibernate connection pool size: 20
+2016-04-08 13:39:25,502 443  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000006: Autocommit mode: false
+2016-04-08 13:39:25,502 443  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/homebrew]
+2016-04-08 13:39:25,502 443  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000046: Connection properties: {user=root, password=****}
+2016-04-08 13:39:25,822 763  [main] INFO  org.hibernate.dialect.Dialect  - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-04-08 13:39:25,839 780  [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder  - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-04-08 13:39:25,950 891  [main] INFO  org.hibernate.engine.transaction.internal.TransactionFactoryInitiator  - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2016-04-08 13:39:25,961 902  [main] INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory  - HHH000397: Using ASTQueryTranslatorFactory
+2016-04-08 13:39:26,696 1637 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+2016-04-08 13:39:26,696 1637 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'joe@smith.org' for key 'member_email_uindex'
+2016-04-08 13:51:35,134 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-04-08 13:51:35,148 14   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-04-08 13:51:35,154 20   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-04-08 13:51:35,156 22   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-04-08 13:51:35,197 63   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-04-08 13:51:35,197 63   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-04-08 13:51:35,298 164  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Grain.hbm.xml
+2016-04-08 13:51:35,401 267  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrder.hbm.xml
+2016-04-08 13:51:35,429 295  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Hop.hbm.xml
+2016-04-08 13:51:35,447 313  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: HopOrder.hbm.xml
+2016-04-08 13:51:35,461 327  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Member.hbm.xml
+2016-04-08 13:51:35,474 340  [main] INFO  org.hibernate.cfg.Configuration  - HHH000041: Configured SessionFactory: null
+2016-04-08 13:51:35,559 425  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2016-04-08 13:51:35,566 432  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000115: Hibernate connection pool size: 20
+2016-04-08 13:51:35,566 432  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000006: Autocommit mode: false
+2016-04-08 13:51:35,567 433  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/homebrew]
+2016-04-08 13:51:35,567 433  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000046: Connection properties: {user=root, password=****}
+2016-04-08 13:51:35,887 753  [main] INFO  org.hibernate.dialect.Dialect  - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-04-08 13:51:35,909 775  [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder  - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-04-08 13:51:36,040 906  [main] INFO  org.hibernate.engine.transaction.internal.TransactionFactoryInitiator  - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2016-04-08 13:51:36,048 914  [main] INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory  - HHH000397: Using ASTQueryTranslatorFactory
+2016-04-08 13:51:36,909 1775 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+2016-04-08 13:51:36,910 1776 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'joe@smith.org' for key 'member_email_uindex'
+2016-04-08 13:52:50,332 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-04-08 13:52:50,349 17   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-04-08 13:52:50,354 22   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-04-08 13:52:50,357 25   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-04-08 13:52:50,397 65   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-04-08 13:52:50,398 66   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-04-08 13:52:50,501 169  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Grain.hbm.xml
+2016-04-08 13:52:50,608 276  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrder.hbm.xml
+2016-04-08 13:52:50,631 299  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Hop.hbm.xml
+2016-04-08 13:52:50,647 315  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: HopOrder.hbm.xml
+2016-04-08 13:52:50,661 329  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Member.hbm.xml
+2016-04-08 13:52:50,677 345  [main] INFO  org.hibernate.cfg.Configuration  - HHH000041: Configured SessionFactory: null
+2016-04-08 13:52:50,763 431  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2016-04-08 13:52:50,770 438  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000115: Hibernate connection pool size: 20
+2016-04-08 13:52:50,770 438  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000006: Autocommit mode: false
+2016-04-08 13:52:50,770 438  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/homebrew]
+2016-04-08 13:52:50,770 438  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000046: Connection properties: {user=root, password=****}
+2016-04-08 13:52:51,091 759  [main] INFO  org.hibernate.dialect.Dialect  - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-04-08 13:52:51,107 775  [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder  - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-04-08 13:52:51,218 886  [main] INFO  org.hibernate.engine.transaction.internal.TransactionFactoryInitiator  - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2016-04-08 13:52:51,228 896  [main] INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory  - HHH000397: Using ASTQueryTranslatorFactory
+2016-04-08 14:12:10,070 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-04-08 14:12:10,084 14   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-04-08 14:12:10,088 18   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-04-08 14:12:10,090 20   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-04-08 14:12:10,127 57   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-04-08 14:12:10,128 58   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-04-08 14:12:10,227 157  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Grain.hbm.xml
+2016-04-08 14:12:10,325 255  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrder.hbm.xml
+2016-04-08 14:12:10,347 277  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Hop.hbm.xml
+2016-04-08 14:12:10,365 295  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: HopOrder.hbm.xml
+2016-04-08 14:12:10,386 316  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Member.hbm.xml
+2016-04-08 14:12:10,399 329  [main] INFO  org.hibernate.cfg.Configuration  - HHH000041: Configured SessionFactory: null
+2016-04-08 14:12:10,486 416  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2016-04-08 14:12:10,494 424  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000115: Hibernate connection pool size: 20
+2016-04-08 14:12:10,494 424  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000006: Autocommit mode: false
+2016-04-08 14:12:10,494 424  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/homebrew]
+2016-04-08 14:12:10,494 424  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000046: Connection properties: {user=root, password=****}
+2016-04-08 14:12:10,826 756  [main] INFO  org.hibernate.dialect.Dialect  - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-04-08 14:12:10,847 777  [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder  - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-04-08 14:12:10,990 920  [main] INFO  org.hibernate.engine.transaction.internal.TransactionFactoryInitiator  - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2016-04-08 14:12:11,001 931  [main] INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory  - HHH000397: Using ASTQueryTranslatorFactory
+2016-04-08 14:15:22,704 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-04-08 14:15:22,719 15   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-04-08 14:15:22,722 18   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-04-08 14:15:22,724 20   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-04-08 14:15:22,769 65   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-04-08 14:15:22,769 65   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-04-08 14:15:22,897 193  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Grain.hbm.xml
+2016-04-08 14:15:23,053 349  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrder.hbm.xml
+2016-04-08 14:15:23,083 379  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Hop.hbm.xml
+2016-04-08 14:15:23,106 402  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: HopOrder.hbm.xml
+2016-04-08 14:15:23,133 429  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Member.hbm.xml
+2016-04-08 14:15:23,149 445  [main] INFO  org.hibernate.cfg.Configuration  - HHH000041: Configured SessionFactory: null
+2016-04-08 14:15:23,274 570  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2016-04-08 14:15:23,288 584  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000115: Hibernate connection pool size: 20
+2016-04-08 14:15:23,289 585  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000006: Autocommit mode: false
+2016-04-08 14:15:23,289 585  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/homebrew]
+2016-04-08 14:15:23,289 585  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000046: Connection properties: {user=root, password=****}
+2016-04-08 14:15:23,683 979  [main] INFO  org.hibernate.dialect.Dialect  - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-04-08 14:15:23,704 1000 [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder  - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-04-08 14:15:23,847 1143 [main] INFO  org.hibernate.engine.transaction.internal.TransactionFactoryInitiator  - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2016-04-08 14:15:23,859 1155 [main] INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory  - HHH000397: Using ASTQueryTranslatorFactory
+2016-04-08 15:28:47,306 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-04-08 15:28:47,321 15   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-04-08 15:28:47,325 19   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-04-08 15:28:47,328 22   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-04-08 15:28:47,379 73   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-04-08 15:28:47,379 73   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-04-08 15:28:47,493 187  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Grain.hbm.xml
+2016-04-08 15:28:47,597 291  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrder.hbm.xml
+2016-04-08 15:28:47,624 318  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Hop.hbm.xml
+2016-04-08 15:28:47,642 336  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: HopOrder.hbm.xml
+2016-04-08 15:28:47,661 355  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Member.hbm.xml
+2016-04-08 15:28:47,673 367  [main] INFO  org.hibernate.cfg.Configuration  - HHH000041: Configured SessionFactory: null
+2016-04-08 15:28:47,765 459  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2016-04-08 15:28:47,773 467  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000115: Hibernate connection pool size: 20
+2016-04-08 15:28:47,774 468  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000006: Autocommit mode: false
+2016-04-08 15:28:47,774 468  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/homebrew]
+2016-04-08 15:28:47,774 468  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000046: Connection properties: {user=root, password=****}
+2016-04-08 15:28:48,118 812  [main] INFO  org.hibernate.dialect.Dialect  - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-04-08 15:28:48,137 831  [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder  - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-04-08 15:28:48,308 1002 [main] INFO  org.hibernate.engine.transaction.internal.TransactionFactoryInitiator  - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2016-04-08 15:28:48,322 1016 [main] INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory  - HHH000397: Using ASTQueryTranslatorFactory
+2016-04-08 15:29:19,323 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-04-08 15:29:19,338 15   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-04-08 15:29:19,342 19   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-04-08 15:29:19,344 21   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-04-08 15:29:19,384 61   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-04-08 15:29:19,384 61   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-04-08 15:29:19,562 239  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Grain.hbm.xml
+2016-04-08 15:29:19,662 339  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrder.hbm.xml
+2016-04-08 15:29:19,684 361  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Hop.hbm.xml
+2016-04-08 15:29:19,712 389  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: HopOrder.hbm.xml
+2016-04-08 15:29:19,736 413  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Member.hbm.xml
+2016-04-08 15:29:19,752 429  [main] INFO  org.hibernate.cfg.Configuration  - HHH000041: Configured SessionFactory: null
+2016-04-08 15:29:19,857 534  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2016-04-08 15:29:19,864 541  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000115: Hibernate connection pool size: 20
+2016-04-08 15:29:19,864 541  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000006: Autocommit mode: false
+2016-04-08 15:29:19,865 542  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/homebrew]
+2016-04-08 15:29:19,865 542  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000046: Connection properties: {user=root, password=****}
+2016-04-08 15:29:20,185 862  [main] INFO  org.hibernate.dialect.Dialect  - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-04-08 15:29:20,202 879  [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder  - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-04-08 15:29:20,341 1018 [main] INFO  org.hibernate.engine.transaction.internal.TransactionFactoryInitiator  - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2016-04-08 15:29:20,353 1030 [main] INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory  - HHH000397: Using ASTQueryTranslatorFactory
+2016-04-09 11:06:56,586 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-04-09 11:06:56,639 53   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-04-09 11:06:56,673 87   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-04-09 11:06:56,676 90   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-04-09 11:06:56,774 188  [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-04-09 11:06:56,775 189  [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-04-09 11:06:56,894 308  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Grain.hbm.xml
+2016-04-09 11:06:57,029 443  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrder.hbm.xml
+2016-04-09 11:06:57,049 463  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Hop.hbm.xml
+2016-04-09 11:06:57,070 484  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: HopOrder.hbm.xml
+2016-04-09 11:11:15,033 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-04-09 11:11:15,048 15   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-04-09 11:11:15,051 18   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-04-09 11:11:15,054 21   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-04-09 11:11:15,096 63   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-04-09 11:11:15,096 63   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-04-09 11:11:15,214 181  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Grain.hbm.xml
+2016-04-09 11:11:15,351 318  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrder.hbm.xml
+2016-04-09 11:11:15,372 339  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Hop.hbm.xml
+2016-04-09 11:11:15,393 360  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: HopOrder.hbm.xml
+2016-04-09 11:12:05,029 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-04-09 11:12:05,042 13   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-04-09 11:12:05,046 17   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-04-09 11:12:05,048 19   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-04-09 11:12:05,091 62   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-04-09 11:12:05,092 63   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-04-09 11:12:05,235 206  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Grain.hbm.xml
+2016-04-09 11:12:05,346 317  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrder.hbm.xml
+2016-04-09 11:12:05,368 339  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Hop.hbm.xml
+2016-04-09 11:12:05,393 364  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: HopOrder.hbm.xml
+2016-04-09 13:40:38,381 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-04-09 13:40:38,401 20   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-04-09 13:40:38,405 24   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-04-09 13:40:38,407 26   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-04-09 13:40:38,456 75   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-04-09 13:40:38,456 75   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-04-09 13:40:38,570 189  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Grain.hbm.xml
+2016-04-09 13:40:38,704 323  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrder.hbm.xml
+2016-04-09 13:40:38,726 345  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Hop.hbm.xml
+2016-04-09 13:40:38,743 362  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: HopOrder.hbm.xml
+2016-04-09 13:58:35,554 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-04-09 13:58:35,568 14   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-04-09 13:58:35,570 16   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-04-09 13:58:35,574 20   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-04-09 13:58:35,615 61   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-04-09 13:58:35,615 61   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-04-09 13:58:35,748 194  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Grain.hbm.xml
+2016-04-09 13:58:35,884 330  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrder.hbm.xml
+2016-04-09 13:58:35,919 365  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Hop.hbm.xml
+2016-04-09 13:58:35,934 380  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: HopOrder.hbm.xml
+2016-04-09 14:10:13,067 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-04-09 14:10:13,082 15   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-04-09 14:10:13,085 18   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-04-09 14:10:13,088 21   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-04-09 14:10:13,123 56   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-04-09 14:10:13,124 57   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-04-09 14:10:13,238 171  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Grain.hbm.xml
+2016-04-09 14:10:13,349 282  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrder.hbm.xml
+2016-04-09 14:10:13,375 308  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Hop.hbm.xml
+2016-04-09 14:10:13,393 326  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: HopOrder.hbm.xml
+2016-04-09 14:28:43,779 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-04-09 14:28:43,792 13   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-04-09 14:28:43,797 18   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-04-09 14:28:43,800 21   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-04-09 14:28:43,842 63   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-04-09 14:28:43,843 64   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-04-09 14:28:43,976 197  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Grain.hbm.xml
+2016-04-09 14:28:44,107 328  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrder.hbm.xml
+2016-04-09 14:28:44,134 355  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrderItem.hbm.xml
+2016-04-09 14:28:44,154 375  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Hop.hbm.xml
+2016-04-09 14:28:44,176 397  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: HopOrder.hbm.xml
+2016-04-09 14:30:19,226 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-04-09 14:30:19,238 12   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-04-09 14:30:19,242 16   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-04-09 14:30:19,244 18   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-04-09 14:30:19,282 56   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-04-09 14:30:19,282 56   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-04-09 14:30:19,387 161  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Grain.hbm.xml
+2016-04-09 14:30:19,551 325  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrder.hbm.xml
+2016-04-09 14:30:19,573 347  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrderItem.hbm.xml
+2016-04-09 14:30:19,588 362  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Hop.hbm.xml
+2016-04-09 14:30:19,607 381  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: HopOrder.hbm.xml
+2016-04-09 14:30:34,656 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-04-09 14:30:34,673 17   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-04-09 14:30:34,676 20   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-04-09 14:30:34,679 23   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-04-09 14:30:34,719 63   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-04-09 14:30:34,719 63   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-04-09 14:30:34,871 215  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Grain.hbm.xml
+2016-04-09 14:30:34,991 335  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrder.hbm.xml
+2016-04-09 14:30:35,020 364  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrderItem.hbm.xml
+2016-04-09 14:30:35,038 382  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Hop.hbm.xml
+2016-04-09 14:30:35,058 402  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: HopOrder.hbm.xml
+2016-04-09 14:32:14,643 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-04-09 14:32:14,657 14   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-04-09 14:32:14,662 19   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-04-09 14:32:14,665 22   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-04-09 14:32:14,703 60   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-04-09 14:32:14,703 60   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-04-09 14:32:14,820 177  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Grain.hbm.xml
+2016-04-09 14:32:14,971 328  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrder.hbm.xml
+2016-04-09 14:32:14,995 352  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrderItem.hbm.xml
+2016-04-09 14:32:15,015 372  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Hop.hbm.xml
+2016-04-09 14:32:15,035 392  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: HopOrder.hbm.xml
+2016-04-09 14:50:03,825 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-04-09 14:50:03,841 16   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-04-09 14:50:03,845 20   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-04-09 14:50:03,848 23   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-04-09 14:50:03,888 63   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-04-09 14:50:03,888 63   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-04-09 14:50:04,048 223  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Grain.hbm.xml
+2016-04-09 14:50:04,155 330  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrder.hbm.xml
+2016-04-09 14:50:04,180 355  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrderItem.hbm.xml
+2016-04-09 14:50:04,197 372  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Hop.hbm.xml
+2016-04-09 14:50:04,215 390  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: HopOrder.hbm.xml
+2016-04-09 15:02:11,747 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-04-09 15:02:11,762 15   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-04-09 15:02:11,765 18   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-04-09 15:02:11,767 20   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-04-09 15:02:11,813 66   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-04-09 15:02:11,814 67   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-04-09 15:02:11,966 219  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Grain.hbm.xml
+2016-04-09 15:02:12,067 320  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrder.hbm.xml
+2016-04-09 15:02:12,089 342  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrderItem.hbm.xml
+2016-04-09 15:02:12,107 360  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Hop.hbm.xml
+2016-04-09 15:02:12,126 379  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: HopOrder.hbm.xml
+2016-04-09 15:03:01,412 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-04-09 15:03:01,426 14   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-04-09 15:03:01,430 18   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-04-09 15:03:01,432 20   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-04-09 15:03:01,471 59   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-04-09 15:03:01,472 60   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-04-09 15:03:01,627 215  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Grain.hbm.xml
+2016-04-09 15:03:01,735 323  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrder.hbm.xml
+2016-04-09 15:03:01,759 347  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrderItem.hbm.xml
+2016-04-09 15:03:01,776 364  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Hop.hbm.xml
+2016-04-09 15:03:01,796 384  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: HopOrder.hbm.xml
+2016-04-09 15:03:29,844 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-04-09 15:03:29,863 19   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-04-09 15:03:29,869 25   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-04-09 15:03:29,872 28   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-04-09 15:03:29,941 97   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-04-09 15:03:29,941 97   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-04-09 15:03:30,056 212  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Grain.hbm.xml
+2016-04-09 15:03:30,168 324  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrder.hbm.xml
+2016-04-09 15:03:30,196 352  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrderItem.hbm.xml
+2016-04-09 15:03:30,215 371  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Hop.hbm.xml
+2016-04-09 15:03:30,233 389  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: HopOrder.hbm.xml
+2016-04-09 15:06:08,370 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-04-09 15:06:08,383 13   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-04-09 15:06:08,389 19   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-04-09 15:06:08,391 21   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-04-09 15:06:08,434 64   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-04-09 15:06:08,434 64   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-04-09 15:06:08,585 215  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Grain.hbm.xml
+2016-04-09 15:06:08,704 334  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrder.hbm.xml
+2016-04-09 15:06:08,726 356  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrderItem.hbm.xml
+2016-04-09 15:06:08,743 373  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Hop.hbm.xml
+2016-04-09 15:06:08,759 389  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: HopOrder.hbm.xml
+2016-04-09 18:58:06,522 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-04-09 18:58:06,539 17   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-04-09 18:58:06,545 23   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-04-09 18:58:06,547 25   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-04-09 18:58:06,590 68   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-04-09 18:58:06,591 69   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-04-09 18:58:06,714 192  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Grain.hbm.xml
+2016-04-09 18:58:06,835 313  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrder.hbm.xml
+2016-04-09 18:58:06,863 341  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrderItem.hbm.xml
+2016-04-09 18:58:06,878 356  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Hop.hbm.xml
+2016-04-09 18:58:06,890 368  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: HopOrder.hbm.xml
+2016-04-09 19:19:26,050 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-04-09 19:19:26,069 19   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-04-09 19:19:26,074 24   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-04-09 19:19:26,077 27   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-04-09 19:19:26,135 85   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-04-09 19:19:26,136 86   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-04-09 19:19:26,301 251  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Grain.hbm.xml
+2016-04-09 19:19:26,406 356  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrder.hbm.xml
+2016-04-09 19:19:26,429 379  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrderItem.hbm.xml
+2016-04-09 19:19:26,452 402  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Hop.hbm.xml
+2016-04-09 19:19:26,476 426  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: HopOrder.hbm.xml
+2016-04-09 19:19:26,491 441  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Member.hbm.xml
+2016-04-09 19:19:26,509 459  [main] INFO  org.hibernate.cfg.Configuration  - HHH000041: Configured SessionFactory: null
+2016-04-09 19:19:26,601 551  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2016-04-09 19:19:26,609 559  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000115: Hibernate connection pool size: 20
+2016-04-09 19:19:26,609 559  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000006: Autocommit mode: false
+2016-04-09 19:19:26,609 559  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/homebrew]
+2016-04-09 19:19:26,609 559  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000046: Connection properties: {user=root, password=****}
+2016-04-09 19:19:26,939 889  [main] INFO  org.hibernate.dialect.Dialect  - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-04-09 19:19:26,955 905  [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder  - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-04-09 19:19:27,117 1067 [main] WARN  org.hibernate.mapping.RootClass  - HHH000038: Composite-id class does not override equals(): entities.GrainOrderItem
+2016-04-09 19:19:27,117 1067 [main] WARN  org.hibernate.mapping.RootClass  - HHH000039: Composite-id class does not override hashCode(): entities.GrainOrderItem
+2016-04-09 19:21:02,963 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-04-09 19:21:02,977 14   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-04-09 19:21:02,980 17   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-04-09 19:21:02,983 20   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-04-09 19:21:03,039 76   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-04-09 19:21:03,039 76   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-04-09 19:21:03,196 233  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Grain.hbm.xml
+2016-04-09 19:21:03,299 336  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrder.hbm.xml
+2016-04-09 19:21:03,323 360  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrderItem.hbm.xml
+2016-04-09 19:21:03,338 375  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Hop.hbm.xml
+2016-04-09 19:21:03,355 392  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: HopOrder.hbm.xml
+2016-04-09 19:21:03,368 405  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Member.hbm.xml
+2016-04-09 19:21:03,378 415  [main] INFO  org.hibernate.cfg.Configuration  - HHH000041: Configured SessionFactory: null
+2016-04-09 19:21:03,481 518  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2016-04-09 19:21:03,488 525  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000115: Hibernate connection pool size: 20
+2016-04-09 19:21:03,488 525  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000006: Autocommit mode: false
+2016-04-09 19:21:03,489 526  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/homebrew]
+2016-04-09 19:21:03,489 526  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000046: Connection properties: {user=root, password=****}
+2016-04-09 19:21:03,808 845  [main] INFO  org.hibernate.dialect.Dialect  - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-04-09 19:21:03,832 869  [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder  - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-04-09 19:21:03,998 1035 [main] WARN  org.hibernate.mapping.RootClass  - HHH000038: Composite-id class does not override equals(): entities.GrainOrderItem
+2016-04-09 19:21:03,998 1035 [main] WARN  org.hibernate.mapping.RootClass  - HHH000039: Composite-id class does not override hashCode(): entities.GrainOrderItem
+2016-04-09 19:21:39,347 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-04-09 19:21:39,363 16   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-04-09 19:21:39,367 20   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-04-09 19:21:39,369 22   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-04-09 19:21:39,413 66   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-04-09 19:21:39,414 67   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-04-09 19:21:39,554 207  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Grain.hbm.xml
+2016-04-09 19:21:39,670 323  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrder.hbm.xml
+2016-04-09 19:21:39,693 346  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrderItem.hbm.xml
+2016-04-09 19:21:39,715 368  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Hop.hbm.xml
+2016-04-09 19:21:39,736 389  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: HopOrder.hbm.xml
+2016-04-09 19:21:39,750 403  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Member.hbm.xml
+2016-04-09 19:21:39,764 417  [main] INFO  org.hibernate.cfg.Configuration  - HHH000041: Configured SessionFactory: null
+2016-04-09 19:21:39,858 511  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2016-04-09 19:21:39,867 520  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000115: Hibernate connection pool size: 20
+2016-04-09 19:21:39,867 520  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000006: Autocommit mode: false
+2016-04-09 19:21:39,868 521  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/homebrew]
+2016-04-09 19:21:39,868 521  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000046: Connection properties: {user=root, password=****}
+2016-04-09 19:21:40,205 858  [main] INFO  org.hibernate.dialect.Dialect  - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-04-09 19:21:40,227 880  [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder  - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-04-09 19:21:40,423 1076 [main] WARN  org.hibernate.mapping.RootClass  - HHH000038: Composite-id class does not override equals(): entities.GrainOrderItem
+2016-04-09 19:21:40,423 1076 [main] WARN  org.hibernate.mapping.RootClass  - HHH000039: Composite-id class does not override hashCode(): entities.GrainOrderItem
+2016-04-09 19:21:40,432 1085 [main] INFO  org.hibernate.engine.transaction.internal.TransactionFactoryInitiator  - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2016-04-09 19:21:40,444 1097 [main] INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory  - HHH000397: Using ASTQueryTranslatorFactory
+2016-04-09 19:22:18,163 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-04-09 19:22:18,176 13   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-04-09 19:22:18,180 17   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-04-09 19:22:18,184 21   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-04-09 19:22:18,224 61   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-04-09 19:22:18,225 62   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-04-09 19:22:18,401 238  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Grain.hbm.xml
+2016-04-09 19:22:18,502 339  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrder.hbm.xml
+2016-04-09 19:22:18,522 359  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrderItem.hbm.xml
+2016-04-09 19:22:18,541 378  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Hop.hbm.xml
+2016-04-09 19:22:18,560 397  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: HopOrder.hbm.xml
+2016-04-09 19:22:18,572 409  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Member.hbm.xml
+2016-04-09 19:22:18,585 422  [main] INFO  org.hibernate.cfg.Configuration  - HHH000041: Configured SessionFactory: null
+2016-04-09 19:22:18,683 520  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2016-04-09 19:22:18,692 529  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000115: Hibernate connection pool size: 20
+2016-04-09 19:22:18,692 529  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000006: Autocommit mode: false
+2016-04-09 19:22:18,693 530  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/homebrew]
+2016-04-09 19:22:18,693 530  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000046: Connection properties: {user=root, password=****}
+2016-04-09 19:22:18,998 835  [main] INFO  org.hibernate.dialect.Dialect  - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-04-09 19:22:19,014 851  [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder  - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-04-09 19:22:19,175 1012 [main] WARN  org.hibernate.mapping.RootClass  - HHH000038: Composite-id class does not override equals(): entities.GrainOrderItem
+2016-04-09 19:22:19,175 1012 [main] WARN  org.hibernate.mapping.RootClass  - HHH000039: Composite-id class does not override hashCode(): entities.GrainOrderItem
+2016-04-09 19:22:19,184 1021 [main] INFO  org.hibernate.engine.transaction.internal.TransactionFactoryInitiator  - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2016-04-09 19:22:19,195 1032 [main] INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory  - HHH000397: Using ASTQueryTranslatorFactory
+2016-04-09 19:23:46,099 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-04-09 19:23:46,119 20   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-04-09 19:23:46,122 23   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-04-09 19:23:46,125 26   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-04-09 19:23:46,174 75   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-04-09 19:23:46,175 76   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-04-09 19:23:46,337 238  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Grain.hbm.xml
+2016-04-09 19:23:46,450 351  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrder.hbm.xml
+2016-04-09 19:23:46,473 374  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrderItem.hbm.xml
+2016-04-09 19:23:46,497 398  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Hop.hbm.xml
+2016-04-09 19:23:46,518 419  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: HopOrder.hbm.xml
+2016-04-09 19:23:46,538 439  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Member.hbm.xml
+2016-04-09 19:23:46,559 460  [main] INFO  org.hibernate.cfg.Configuration  - HHH000041: Configured SessionFactory: null
+2016-04-09 19:23:46,656 557  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2016-04-09 19:23:46,665 566  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000115: Hibernate connection pool size: 20
+2016-04-09 19:23:46,665 566  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000006: Autocommit mode: false
+2016-04-09 19:23:46,666 567  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/homebrew]
+2016-04-09 19:23:46,666 567  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000046: Connection properties: {user=root, password=****}
+2016-04-09 19:23:47,001 902  [main] INFO  org.hibernate.dialect.Dialect  - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-04-09 19:23:47,020 921  [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder  - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-04-09 19:25:16,802 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-04-09 19:25:16,821 19   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-04-09 19:25:16,825 23   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-04-09 19:25:16,828 26   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-04-09 19:25:16,881 79   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-04-09 19:25:16,881 79   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-04-09 19:25:17,044 242  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Grain.hbm.xml
+2016-04-09 19:25:17,155 353  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrder.hbm.xml
+2016-04-09 19:25:17,179 377  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrderItem.hbm.xml
+2016-04-09 19:25:17,198 396  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Hop.hbm.xml
+2016-04-09 19:25:17,225 423  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: HopOrder.hbm.xml
+2016-04-09 19:25:17,240 438  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Member.hbm.xml
+2016-04-09 19:25:17,267 465  [main] INFO  org.hibernate.cfg.Configuration  - HHH000041: Configured SessionFactory: null
+2016-04-09 19:25:17,357 555  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2016-04-09 19:25:17,364 562  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000115: Hibernate connection pool size: 20
+2016-04-09 19:25:17,364 562  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000006: Autocommit mode: false
+2016-04-09 19:25:17,364 562  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/homebrew]
+2016-04-09 19:25:17,364 562  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000046: Connection properties: {user=root, password=****}
+2016-04-09 19:25:17,666 864  [main] INFO  org.hibernate.dialect.Dialect  - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-04-09 19:25:17,683 881  [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder  - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-04-09 19:25:17,841 1039 [main] WARN  org.hibernate.mapping.RootClass  - HHH000038: Composite-id class does not override equals(): entities.GrainOrderItem
+2016-04-09 19:25:17,841 1039 [main] WARN  org.hibernate.mapping.RootClass  - HHH000039: Composite-id class does not override hashCode(): entities.GrainOrderItem
+2016-04-09 19:25:17,851 1049 [main] INFO  org.hibernate.engine.transaction.internal.TransactionFactoryInitiator  - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2016-04-09 19:25:17,860 1058 [main] INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory  - HHH000397: Using ASTQueryTranslatorFactory
+2016-04-09 19:28:04,550 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-04-09 19:28:04,565 15   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-04-09 19:28:04,568 18   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-04-09 19:28:04,570 20   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-04-09 19:28:04,611 61   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-04-09 19:28:04,611 61   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-04-09 19:28:04,768 218  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Grain.hbm.xml
+2016-04-09 19:28:04,902 352  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrder.hbm.xml
+2016-04-09 19:28:04,927 377  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: GrainOrderItem.hbm.xml
+2016-04-09 19:28:04,949 399  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Hop.hbm.xml
+2016-04-09 19:28:04,972 422  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: HopOrder.hbm.xml
+2016-04-09 19:28:04,986 436  [main] INFO  org.hibernate.cfg.Configuration  - HHH000221: Reading mappings from resource: Member.hbm.xml
+2016-04-09 19:28:04,998 448  [main] INFO  org.hibernate.cfg.Configuration  - HHH000041: Configured SessionFactory: null
+2016-04-09 19:28:05,088 538  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2016-04-09 19:28:05,096 546  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000115: Hibernate connection pool size: 20
+2016-04-09 19:28:05,097 547  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000006: Autocommit mode: false
+2016-04-09 19:28:05,097 547  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/homebrew]
+2016-04-09 19:28:05,097 547  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000046: Connection properties: {user=root, password=****}
+2016-04-09 19:28:05,426 876  [main] INFO  org.hibernate.dialect.Dialect  - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-04-09 19:28:05,445 895  [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder  - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-04-09 19:28:05,607 1057 [main] WARN  org.hibernate.mapping.RootClass  - HHH000038: Composite-id class does not override equals(): entities.GrainOrderItem
+2016-04-09 19:28:05,608 1058 [main] WARN  org.hibernate.mapping.RootClass  - HHH000039: Composite-id class does not override hashCode(): entities.GrainOrderItem
+2016-04-09 19:28:05,616 1066 [main] INFO  org.hibernate.engine.transaction.internal.TransactionFactoryInitiator  - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2016-04-09 19:28:05,627 1077 [main] INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory  - HHH000397: Using ASTQueryTranslatorFactory

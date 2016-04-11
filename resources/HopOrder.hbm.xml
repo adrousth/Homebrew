@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="entities.HopOrder" table="hop_order">
+        <meta attribute="class-description">
+            contains information about hop orders
+        </meta>
+
+        <!--Add id for the key -->
+        <id name="orderId" type="int"
+            column="order_id">
+            <generator class="native"/>
+        </id>
+
+        <!--
+        <map name="certificates" cascade="all">
+            <key column="employee_id"/>
+            <index column="certificate_type" type="string"/>
+            <one-to-many class="Certificate"/>
+        </map>
+        -->
+        <property name="memberId" column="member_id"
+                  type="int"/>
+        <property name="orderStatus" column="order_status"
+                  type="string"/>
+        <property name="notes" column="notes"
+                  type="string"/>
+
+        <set table="hop_order_item" name="hops">
+            <key column="order_id"/>
+            <many-to-many column="hop_id" class="entities.Hop"/>
+        </set>
+    </class>
+
+</hibernate-mapping>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="entities.Grain" table="item_grain">
+        <meta attribute="class-description">
+            contains information about different grains
+        </meta>
+
+        <!--Add id for the key -->
+        <id name="grainId" type="int"
+            column="grain_id">
+            <generator class="native"/>
+        </id>
+        <!--Add a property for all other instance variables/columns-->
+
+        <property name="name" column="name"
+                  type="string"/>
+        <property name="currentStock" column="current_stock"
+                  type="float"/>
+        <property name="description" column="description"
+                  type="string"/>
+        <property name="url" column="url"
+                  type="string"/>
+    </class>
+
+</hibernate-mapping>
