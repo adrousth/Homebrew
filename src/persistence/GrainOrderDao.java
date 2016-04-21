@@ -1,9 +1,13 @@
 package persistence;
 
+import entities.Grain;
 import entities.GrainOrder;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Alex on 4/8/2016.
@@ -31,6 +35,14 @@ public class GrainOrderDao {
         return orderId;
     }
 
+    public List<GrainOrder> getAllGrainOrders() {
+        List<GrainOrder> orders = new ArrayList<>();
+        Session session = SessionFactoryProvider.getSessionFactory().openSession();
 
+        orders = session.createCriteria(GrainOrder.class).list();
+
+
+        return orders;
+    }
 
 }

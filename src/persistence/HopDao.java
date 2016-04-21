@@ -1,6 +1,7 @@
 package persistence;
 
 import entities.Hop;
+import org.apache.cxf.service.invoker.SessionFactory;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -14,6 +15,7 @@ public class HopDao {
         Transaction transaction = null;
         int hopId = 0;
         try {
+
             transaction = session.beginTransaction();
             hopId = (int) session.save("Hop", newHop);
             transaction.commit();

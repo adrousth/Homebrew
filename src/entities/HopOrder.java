@@ -1,30 +1,27 @@
 package entities;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by Alex on 4/4/2016.
  */
 public class HopOrder extends Order {
     private final String UNITS = "ounce";
-    private Set<Hop> hops;
+    private Map<Integer, Float> hops;
 
     public HopOrder() {
-        hops = new HashSet<>();
+        hops = new HashMap<>();
     }
 
-    public Set<Hop> getHops() {
+    public Map<Integer, Float> getHops() {
         return hops;
     }
 
-    public void setHops(Set<Hop> hops) {
+    public void setHops(Map<Integer, Float> hops) {
         this.hops = hops;
     }
 
-    public void addHop(Hop hop) {
-        hops.add(hop);
+    public void addHop(int hopId, float quantity) {
+        hops.put(hopId, quantity);
     }
 }

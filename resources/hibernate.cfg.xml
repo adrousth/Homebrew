@@ -27,9 +27,6 @@
         <mapping resource="GrainOrder.hbm.xml" />
         <mapping class="entities.GrainOrder" />
 
-        <mapping resource="GrainOrderItem.hbm.xml" />
-        <mapping class="entities.GrainOrder" />
-
         <mapping resource="Hop.hbm.xml" />
         <mapping class="entities.Grain" />
 

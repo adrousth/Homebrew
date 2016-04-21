@@ -4,6 +4,8 @@ import entities.Grain;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 /**
@@ -27,8 +29,32 @@ public class GrainDaoTest {
             System.out.println("grain was not added");
         }
 
-        assert(i > 0);
+        assertTrue(i > 0);
 
     }
+
+    @Test
+    public void getGrain() {
+        Grain item = dao.getGrainById(1);
+        System.out.println(item.getName());
+        System.out.println(item.getCurrentStock());
+        System.out.println(item.getGrainId());
+        System.out.println();
+        assertTrue(item != null);
+    }
+
+    @Test
+    public void getAllGrains() {
+        List<Grain> grains = dao.getAllGrains();
+        for (Grain grain: grains) {
+            System.out.println("grain id: " + grain.getGrainId());
+            System.out.println("grain name: " + grain.getName());
+            System.out.println("grain description: " + grain.getDescription());
+            System.out.println("stock: " + grain.getCurrentStock());
+            System.out.println();
+        }
+        assertTrue(grains.size() > 0);
+    }
+
 
 }

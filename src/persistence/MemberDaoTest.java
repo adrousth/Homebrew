@@ -19,10 +19,10 @@ public class MemberDaoTest {
     @Test
     public void addNewMember() throws Exception {
         Member member = new Member();
-        member.setFirstName("joe");
-        member.setLastName("smith");
-        member.setEmail("joe3@smith.org");
-        member.setPhone("608 244-2442");
+        member.setFirstName("Judith");
+        member.setLastName("");
+        member.setEmail("hello2@world.org");
+        member.setPhone("608 777-7777");
 
         int i = dao.addNewMember(member);
         if (i == -1) {

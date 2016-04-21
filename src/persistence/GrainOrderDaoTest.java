@@ -1,44 +1,49 @@
 package persistence;
 
+import entities.Grain;
 import entities.GrainOrder;
-import entities.GrainOrderItem;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.List;
 import static org.junit.Assert.*;
 
 /**
  * Created by Alex on 4/8/2016.
  */
 public class GrainOrderDaoTest {
-    private GrainOrderDao dao;
+    private GrainOrderDao orderDao;
+    private GrainDao grainDao;
     @Before
     public void setUp() throws Exception {
-        dao = new GrainOrderDao();
+        orderDao = new GrainOrderDao();
+        grainDao = new GrainDao();
     }
 
     @Test
     public void addGrainOrder() throws Exception {
         GrainOrder order = new GrainOrder();
-        order.setMemberId(1);
+        order.setMemberId(7);
         order.setOrderStatus("unfilled");
 
-        order.addGrain(1, (float) 9.5);
-        order.addGrain(2, (float) 2.1);
-        /*
-        GrainOrderItem orderItem = new GrainOrderItem();
-        orderItem.setGrainId(1);
-        orderItem.setOrderId(7);
-        orderItem.setQuantity((float) 2.5);
 
-        order.addOrder(orderItem);
-        */
+        order.addGrain(2, (float) 7.2);
+
+
         order.setNotes("first order");
 
-        int i = dao.addGrainOrder(order);
+        int i = orderDao.addGrainOrder(order);
 
-        assert (i > 0);
+        assertTrue(i > 0);
 
+    }
+
+    @Test
+    public void getAllGrainOrders() {
+        List<GrainOrder> orders = orderDao.getAllGrainOrders();
+
+
+        assertTrue(orders.size() > 0);
     }
 
 }

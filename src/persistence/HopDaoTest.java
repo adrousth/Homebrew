@@ -1,6 +1,10 @@
 package persistence;
 
 import entities.Hop;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,9 +13,12 @@ import static org.junit.Assert.*;
 /**
  * Created by Alex on 4/8/2016.
  */
+
 public class HopDaoTest {
 
     private HopDao dao;
+    private Session session;
+    private Transaction transaction;
     @Before
     public void setUp() throws Exception {
         dao = new HopDao();
@@ -31,11 +38,8 @@ public class HopDaoTest {
             System.out.println("hop was not added");
         }
 
-        assert(i > 0);
-
-
-
-
+        assertTrue(i > 0);
     }
+
 
 }

@@ -14,14 +14,14 @@
             column="order_id">
             <generator class="native"/>
         </id>
-
-        <!--
-        <map name="certificates" cascade="all">
-            <key column="employee_id"/>
-            <index column="certificate_type" type="string"/>
-            <one-to-many class="Certificate"/>
+        <map name="hops" table="hop_order_item">
+            <key>
+                <column name="order_id"/>
+            </key>
+            <index type="int" column="hop_id"/>
+            <element type="float" column="quantity"/>
         </map>
-        -->
+
         <property name="memberId" column="member_id"
                   type="int"/>
         <property name="orderStatus" column="order_status"
@@ -29,10 +29,7 @@
         <property name="notes" column="notes"
                   type="string"/>
 
-        <set table="hop_order_item" name="hops">
-            <key column="order_id"/>
-            <many-to-many column="hop_id" class="entities.Hop"/>
-        </set>
+
     </class>
 
 </hibernate-mapping>
