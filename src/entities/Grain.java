@@ -4,6 +4,7 @@ package entities;
  * Created by Alex on 4/4/2016.
  */
 public class Grain {
+
     private int grainId;
     private String name;
     private float currentStock;
