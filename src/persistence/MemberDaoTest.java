@@ -33,4 +33,10 @@ public class MemberDaoTest {
 
     }
 
+    @Test
+    public void testGetMember() {
+        Member member = dao.getMember("hello2@world.org");
+        assertTrue(member != null);
+    }
+
 }

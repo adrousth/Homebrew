@@ -1,14 +1,26 @@
 package entities;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * Created by Alex on 4/4/2016.
  */
+@Entity
+@Table(name = "item_grain")
 public class Grain {
-
+    @Id
+    @Column(name = "grain_id")
     private int grainId;
+    @Column(name = "name")
     private String name;
+    @Column(name = "current_stock")
     private float currentStock;
+    @Column(name = "description")
     private String description;
+    @Column(name = "url")
     private String url;
 
     public int getGrainId() {

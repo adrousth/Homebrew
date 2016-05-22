@@ -1,10 +1,14 @@
 package entities;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.*;
 
 /**
  * Created by Alex on 4/4/2016.
  */
+@Entity
+@Table(name = "hop_order")
 public class HopOrder extends Order {
     private final String UNITS = "ounce";
     private Map<Integer, Float> hops;

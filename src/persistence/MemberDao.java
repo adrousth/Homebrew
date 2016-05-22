@@ -6,6 +6,9 @@ import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
+
+import java.util.ArrayList;
 
 
 /**
@@ -13,8 +16,9 @@ import org.hibernate.Transaction;
  */
 public class MemberDao {
     private final Logger log = Logger.getLogger(this.getClass());
+    Session session = SessionFactoryProvider.getSessionFactory().openSession();
+
     public int addNewMember(Member newMember) {
-        Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Transaction transaction = null;
         int memberId = 0;
         try {
@@ -32,6 +36,15 @@ public class MemberDao {
         }
 
         return memberId;
+    }
+
+    public Member getMember(String email) {
+        ArrayList<Member> member;
+        member = (ArrayList<Member>) session.createCriteria(Member.class).add(Restrictions.eq("email", email)).list();
+        if (member.size() > 0) {
+            return member.get(0);
+        }
+        return null;
     }
     /*
     public int addBook(Book book) {

@@ -1,16 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Alex
-  Date: 4/21/2016
-  Time: 12:07 PM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Admin</title>
-</head>
-<body>
-<p>home page for admin</p>
-</body>
-</html>
+<div class="container col-lg-8 text-center">
+    <h1>Welcome</h1>
+    <p class="h4">Current *<i>Admin</i>* page for <a href="#">the</a> website</p>
+</div>

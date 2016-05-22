@@ -1,11 +1,15 @@
 package entities;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Alex on 4/4/2016.
  */
+@Entity
+@Table(name = "member")
 public class Member {
     private int memberId;
     private String firstName;
