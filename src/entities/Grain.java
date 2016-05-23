@@ -1,9 +1,7 @@
 package entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by Alex on 4/4/2016.
@@ -22,6 +20,8 @@ public class Grain {
     private String description;
     @Column(name = "url")
     private String url;
+
+
 
     public int getGrainId() {
         return grainId;

@@ -45,7 +45,7 @@ public class DataAccessObject<T> {
             transaction = session.beginTransaction();
             objectId = (int) session.save(newRecord.getClass().getName(), newRecord);
             transaction.commit();
-            log.info(newRecord.getClass().getName() + " with id of " + objectId + " added to the database");
+            log.info(newRecord.getClass().toString() + " with id of " + objectId + " added to the database");
         } catch (HibernateException ex) {
             if (transaction!=null) transaction.rollback();
             objectId = -1;

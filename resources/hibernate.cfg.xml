@@ -18,23 +18,6 @@
         </property>
         <property name="connection.password"></property>
 
-
-
-
-        <mapping resource="Grain.hbm.xml" />
-        <mapping class="entities.Grain" />
-
-        <mapping resource="GrainOrder.hbm.xml" />
-        <mapping class="entities.GrainOrder" />
-
-        <mapping resource="Hop.hbm.xml" />
-        <mapping class="entities.Grain" />
-
-        <mapping resource="HopOrder.hbm.xml" />
-        <mapping class="entities.Grain" />
-
-        <mapping resource="Member.hbm.xml" />
-        <mapping class="entities.Member" />
     </session-factory>
 
 </hibernate-configuration>

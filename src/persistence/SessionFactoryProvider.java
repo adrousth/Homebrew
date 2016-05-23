@@ -1,5 +1,6 @@
 package persistence;
 
+import entities.*;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
@@ -14,7 +15,7 @@ public class SessionFactoryProvider {
 
     public static void createSessionFactory() {
         Configuration configuration = new Configuration();
-        configuration.configure();
+        configuration.configure().addAnnotatedClass(Order.class).addAnnotatedClass(Asset.class).addAnnotatedClass(OrderItem.class).addAnnotatedClass(Member.class);
         ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
         sessionFactory = configuration.buildSessionFactory(serviceRegistry);
     }

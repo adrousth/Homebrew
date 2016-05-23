@@ -1,7 +1,6 @@
 package entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,13 +10,24 @@ import java.util.List;
 @Entity
 @Table(name = "member")
 public class Member {
+    @Id
+    @GeneratedValue
+    @Column(name = "member_id")
     private int memberId;
+    @Column(name = "first_name")
     private String firstName;
+    @Column(name = "last_name")
     private String lastName;
+    @Column(name = "email")
     private String email;
+    @Column(name = "phone")
     private String phone;
+
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<Order> orders;
-    //private String password;
+
+    @Column(name = "password")
+    private String password;
 
     public Member() {
         orders = new ArrayList<>();

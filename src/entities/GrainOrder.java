@@ -12,15 +12,17 @@ import java.util.Set;
 /**
  * Created by Alex on 4/4/2016.
  */
-@MappedSuperclass
 @Entity
 @Table(name = "grain_order")
-public class GrainOrder extends Order {
-    private final String UNIT = "pound";
-    //private List<Grain> grains;
+public class GrainOrder {
 
-    @JoinTable(name="grain_order_item", joinColumns=@JoinColumn(name="order_id"))
-    @MapKey(name = "quantity")
+
+    @ElementCollection
+    @CollectionTable(name="grain_order_item",
+            joinColumns = @JoinColumn(name="orderId", referencedColumnName="order_id")
+    )
+    @MapKeyJoinColumn(name="order_id")
+    @Column(name = "quantity")
     private Map<Grain, Float> grains;
 
     public GrainOrder() {
@@ -39,37 +41,4 @@ public class GrainOrder extends Order {
         grains.put(grain, quantity);
     }
 
-    /*
-    private Set<GrainOrderItem> grains;
-    public GrainOrder() {
-        grains = new HashSet<>();
-    }
-
-    public void setGrains(Set<GrainOrderItem> grains) {
-        this.grains = grains;
-    }
-
-    public Set<GrainOrderItem> getGrains() {
-        return grains;
-    }
-
-    public void addOrder(GrainOrderItem order) {
-        order.setOrderId(getOrderId());
-        grains.add(order);
-    }
-*/
-    /*
-    public List<Grain> getGrains() {
-        return grains;
-    }
-
-    public void setGrains(List<Grain> grains) {
-        this.grains = grains;
-    }
-
-
-    public void addGrain(Grain grain) {
-        grains.add(grain);
-    }
-    */
 }

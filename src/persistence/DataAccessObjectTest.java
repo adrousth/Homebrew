@@ -24,12 +24,12 @@ public class DataAccessObjectTest {
     @Before
     public void startTest() {
         count++;
-        System.out.println("Starting Test #" + count);
+        System.out.println("Starting Testing #" + count);
     }
 
     @After
     public void endTest() {
-        System.out.println("Ending Test #" + count);
+        System.out.println("Ending Testing #" + count);
         System.out.println();
     }
 

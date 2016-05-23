@@ -1,7 +1,6 @@
 package entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.*;
 
 /**
@@ -9,23 +8,29 @@ import java.util.*;
  */
 @Entity
 @Table(name = "hop_order")
-public class HopOrder extends Order {
-    private final String UNITS = "ounce";
-    private Map<Integer, Float> hops;
+public class HopOrder {
+
+    @ElementCollection
+    @CollectionTable(name="hop_order_item",
+            joinColumns = @JoinColumn(name="orderId", referencedColumnName="order_id")
+    )
+    @MapKeyJoinColumn(name="order_id")
+    @Column(name = "quantity")
+    private Map<Hop, Float> hops;
 
     public HopOrder() {
         hops = new HashMap<>();
     }
 
-    public Map<Integer, Float> getHops() {
+    public Map<Hop, Float> gethops() {
         return hops;
     }
 
-    public void setHops(Map<Integer, Float> hops) {
+    public void sethops(Map<Hop, Float> hops) {
         this.hops = hops;
     }
 
-    public void addHop(int hopId, float quantity) {
-        hops.put(hopId, quantity);
+    public void addhop(Hop hop, float quantity) {
+        hops.put(hop, quantity);
     }
 }
