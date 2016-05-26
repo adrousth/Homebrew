@@ -1,8 +1,15 @@
 package entities;
 
+import org.hibernate.annotations.*;
+import org.hibernate.annotations.CascadeType;
+
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Alex on 4/4/2016.
@@ -22,15 +29,16 @@ public class Member {
     private String email;
     @Column(name = "phone")
     private String phone;
-
-    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
-    private List<Order> orders;
-
     @Column(name = "password")
     private String password;
 
+    @OneToMany(mappedBy = "member", fetch = FetchType.EAGER)
+    private Set<Order> memberOrders;
+
+
+
     public Member() {
-        orders = new ArrayList<>();
+        memberOrders = new HashSet<>();
     }
 
     public int getMemberId() {
@@ -73,15 +81,23 @@ public class Member {
         this.phone = phone;
     }
 
-    public List<Order> getOrders() {
-        return orders;
+    public Set<Order> getOrders() {
+        return memberOrders;
     }
 
-    public void setOrders(List<Order> orders) {
-        this.orders = orders;
+    public void setOrders(Set<Order> memberOrders) {
+        this.memberOrders = memberOrders;
     }
 
     public void addOrder(Order order) {
-        orders.add(order);
+        memberOrders.add(order);
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

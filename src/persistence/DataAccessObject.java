@@ -18,10 +18,10 @@ import java.util.List;
  *         5/21/2016
  */
 public class DataAccessObject<T> {
-    private final Logger log = Logger.getLogger(this.getClass());
+    protected final Logger log = Logger.getLogger(this.getClass());
 
     private Class<T> type;
-    private SessionFactory factory = SessionFactoryProvider.getSessionFactory();
+    private SessionFactory factory;
     private Session session;
 
     public void setType(Class<T> type) {
@@ -29,21 +29,31 @@ public class DataAccessObject<T> {
     }
 
     public DataAccessObject() {
+        try{
+            factory = SessionFactoryProvider.getSessionFactory();
+        }catch (Throwable ex) {
+            log.error(ex);
+        }
     }
 
     public DataAccessObject(Class<T> type) {
+        this();
         this.type = type;
     }
 
     public int addRecord(T newRecord) {
-        
-        session = factory.openSession();
+        beginSession();
         Transaction transaction = null;
         int objectId = 0;
-        
+
         try {
             transaction = session.beginTransaction();
-            objectId = (int) session.save(newRecord.getClass().getName(), newRecord);
+            try {
+                objectId = (int) session.save(newRecord.getClass().getName(), newRecord);
+            } catch (ClassCastException e) {
+                session.save(newRecord.getClass().getName(), newRecord);
+                objectId = 1;
+            }
             transaction.commit();
             log.info(newRecord.getClass().toString() + " with id of " + objectId + " added to the database");
         } catch (HibernateException ex) {
@@ -61,23 +71,22 @@ public class DataAccessObject<T> {
         return objectId;
     }
 
-    public T getRecordById(Object id) {
+    public T getRecordById(int id) {
         T record;
-        session = factory.openSession();
-        record = (T) session.get(type, (Serializable) id);
+        Session session = SessionFactoryProvider.getSessionFactory().openSession();
+        record = (T) session.get(type, id);
+        session.close();
         return record;
     }
 
     public T getRecordByEmail(String email) {
-        T record;
-        session = factory.openSession();
-        record = (T) session.createCriteria(type).add(Restrictions.eq("email", email)).list().get(0);
-        return record;
+        beginSession();
+        return (T) session.createCriteria(type).add(Restrictions.eq("email", email)).list().get(0);
     }
 
     public List<T> searchNumberOfRecords(int firstResult, int numberOfResults, String searchType, String searchValue) {
         ArrayList<T> records;
-        session = factory.openSession();
+        beginSession();
 
         records = (ArrayList<T>) session.createCriteria(type).add(Restrictions.like(searchType, "%" + searchValue + "%"))
                 .setFirstResult(firstResult).setMaxResults(numberOfResults).list();
@@ -87,37 +96,52 @@ public class DataAccessObject<T> {
 
     public List<T> getNumberOfRecords(int firstResult, int numberOfResults) {
         ArrayList<T> records;
-        session = factory.openSession();
+        beginSession();
 
         records = (ArrayList<T>) session.createCriteria(type).setFirstResult(firstResult).setMaxResults(numberOfResults).list();
 
         return records;
     }
 
+
     public void updateRecord(T record) {
-        session = factory.openSession();
+        Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Transaction transaction = null;
 
         try {
             transaction = session.beginTransaction();
-            session.update(record);
+            session.update(type.getName(), record);
             transaction.commit();
             log.info(record.getClass().getName() + " updated");
         } catch (HibernateException ex) {
             if (transaction!=null) transaction.rollback();
-
             log.error(ex);
         } finally {
-            try {
-                session.close();
-            } catch (HibernateException ex) {
-                log.error(ex);
-            }
+            session.close();
         }
+        /*
+        Session session = SessionFactoryProvider.getSessionFactory().openSession();
+        Transaction tx = null;
+        int i = 0;
+        try {
+            tx = session.beginTransaction();
+            session.update("Book", book);
+            tx.commit();
+            log.info("Book with: " + book.getIsbn() + " updated");
+            i = 1;
+        } catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            log.error(e);
+            i = -1;
+        } finally {
+            session.close();
+        }
+        return i;
+         */
     }
 
     public void deleteRecord(T record) {
-        session = factory.openSession();
+        beginSession();
         Transaction transaction = null;
 
         try {
@@ -136,6 +160,10 @@ public class DataAccessObject<T> {
                 log.error(ex);
             }
         }
+    }
+
+    public void beginSession() {
+        session = factory.openSession();
     }
 
 

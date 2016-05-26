@@ -1,12 +1,15 @@
 package persistence;
 
 import entities.Asset;
+import entities.Member;
 import entities.Order;
 import entities.OrderItem;
 import org.junit.Before;
 import org.junit.Test;
+import org.opensaml.xml.encryption.P;
 
-import static junit.framework.TestCase.assertTrue;
+import static org.junit.Assert.assertTrue;
+
 
 /**
  * @author Alex
@@ -17,10 +20,12 @@ public class Testing {
     DataAccessObject dao;
     Asset asset1;
     Asset asset2;
+    Order order;
 
 
     @Before
     public void setup() {
+        dao = new DataAccessObject(Order.class);
         asset1 = new Asset();
         asset1.setAssetId(1);
         asset1.setName("Hopalisucus");
@@ -32,6 +37,7 @@ public class Testing {
         asset2.setName("Mr. Hop");
         asset2.setType("Hop");
         asset2.setDescription("Married to Mrs. Hop");
+        order = (Order) dao.getRecordById(11);
     }
 
     @Test
@@ -58,27 +64,112 @@ public class Testing {
 
     @Test
     public void test1() {
-        dao = new DataAccessObject(Order.class);
+        dao.setType(OrderItem.class);
         Order order = new Order();
         order.setMemberId(7);
+
         order.setOrderStatus("unfilled");
 
-        OrderItem item = new OrderItem();
-        item.setItem(asset1);
-        item.setQuantity((float) 7.2);
-
-        order.addOrderItem(item);
-
-        item.setItem(asset2);
-        item.setQuantity((float) 0.9);
-        order.addOrderItem(item);
-
         order.setNotes("first order");
-
+        dao = new DataAccessObject(Order.class);
         int i = dao.addRecord(order);
 
         assertTrue(i > 0);
 
     }
 
+    @Test
+    public void test3() {
+        dao = new DataAccessObject(Order.class);
+        Order order2 = new Order();
+        order2.setMemberId(5);
+        order2.setOrderStatus("unfilled");
+
+        OrderItem item = new OrderItem();
+        item.setAssetId(asset1.getAssetId());
+        item.setOrderId(order2.getOrderId());
+        item.setQuantity((float) 7.2);
+        order2.addOrderItem(item);
+
+
+        OrderItem item2 = new OrderItem();
+        item2.setAssetId(asset2.getAssetId());
+        item2.setOrderId(order2.getOrderId());
+        item2.setQuantity((float) 0.9);
+        order2.addOrderItem(item2);
+        dao.updateRecord(order2);
+    }
+
+    @Test
+    public void test4() {
+        dao.setType(Order.class);
+        Order order2 = (Order) dao.getRecordById(11);
+
+        assertTrue(order2.getOrderItems().size() > 0);
+        for (OrderItem item: order2.getOrderItems()) {
+            System.out.println(item.getOrderId());
+            System.out.println(item.getAssetId());
+            System.out.println(item.getQuantity());
+            System.out.println(item.getItem().getName());
+            System.out.println(item.getOrder().getOrderStatus());
+            System.out.println();
+        }
+    }
+
+    @Test
+    public void test5() {
+        dao.setType(Member.class);
+        Member member = (Member) dao.getRecordById(7);
+        System.out.println(member.getFirstName());
+        System.out.println(member.getOrders().size());
+        for (Order order1 : member.getOrders()) {
+            System.out.println();
+            for (OrderItem item :
+                    order1.getOrderItems()) {
+                System.out.println(item.getOrderId() + " " + item.getAssetId());
+            }
+
+        }
+        /*
+        Order order = new Order();
+
+        OrderItem item = new OrderItem();
+        item.setAssetId(asset1.getAssetId());
+        item.setQuantity((float) 7.2);
+        order.addOrderItem(item);
+
+
+        OrderItem item2 = new OrderItem();
+        item2.setAssetId(asset2.getAssetId());
+        item2.setQuantity((float) 0.9);
+        order.addOrderItem(item2);
+
+        member.addOrder(order);
+        dao.updateRecord(member);
+        */
+
+
+    }
+
+    @Test
+    public void test6() {
+        OrderDao orderDao = new OrderDao();
+        Order order = new Order();
+
+        OrderItem item = new OrderItem();
+        OrderItem item2 = new OrderItem();
+
+        item.setAssetId(asset1.getAssetId());
+        item.setQuantity((float) 7.2);
+
+        item2.setAssetId(asset2.getAssetId());
+        item2.setQuantity((float) 0.9);
+
+        order.addOrderItem(item);
+        order.addOrderItem(item2);
+        order.setMemberId(7);
+
+        int i = orderDao.createNewOrder(order);
+        System.out.println(i);
+    }
 }

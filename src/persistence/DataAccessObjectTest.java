@@ -72,6 +72,7 @@ public class DataAccessObjectTest {
         dao.deleteRecord(testMember);
         dao.deleteRecord(testMember1);
         dao.deleteRecord(testMember2);
+        dao.deleteRecord(testMember3);
         dao.deleteRecord(testMember4);
     }
 
