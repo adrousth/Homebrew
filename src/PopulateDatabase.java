@@ -1,6 +1,7 @@
 import com.github.javafaker.Faker;
 import entities.*;
 import persistence.DataAccessObject;
+import persistence.OrderDao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,11 +68,6 @@ public class PopulateDatabase {
         }
     }
 
-    private void getMembers() {
-
-
-    }
-
     private void createOrders() {
         dao = new DataAccessObject(Member.class);
         List<Member> members = dao.getNumberOfRecords(1,3);
@@ -81,21 +77,23 @@ public class PopulateDatabase {
         List<Asset> grains = dao.searchNumberOfRecords(0,10,"type","GRAIN");
 
         Order order;
-        dao.setType(Order.class);
+        OrderDao orderDao = new OrderDao();
         for (Member member: members) {
             int numOrders = faker.number().numberBetween(0, 10);
             for (int i = 0; i < numOrders; i++) {
 
                 System.out.println();
                 if (faker.bool().bool()) {
-                    order = createOrder(hops);
+                    order = createOrder(hops, "HOP");
+                    order.setOrderStatus("filled");
                     order.setType("HOP");
                 } else {
-                    order = createOrder(grains);
+                    order = createOrder(grains, "GRAIN");
+                    order.setOrderStatus("filled");
                     order.setType("GRAIN");
                 }
                 order.setMemberId(member.getMemberId());
-                dao.addRecord(order);
+                orderDao.createNewOrder(order);
 
             }
             System.out.println("Ending orders for " + member.getMemberId());
@@ -103,27 +101,33 @@ public class PopulateDatabase {
 
     }
 
-    public Order createOrder(List<Asset> assets) {
+    public Order createOrder(List<Asset> assets, String type) {
         Order order = new Order();
 
         int numItems = faker.number().numberBetween(1, 5);
         List<Asset> assetList = new ArrayList<>(assets);
         List<Float> quantities = getQuantities(numItems);
+        numItems = quantities.size();
         float total = 0;
         for (int x = 0; x < numItems; x++) {
 
             OrderItem orderItem = new OrderItem();
-            int num = faker.number().numberBetween(0, assetList.size());
+
             int num2 = faker.number().numberBetween(0, quantities.size());
+            int num = faker.number().numberBetween(0, assetList.size());
+            if (quantities.get(num2) != 0) {
+                orderItem.setQuantity(quantities.get(num2));
+                orderItem.setAssetId(assetList.get(num).getAssetId());
+                orderItem.setType(type);
+                order.addOrderItem(orderItem);
 
-            orderItem.setAssetId(assetList.get(num).getAssetId());
-            orderItem.setQuantity(quantities.get(num2));
 
-            order.addOrderItem(orderItem);
+                System.out.println(assetList.get(num).getAssetId() + " " + assetList.get(num).getType() + " " + assetList.get(num).getName());
+                System.out.println("Quantity " + orderItem.getQuantity());
+                total += orderItem.getQuantity();
 
-            System.out.println(assetList.get(num).getAssetId() + " " + assetList.get(num).getType() + " " + assetList.get(num).getName());
-            System.out.println("Quantity " + orderItem.getQuantity());
-            total += orderItem.getQuantity();
+            }
+
             assetList.remove(num);
             quantities.remove(num2);
 
@@ -147,12 +151,19 @@ public class PopulateDatabase {
         double scale = 1d * totalQuantity / sum;
         sum = 0;
         for (int i = 0; i < numItems; i++) {
-            quantities.set(i, (float) Math.round((quantities.get(i) * scale) * 2) / 2);
-            sum += quantities.get(i);
+            float quantity = (float) Math.round((quantities.get(i) * scale) * 2) / 2;
+            if (quantity != 0) {
+                quantities.set(i, quantity);
+                sum += quantities.get(i);
+            } else {
+                quantities.set(i, (float) (quantity + .5));
+                sum += quantities.get(i);
+            }
         }
         while(sum++ < totalQuantity) {
             int i = faker.number().numberBetween(0, numItems);
-            quantities.set(i, (quantities.get(i) + 1));
+            float finalQuantity = quantities.get(i) + 1;
+            quantities.set(i, (finalQuantity));
         }
 
         return quantities;

@@ -27,6 +27,9 @@ public class OrderItem implements Serializable {
     @Column(name = "quantity")
     private float quantity;
 
+    @Column(name = "type")
+    private String type;
+
     @ManyToOne
     @JoinColumn(name = "order_id", insertable = false, updatable = false, referencedColumnName = "order_id")
     private Order order;
@@ -73,6 +76,14 @@ public class OrderItem implements Serializable {
 
     public void setQuantity(float quantity) {
         this.quantity = quantity;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     @Override

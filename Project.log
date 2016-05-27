@@ -6017,3 +6017,796 @@
 2016-05-26 20:10:25,015 4374 [main] INFO  persistence.DataAccessObject  - class entities.Order with id of 47 added to the database
 2016-05-26 20:10:25,314 4673 [main] INFO  persistence.DataAccessObject  - class entities.Order with id of 48 added to the database
 2016-05-26 20:10:25,659 5018 [main] INFO  persistence.DataAccessObject  - class entities.Order with id of 49 added to the database
+2016-05-26 20:12:33,696 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-05-26 20:12:33,711 15   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-05-26 20:12:33,716 20   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-05-26 20:12:33,720 24   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-05-26 20:12:33,757 61   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-05-26 20:12:33,758 62   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-05-26 20:12:33,871 175  [main] INFO  org.hibernate.cfg.Configuration  - HHH000041: Configured SessionFactory: null
+2016-05-26 20:12:33,967 271  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2016-05-26 20:12:33,975 279  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000115: Hibernate connection pool size: 20
+2016-05-26 20:12:33,975 279  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000006: Autocommit mode: false
+2016-05-26 20:12:33,976 280  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/homebrew]
+2016-05-26 20:12:33,976 280  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000046: Connection properties: {user=root, password=****}
+2016-05-26 20:12:34,289 593  [main] INFO  org.hibernate.dialect.Dialect  - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-05-26 20:12:34,304 608  [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder  - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-05-26 20:12:34,605 909  [main] INFO  org.hibernate.engine.transaction.internal.TransactionFactoryInitiator  - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2016-05-26 20:12:34,615 919  [main] INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory  - HHH000397: Using ASTQueryTranslatorFactory
+2016-05-26 20:12:36,028 2332 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1452, SQLState: 23000
+2016-05-26 20:12:36,028 2332 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Cannot add or update a child row: a foreign key constraint fails (`homebrew`.`order_item`, CONSTRAINT `order_item_member_order_order_id_fk` FOREIGN KEY (`order_id`) REFERENCES `member_order` (`order_id`))
+2016-05-26 20:12:36,069 2373 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 20:12:36,070 2374 [main] INFO  org.hibernate.engine.jdbc.batch.internal.AbstractBatchImpl  - HHH000010: On release of batch it still contained JDBC statements
+2016-05-26 20:12:36,279 2583 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1452, SQLState: 23000
+2016-05-26 20:12:36,279 2583 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Cannot add or update a child row: a foreign key constraint fails (`homebrew`.`order_item`, CONSTRAINT `order_item_member_order_order_id_fk` FOREIGN KEY (`order_id`) REFERENCES `member_order` (`order_id`))
+2016-05-26 20:12:36,322 2626 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 20:12:36,322 2626 [main] INFO  org.hibernate.engine.jdbc.batch.internal.AbstractBatchImpl  - HHH000010: On release of batch it still contained JDBC statements
+2016-05-26 20:12:36,545 2849 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1452, SQLState: 23000
+2016-05-26 20:12:36,545 2849 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Cannot add or update a child row: a foreign key constraint fails (`homebrew`.`order_item`, CONSTRAINT `order_item_member_order_order_id_fk` FOREIGN KEY (`order_id`) REFERENCES `member_order` (`order_id`))
+2016-05-26 20:12:36,590 2894 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 20:12:36,591 2895 [main] INFO  org.hibernate.engine.jdbc.batch.internal.AbstractBatchImpl  - HHH000010: On release of batch it still contained JDBC statements
+2016-05-26 20:12:36,862 3166 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1452, SQLState: 23000
+2016-05-26 20:12:36,863 3167 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Cannot add or update a child row: a foreign key constraint fails (`homebrew`.`order_item`, CONSTRAINT `order_item_member_order_order_id_fk` FOREIGN KEY (`order_id`) REFERENCES `member_order` (`order_id`))
+2016-05-26 20:12:36,901 3205 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 20:12:36,901 3205 [main] INFO  org.hibernate.engine.jdbc.batch.internal.AbstractBatchImpl  - HHH000010: On release of batch it still contained JDBC statements
+2016-05-26 20:12:37,131 3435 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1452, SQLState: 23000
+2016-05-26 20:12:37,131 3435 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Cannot add or update a child row: a foreign key constraint fails (`homebrew`.`order_item`, CONSTRAINT `order_item_member_order_order_id_fk` FOREIGN KEY (`order_id`) REFERENCES `member_order` (`order_id`))
+2016-05-26 20:12:37,168 3472 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 20:12:37,168 3472 [main] INFO  org.hibernate.engine.jdbc.batch.internal.AbstractBatchImpl  - HHH000010: On release of batch it still contained JDBC statements
+2016-05-26 20:12:37,463 3767 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1452, SQLState: 23000
+2016-05-26 20:12:37,464 3768 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Cannot add or update a child row: a foreign key constraint fails (`homebrew`.`order_item`, CONSTRAINT `order_item_member_order_order_id_fk` FOREIGN KEY (`order_id`) REFERENCES `member_order` (`order_id`))
+2016-05-26 20:12:37,500 3804 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 20:12:37,500 3804 [main] INFO  org.hibernate.engine.jdbc.batch.internal.AbstractBatchImpl  - HHH000010: On release of batch it still contained JDBC statements
+2016-05-26 20:12:37,752 4056 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1452, SQLState: 23000
+2016-05-26 20:12:37,752 4056 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Cannot add or update a child row: a foreign key constraint fails (`homebrew`.`order_item`, CONSTRAINT `order_item_member_order_order_id_fk` FOREIGN KEY (`order_id`) REFERENCES `member_order` (`order_id`))
+2016-05-26 20:12:37,790 4094 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 20:12:37,790 4094 [main] INFO  org.hibernate.engine.jdbc.batch.internal.AbstractBatchImpl  - HHH000010: On release of batch it still contained JDBC statements
+2016-05-26 20:12:38,132 4436 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1452, SQLState: 23000
+2016-05-26 20:12:38,133 4437 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Cannot add or update a child row: a foreign key constraint fails (`homebrew`.`order_item`, CONSTRAINT `order_item_member_order_order_id_fk` FOREIGN KEY (`order_id`) REFERENCES `member_order` (`order_id`))
+2016-05-26 20:12:38,179 4483 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 20:12:38,179 4483 [main] INFO  org.hibernate.engine.jdbc.batch.internal.AbstractBatchImpl  - HHH000010: On release of batch it still contained JDBC statements
+2016-05-26 20:12:38,434 4738 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1452, SQLState: 23000
+2016-05-26 20:12:38,434 4738 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Cannot add or update a child row: a foreign key constraint fails (`homebrew`.`order_item`, CONSTRAINT `order_item_member_order_order_id_fk` FOREIGN KEY (`order_id`) REFERENCES `member_order` (`order_id`))
+2016-05-26 20:12:38,548 4852 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 20:12:38,548 4852 [main] INFO  org.hibernate.engine.jdbc.batch.internal.AbstractBatchImpl  - HHH000010: On release of batch it still contained JDBC statements
+2016-05-26 20:14:00,337 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-05-26 20:14:00,350 13   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-05-26 20:14:00,353 16   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-05-26 20:14:00,357 20   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-05-26 20:14:00,399 62   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-05-26 20:14:00,399 62   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-05-26 20:14:00,523 186  [main] INFO  org.hibernate.cfg.Configuration  - HHH000041: Configured SessionFactory: null
+2016-05-26 20:14:00,624 287  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2016-05-26 20:14:00,631 294  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000115: Hibernate connection pool size: 20
+2016-05-26 20:14:00,632 295  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000006: Autocommit mode: false
+2016-05-26 20:14:00,632 295  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/homebrew]
+2016-05-26 20:14:00,632 295  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000046: Connection properties: {user=root, password=****}
+2016-05-26 20:14:00,941 604  [main] INFO  org.hibernate.dialect.Dialect  - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-05-26 20:14:00,958 621  [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder  - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-05-26 20:14:01,277 940  [main] INFO  org.hibernate.engine.transaction.internal.TransactionFactoryInitiator  - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2016-05-26 20:14:01,304 967  [main] INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory  - HHH000397: Using ASTQueryTranslatorFactory
+2016-05-26 20:14:02,517 2180 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:02,525 2188 [main] INFO  persistence.OrderDao  - entities.Order@74
+2016-05-26 20:14:02,906 2569 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:02,973 2636 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:02,973 2636 [main] INFO  persistence.OrderDao  - entities.Order@75
+2016-05-26 20:14:03,418 3081 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:03,461 3124 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:03,461 3124 [main] INFO  persistence.OrderDao  - entities.Order@76
+2016-05-26 20:14:03,751 3414 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:03,751 3414 [main] INFO  persistence.OrderDao  - entities.Order@77
+2016-05-26 20:14:04,095 3758 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:04,140 3803 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:04,184 3847 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:04,184 3847 [main] INFO  persistence.OrderDao  - entities.Order@78
+2016-05-26 20:14:04,506 4169 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:04,551 4214 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:04,595 4258 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:04,640 4303 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:04,640 4303 [main] INFO  persistence.OrderDao  - entities.Order@79
+2016-05-26 20:14:04,895 4558 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:04,896 4559 [main] INFO  persistence.OrderDao  - entities.Order@7a
+2016-05-26 20:14:05,184 4847 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:05,228 4891 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:05,273 4936 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:05,273 4936 [main] INFO  persistence.OrderDao  - entities.Order@7b
+2016-05-26 20:14:05,617 5280 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:05,673 5336 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:05,718 5381 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:05,718 5381 [main] INFO  persistence.OrderDao  - entities.Order@7c
+2016-05-26 20:14:05,996 5659 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:06,040 5703 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:06,084 5747 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:06,129 5792 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:06,129 5792 [main] INFO  persistence.OrderDao  - entities.Order@7d
+2016-05-26 20:14:06,384 6047 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:06,440 6103 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:06,440 6103 [main] INFO  persistence.OrderDao  - entities.Order@7e
+2016-05-26 20:14:06,729 6392 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:06,773 6436 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:06,818 6481 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:06,818 6481 [main] INFO  persistence.OrderDao  - entities.Order@7f
+2016-05-26 20:14:07,189 6852 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:07,228 6891 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:07,278 6941 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:07,279 6942 [main] INFO  persistence.OrderDao  - entities.Order@80
+2016-05-26 20:14:07,484 7147 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:07,528 7191 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:07,573 7236 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:07,617 7280 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:07,617 7280 [main] INFO  persistence.OrderDao  - entities.Order@81
+2016-05-26 20:14:08,029 7692 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:08,073 7736 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:08,117 7780 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:08,118 7781 [main] INFO  persistence.OrderDao  - entities.Order@82
+2016-05-26 20:14:08,473 8136 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:08,528 8191 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 20:14:08,529 8192 [main] INFO  persistence.OrderDao  - entities.Order@83
+2016-05-26 23:04:38,399 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-05-26 23:04:38,413 14   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-05-26 23:04:38,417 18   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-05-26 23:04:38,422 23   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-05-26 23:04:38,462 63   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-05-26 23:04:38,462 63   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-05-26 23:04:38,590 191  [main] INFO  org.hibernate.cfg.Configuration  - HHH000041: Configured SessionFactory: null
+2016-05-26 23:04:38,682 283  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2016-05-26 23:04:38,689 290  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000115: Hibernate connection pool size: 20
+2016-05-26 23:04:38,689 290  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000006: Autocommit mode: false
+2016-05-26 23:04:38,690 291  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/homebrew]
+2016-05-26 23:04:38,690 291  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000046: Connection properties: {user=root, password=****}
+2016-05-26 23:04:38,997 598  [main] INFO  org.hibernate.dialect.Dialect  - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-05-26 23:04:39,011 612  [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder  - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-05-26 23:04:39,332 933  [main] INFO  org.hibernate.engine.transaction.internal.TransactionFactoryInitiator  - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2016-05-26 23:04:39,344 945  [main] INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory  - HHH000397: Using ASTQueryTranslatorFactory
+2016-05-26 23:04:40,621 2222 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:04:40,677 2278 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:04:40,721 2322 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:04:40,722 2323 [main] INFO  persistence.OrderDao  - entities.Order@84
+2016-05-26 23:04:41,132 2733 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:04:41,133 2734 [main] INFO  persistence.OrderDao  - entities.Order@85
+2016-05-26 23:04:41,532 3133 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:04:41,588 3189 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:04:41,677 3278 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:04:41,678 3279 [main] INFO  persistence.OrderDao  - entities.Order@86
+2016-05-26 23:04:41,988 3589 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:04:42,032 3633 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:04:42,077 3678 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:04:42,078 3679 [main] INFO  persistence.OrderDao  - entities.Order@87
+2016-05-26 23:04:42,477 4078 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:04:42,521 4122 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:04:42,522 4123 [main] INFO  persistence.OrderDao  - entities.Order@88
+2016-05-26 23:04:42,876 4477 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:04:42,978 4579 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:04:43,044 4645 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:04:43,045 4646 [main] INFO  persistence.OrderDao  - entities.Order@89
+2016-05-26 23:04:43,388 4989 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:04:43,433 5034 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:04:43,477 5078 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:04:43,522 5123 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:04:43,522 5123 [main] INFO  persistence.OrderDao  - entities.Order@8a
+2016-05-26 23:04:43,800 5401 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:04:43,844 5445 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:04:43,889 5490 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:04:43,889 5490 [main] INFO  persistence.OrderDao  - entities.Order@8b
+2016-05-26 23:04:44,177 5778 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:04:44,221 5822 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:04:44,267 5868 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:04:44,267 5868 [main] INFO  persistence.OrderDao  - entities.Order@8c
+2016-05-26 23:04:44,667 6268 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:04:44,711 6312 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:04:44,711 6312 [main] INFO  persistence.OrderDao  - entities.Order@8d
+2016-05-26 23:04:45,044 6645 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:04:45,089 6690 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:04:45,132 6733 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:04:45,178 6779 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:04:45,178 6779 [main] INFO  persistence.OrderDao  - entities.Order@8e
+2016-05-26 23:04:45,511 7112 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:04:45,555 7156 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:04:45,556 7157 [main] INFO  persistence.OrderDao  - entities.Order@8f
+2016-05-26 23:04:45,888 7489 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:04:45,944 7545 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:04:45,945 7546 [main] INFO  persistence.OrderDao  - entities.Order@90
+2016-05-26 23:04:46,277 7878 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:04:46,321 7922 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:04:46,322 7923 [main] INFO  persistence.OrderDao  - entities.Order@91
+2016-05-26 23:24:42,161 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-05-26 23:24:42,177 16   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-05-26 23:24:42,180 19   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-05-26 23:24:42,184 23   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-05-26 23:24:42,220 59   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-05-26 23:24:42,221 60   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-05-26 23:24:42,352 191  [main] INFO  org.hibernate.cfg.Configuration  - HHH000041: Configured SessionFactory: null
+2016-05-26 23:24:42,446 285  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2016-05-26 23:24:42,453 292  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000115: Hibernate connection pool size: 20
+2016-05-26 23:24:42,453 292  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000006: Autocommit mode: false
+2016-05-26 23:24:42,453 292  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/homebrew]
+2016-05-26 23:24:42,453 292  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000046: Connection properties: {user=root, password=****}
+2016-05-26 23:24:42,759 598  [main] INFO  org.hibernate.dialect.Dialect  - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-05-26 23:24:42,774 613  [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder  - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-05-26 23:24:43,074 913  [main] INFO  org.hibernate.engine.transaction.internal.TransactionFactoryInitiator  - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2016-05-26 23:24:43,085 924  [main] INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory  - HHH000397: Using ASTQueryTranslatorFactory
+2016-05-26 23:24:44,603 2442 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:44,611 2450 [main] INFO  persistence.OrderDao  - entities.Order@92
+2016-05-26 23:24:45,070 2909 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:45,115 2954 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:45,115 2954 [main] INFO  persistence.OrderDao  - entities.Order@93
+2016-05-26 23:24:45,337 3176 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:45,337 3176 [main] INFO  persistence.OrderDao  - entities.Order@94
+2016-05-26 23:24:45,670 3509 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:45,714 3553 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:45,760 3599 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:45,760 3599 [main] INFO  persistence.OrderDao  - entities.Order@95
+2016-05-26 23:24:46,148 3987 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:46,237 4076 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:46,238 4077 [main] INFO  persistence.OrderDao  - entities.Order@96
+2016-05-26 23:24:46,482 4321 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:46,526 4365 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:46,570 4409 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:46,571 4410 [main] INFO  persistence.OrderDao  - entities.Order@97
+2016-05-26 23:24:46,915 4754 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:46,915 4754 [main] INFO  persistence.OrderDao  - entities.Order@98
+2016-05-26 23:24:47,137 4976 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:47,182 5021 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:47,182 5021 [main] INFO  persistence.OrderDao  - entities.Order@99
+2016-05-26 23:24:47,570 5409 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:47,626 5465 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:47,715 5554 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:47,792 5631 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:47,793 5632 [main] INFO  persistence.OrderDao  - entities.Order@9a
+2016-05-26 23:24:48,092 5931 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:48,093 5932 [main] INFO  persistence.OrderDao  - entities.Order@9b
+2016-05-26 23:24:48,314 6153 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:48,381 6220 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:48,381 6220 [main] INFO  persistence.OrderDao  - entities.Order@9c
+2016-05-26 23:24:48,670 6509 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:48,715 6554 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:48,759 6598 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:48,760 6599 [main] INFO  persistence.OrderDao  - entities.Order@9d
+2016-05-26 23:24:49,070 6909 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:49,115 6954 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:49,159 6998 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:49,193 7032 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:49,193 7032 [main] INFO  persistence.OrderDao  - entities.Order@9e
+2016-05-26 23:24:49,471 7310 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:49,515 7354 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:49,560 7399 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:49,560 7399 [main] INFO  persistence.OrderDao  - entities.Order@9f
+2016-05-26 23:24:49,882 7721 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:49,925 7764 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:49,926 7765 [main] INFO  persistence.OrderDao  - entities.Order@a0
+2016-05-26 23:24:50,237 8076 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:50,282 8121 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:50,326 8165 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:50,326 8165 [main] INFO  persistence.OrderDao  - entities.Order@a1
+2016-05-26 23:24:50,882 8721 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:50,927 8766 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:50,993 8832 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:50,993 8832 [main] INFO  persistence.OrderDao  - entities.Order@a2
+2016-05-26 23:24:51,448 9287 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:51,493 9332 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:51,537 9376 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:51,537 9376 [main] INFO  persistence.OrderDao  - entities.Order@a3
+2016-05-26 23:24:51,882 9721 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:51,926 9765 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:51,960 9799 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:51,993 9832 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:24:51,993 9832 [main] INFO  persistence.OrderDao  - entities.Order@a4
+2016-05-26 23:25:12,068 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-05-26 23:25:12,082 14   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-05-26 23:25:12,086 18   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-05-26 23:25:12,089 21   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-05-26 23:25:12,124 56   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-05-26 23:25:12,125 57   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-05-26 23:25:12,252 184  [main] INFO  org.hibernate.cfg.Configuration  - HHH000041: Configured SessionFactory: null
+2016-05-26 23:25:12,348 280  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2016-05-26 23:25:12,355 287  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000115: Hibernate connection pool size: 20
+2016-05-26 23:25:12,355 287  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000006: Autocommit mode: false
+2016-05-26 23:25:12,355 287  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/homebrew]
+2016-05-26 23:25:12,355 287  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000046: Connection properties: {user=root, password=****}
+2016-05-26 23:25:12,658 590  [main] INFO  org.hibernate.dialect.Dialect  - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-05-26 23:25:12,674 606  [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder  - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-05-26 23:25:12,972 904  [main] INFO  org.hibernate.engine.transaction.internal.TransactionFactoryInitiator  - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2016-05-26 23:25:12,983 915  [main] INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory  - HHH000397: Using ASTQueryTranslatorFactory
+2016-05-26 23:25:14,172 2104 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:14,174 2106 [main] INFO  persistence.OrderDao  - entities.Order@a5
+2016-05-26 23:25:14,539 2471 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:14,584 2516 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:14,627 2559 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:14,672 2604 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:14,672 2604 [main] INFO  persistence.OrderDao  - entities.Order@a6
+2016-05-26 23:25:15,028 2960 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:15,072 3004 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:15,073 3005 [main] INFO  persistence.OrderDao  - entities.Order@a7
+2016-05-26 23:25:15,439 3371 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:15,439 3371 [main] INFO  persistence.OrderDao  - entities.Order@a8
+2016-05-26 23:25:15,827 3759 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:15,873 3805 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:15,917 3849 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:16,009 3941 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:16,010 3942 [main] INFO  persistence.OrderDao  - entities.Order@a9
+2016-05-26 23:25:16,295 4227 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:16,338 4270 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:16,338 4270 [main] INFO  persistence.OrderDao  - entities.Order@aa
+2016-05-26 23:25:16,616 4548 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:16,650 4582 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:16,694 4626 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:16,739 4671 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:16,740 4672 [main] INFO  persistence.OrderDao  - entities.Order@ab
+2016-05-26 23:25:17,084 5016 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:17,117 5049 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:17,151 5083 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:17,151 5083 [main] INFO  persistence.OrderDao  - entities.Order@ac
+2016-05-26 23:25:17,506 5438 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:17,550 5482 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:17,619 5551 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:17,673 5605 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:17,673 5605 [main] INFO  persistence.OrderDao  - entities.Order@ad
+2016-05-26 23:25:18,028 5960 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:18,072 6004 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:18,106 6038 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:18,107 6039 [main] INFO  persistence.OrderDao  - entities.Order@ae
+2016-05-26 23:25:18,473 6405 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:18,517 6449 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:18,573 6505 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:18,573 6505 [main] INFO  persistence.OrderDao  - entities.Order@af
+2016-05-26 23:25:19,051 6983 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:19,051 6983 [main] INFO  persistence.OrderDao  - entities.Order@b0
+2016-05-26 23:25:19,295 7227 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:19,328 7260 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:19,361 7293 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:19,362 7294 [main] INFO  persistence.OrderDao  - entities.Order@b1
+2016-05-26 23:25:19,562 7494 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:19,562 7494 [main] INFO  persistence.OrderDao  - entities.Order@b2
+2016-05-26 23:25:19,840 7772 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:19,883 7815 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:19,918 7850 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:19,918 7850 [main] INFO  persistence.OrderDao  - entities.Order@b3
+2016-05-26 23:25:20,173 8105 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:20,217 8149 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:20,262 8194 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:20,306 8238 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:20,306 8238 [main] INFO  persistence.OrderDao  - entities.Order@b4
+2016-05-26 23:25:20,595 8527 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:20,628 8560 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:20,628 8560 [main] INFO  persistence.OrderDao  - entities.Order@b5
+2016-05-26 23:25:20,873 8805 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:20,917 8849 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:25:20,917 8849 [main] INFO  persistence.OrderDao  - entities.Order@b6
+2016-05-26 23:26:31,823 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-05-26 23:26:31,834 11   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-05-26 23:26:31,838 15   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-05-26 23:26:31,842 19   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-05-26 23:26:31,886 63   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-05-26 23:26:31,886 63   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-05-26 23:26:32,007 184  [main] INFO  org.hibernate.cfg.Configuration  - HHH000041: Configured SessionFactory: null
+2016-05-26 23:26:32,102 279  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2016-05-26 23:26:32,109 286  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000115: Hibernate connection pool size: 20
+2016-05-26 23:26:32,109 286  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000006: Autocommit mode: false
+2016-05-26 23:26:32,110 287  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/homebrew]
+2016-05-26 23:26:32,110 287  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000046: Connection properties: {user=root, password=****}
+2016-05-26 23:26:32,427 604  [main] INFO  org.hibernate.dialect.Dialect  - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-05-26 23:26:32,442 619  [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder  - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-05-26 23:26:32,741 918  [main] INFO  org.hibernate.engine.transaction.internal.TransactionFactoryInitiator  - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2016-05-26 23:26:32,752 929  [main] INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory  - HHH000397: Using ASTQueryTranslatorFactory
+2016-05-26 23:26:33,613 1790 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 166 added to the database
+2016-05-26 23:26:33,878 2055 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 167 added to the database
+2016-05-26 23:26:34,055 2232 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 168 added to the database
+2016-05-26 23:26:34,100 2277 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 169 added to the database
+2016-05-26 23:26:34,144 2321 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 170 added to the database
+2016-05-26 23:26:34,189 2366 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 171 added to the database
+2016-05-26 23:26:34,233 2410 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 172 added to the database
+2016-05-26 23:26:34,278 2455 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 173 added to the database
+2016-05-26 23:26:34,344 2521 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 174 added to the database
+2016-05-26 23:26:34,390 2567 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 175 added to the database
+2016-05-26 23:26:34,433 2610 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 176 added to the database
+2016-05-26 23:26:34,478 2655 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 177 added to the database
+2016-05-26 23:26:34,522 2699 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 178 added to the database
+2016-05-26 23:26:34,567 2744 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 179 added to the database
+2016-05-26 23:26:34,611 2788 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 180 added to the database
+2016-05-26 23:26:34,656 2833 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 181 added to the database
+2016-05-26 23:26:34,700 2877 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 182 added to the database
+2016-05-26 23:26:34,745 2922 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 183 added to the database
+2016-05-26 23:26:34,800 2977 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 184 added to the database
+2016-05-26 23:26:34,867 3044 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 185 added to the database
+2016-05-26 23:26:34,933 3110 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 186 added to the database
+2016-05-26 23:26:34,978 3155 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 115 added to the database
+2016-05-26 23:26:35,122 3299 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 116 added to the database
+2016-05-26 23:26:35,212 3389 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 117 added to the database
+2016-05-26 23:26:35,256 3433 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 118 added to the database
+2016-05-26 23:26:35,300 3477 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 119 added to the database
+2016-05-26 23:26:35,344 3521 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 120 added to the database
+2016-05-26 23:26:35,361 3538 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+2016-05-26 23:26:35,362 3539 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'Munich' for key 'asset_name_uindex'
+2016-05-26 23:26:35,401 3578 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 23:26:35,445 3622 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 122 added to the database
+2016-05-26 23:26:35,500 3677 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 123 added to the database
+2016-05-26 23:26:35,555 3732 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 124 added to the database
+2016-05-26 23:26:35,624 3801 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 125 added to the database
+2016-05-26 23:26:35,723 3900 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 126 added to the database
+2016-05-26 23:26:35,778 3955 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 127 added to the database
+2016-05-26 23:26:35,833 4010 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 128 added to the database
+2016-05-26 23:26:35,878 4055 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 129 added to the database
+2016-05-26 23:26:35,882 4059 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+2016-05-26 23:26:35,882 4059 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'Palisade' for key 'asset_name_uindex'
+2016-05-26 23:26:35,922 4099 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 23:26:35,939 4116 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+2016-05-26 23:26:35,939 4116 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'Ahtanum' for key 'asset_name_uindex'
+2016-05-26 23:26:35,979 4156 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 23:26:36,022 4199 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 132 added to the database
+2016-05-26 23:26:36,067 4244 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 133 added to the database
+2016-05-26 23:26:36,071 4248 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+2016-05-26 23:26:36,071 4248 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'Vienna' for key 'asset_name_uindex'
+2016-05-26 23:26:36,110 4287 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 23:26:36,156 4333 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 135 added to the database
+2016-05-26 23:26:36,199 4376 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 136 added to the database
+2016-05-26 23:26:36,203 4380 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+2016-05-26 23:26:36,204 4381 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'TriplePearl' for key 'asset_name_uindex'
+2016-05-26 23:26:36,245 4422 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 23:26:36,289 4466 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 138 added to the database
+2016-05-26 23:26:36,334 4511 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 139 added to the database
+2016-05-26 23:26:36,338 4515 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+2016-05-26 23:26:36,338 4515 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'Nugget' for key 'asset_name_uindex'
+2016-05-26 23:26:36,378 4555 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 23:26:36,422 4599 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 141 added to the database
+2016-05-26 23:26:36,522 4699 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 142 added to the database
+2016-05-26 23:26:36,526 4703 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+2016-05-26 23:26:36,526 4703 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'Perle' for key 'asset_name_uindex'
+2016-05-26 23:26:36,567 4744 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 23:26:36,611 4788 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 144 added to the database
+2016-05-26 23:26:36,656 4833 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 145 added to the database
+2016-05-26 23:26:36,700 4877 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 146 added to the database
+2016-05-26 23:26:36,745 4922 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 147 added to the database
+2016-05-26 23:26:36,750 4927 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+2016-05-26 23:26:36,750 4927 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'Chocolate malt' for key 'asset_name_uindex'
+2016-05-26 23:26:36,789 4966 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 23:26:36,793 4970 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+2016-05-26 23:26:36,794 4971 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'Chocolate' for key 'asset_name_uindex'
+2016-05-26 23:26:36,834 5011 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 23:26:36,838 5015 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+2016-05-26 23:26:36,839 5016 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'Victory' for key 'asset_name_uindex'
+2016-05-26 23:26:36,878 5055 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 23:26:36,922 5099 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 151 added to the database
+2016-05-26 23:26:36,927 5104 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+2016-05-26 23:26:36,928 5105 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'Black malt' for key 'asset_name_uindex'
+2016-05-26 23:26:36,980 5157 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 23:26:37,067 5244 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 153 added to the database
+2016-05-26 23:26:37,179 5356 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 154 added to the database
+2016-05-26 23:26:37,183 5360 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+2016-05-26 23:26:37,184 5361 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'Caramel' for key 'asset_name_uindex'
+2016-05-26 23:26:37,274 5451 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 23:26:37,363 5540 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 156 added to the database
+2016-05-26 23:26:37,400 5577 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 157 added to the database
+2016-05-26 23:26:37,404 5581 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+2016-05-26 23:26:37,405 5582 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'Munich' for key 'asset_name_uindex'
+2016-05-26 23:26:37,445 5622 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 23:26:37,449 5626 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+2016-05-26 23:26:37,449 5626 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'Mt. Hood' for key 'asset_name_uindex'
+2016-05-26 23:26:37,490 5667 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 23:26:37,533 5710 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 160 added to the database
+2016-05-26 23:26:37,537 5714 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+2016-05-26 23:26:37,538 5715 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'Cluster' for key 'asset_name_uindex'
+2016-05-26 23:26:37,578 5755 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 23:26:37,622 5799 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 162 added to the database
+2016-05-26 23:26:37,634 5811 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+2016-05-26 23:26:37,635 5812 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'Chocolate' for key 'asset_name_uindex'
+2016-05-26 23:26:37,679 5856 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 23:26:37,722 5899 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 164 added to the database
+2016-05-26 23:26:38,156 6333 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:38,157 6334 [main] INFO  persistence.OrderDao  - entities.Order@b7
+2016-05-26 23:26:38,600 6777 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:38,656 6833 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:38,656 6833 [main] INFO  persistence.OrderDao  - entities.Order@b8
+2016-05-26 23:26:39,012 7189 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:39,044 7221 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:39,078 7255 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:39,111 7288 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:39,111 7288 [main] INFO  persistence.OrderDao  - entities.Order@b9
+2016-05-26 23:26:39,456 7633 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:39,489 7666 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:39,533 7710 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:39,533 7710 [main] INFO  persistence.OrderDao  - entities.Order@ba
+2016-05-26 23:26:39,856 8033 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:39,890 8067 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:39,890 8067 [main] INFO  persistence.OrderDao  - entities.Order@bb
+2016-05-26 23:26:40,212 8389 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:40,245 8422 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:40,278 8455 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:40,311 8488 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:40,311 8488 [main] INFO  persistence.OrderDao  - entities.Order@bc
+2016-05-26 23:26:40,644 8821 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:40,679 8856 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:40,711 8888 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:40,711 8888 [main] INFO  persistence.OrderDao  - entities.Order@bd
+2016-05-26 23:26:41,100 9277 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:41,100 9277 [main] INFO  persistence.OrderDao  - entities.Order@be
+2016-05-26 23:26:41,300 9477 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:41,334 9511 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:41,335 9512 [main] INFO  persistence.OrderDao  - entities.Order@bf
+2016-05-26 23:26:41,623 9800 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:41,656 9833 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:41,656 9833 [main] INFO  persistence.OrderDao  - entities.Order@c0
+2016-05-26 23:26:41,878 10055 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:41,917 10094 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:41,956 10133 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:41,990 10167 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:41,990 10167 [main] INFO  persistence.OrderDao  - entities.Order@c1
+2016-05-26 23:26:42,312 10489 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:42,345 10522 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:42,378 10555 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:42,411 10588 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:42,411 10588 [main] INFO  persistence.OrderDao  - entities.Order@c2
+2016-05-26 23:26:42,689 10866 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:42,723 10900 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:42,756 10933 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:42,790 10967 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:42,790 10967 [main] INFO  persistence.OrderDao  - entities.Order@c3
+2016-05-26 23:26:43,123 11300 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:43,124 11301 [main] INFO  persistence.OrderDao  - entities.Order@c4
+2016-05-26 23:26:43,401 11578 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:43,434 11611 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:43,468 11645 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:43,500 11677 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:43,501 11678 [main] INFO  persistence.OrderDao  - entities.Order@c5
+2016-05-26 23:26:43,812 11989 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:43,812 11989 [main] INFO  persistence.OrderDao  - entities.Order@c6
+2016-05-26 23:26:44,134 12311 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:44,168 12345 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:44,212 12389 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:44,246 12423 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:44,246 12423 [main] INFO  persistence.OrderDao  - entities.Order@c7
+2016-05-26 23:26:44,568 12745 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:44,600 12777 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:44,635 12812 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:44,635 12812 [main] INFO  persistence.OrderDao  - entities.Order@c8
+2016-05-26 23:26:44,957 13134 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:44,990 13167 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:45,023 13200 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:45,056 13233 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:45,056 13233 [main] INFO  persistence.OrderDao  - entities.Order@c9
+2016-05-26 23:26:45,390 13567 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:45,424 13601 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:45,456 13633 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:45,513 13690 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:45,513 13690 [main] INFO  persistence.OrderDao  - entities.Order@ca
+2016-05-26 23:26:45,746 13923 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:45,779 13956 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:26:45,779 13956 [main] INFO  persistence.OrderDao  - entities.Order@cb
+2016-05-26 23:30:45,116 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-05-26 23:30:45,133 17   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-05-26 23:30:45,139 23   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-05-26 23:30:45,145 29   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-05-26 23:30:45,193 77   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-05-26 23:30:45,193 77   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-05-26 23:30:45,338 222  [main] INFO  org.hibernate.cfg.Configuration  - HHH000041: Configured SessionFactory: null
+2016-05-26 23:30:45,453 337  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2016-05-26 23:30:45,460 344  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000115: Hibernate connection pool size: 20
+2016-05-26 23:30:45,460 344  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000006: Autocommit mode: false
+2016-05-26 23:30:45,460 344  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/homebrew]
+2016-05-26 23:30:45,460 344  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000046: Connection properties: {user=root, password=****}
+2016-05-26 23:30:45,768 652  [main] INFO  org.hibernate.dialect.Dialect  - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-05-26 23:30:45,782 666  [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder  - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-05-26 23:30:46,075 959  [main] INFO  org.hibernate.engine.transaction.internal.TransactionFactoryInitiator  - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2016-05-26 23:30:46,086 970  [main] INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory  - HHH000397: Using ASTQueryTranslatorFactory
+2016-05-26 23:30:46,976 1860 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 187 added to the database
+2016-05-26 23:30:47,130 2014 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 188 added to the database
+2016-05-26 23:30:47,295 2179 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 189 added to the database
+2016-05-26 23:30:47,340 2224 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 190 added to the database
+2016-05-26 23:30:47,385 2269 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 191 added to the database
+2016-05-26 23:30:47,429 2313 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 192 added to the database
+2016-05-26 23:30:47,474 2358 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 193 added to the database
+2016-05-26 23:30:47,518 2402 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 194 added to the database
+2016-05-26 23:30:47,562 2446 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 195 added to the database
+2016-05-26 23:30:47,607 2491 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 196 added to the database
+2016-05-26 23:30:47,651 2535 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 197 added to the database
+2016-05-26 23:30:47,696 2580 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 198 added to the database
+2016-05-26 23:30:47,740 2624 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 199 added to the database
+2016-05-26 23:30:47,785 2669 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 200 added to the database
+2016-05-26 23:30:47,828 2712 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 201 added to the database
+2016-05-26 23:30:47,873 2757 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 202 added to the database
+2016-05-26 23:30:47,918 2802 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 203 added to the database
+2016-05-26 23:30:47,963 2847 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 204 added to the database
+2016-05-26 23:30:48,006 2890 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 205 added to the database
+2016-05-26 23:30:48,052 2936 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 206 added to the database
+2016-05-26 23:30:48,096 2980 [main] INFO  persistence.DataAccessObject  - class entities.Member with id of 207 added to the database
+2016-05-26 23:30:48,140 3024 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 165 added to the database
+2016-05-26 23:30:48,206 3090 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 166 added to the database
+2016-05-26 23:30:48,252 3136 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 167 added to the database
+2016-05-26 23:30:48,285 3169 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 168 added to the database
+2016-05-26 23:30:48,318 3202 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 169 added to the database
+2016-05-26 23:30:48,374 3258 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 170 added to the database
+2016-05-26 23:30:48,418 3302 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 171 added to the database
+2016-05-26 23:30:48,435 3319 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+2016-05-26 23:30:48,436 3320 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'Victory' for key 'asset_name_uindex'
+2016-05-26 23:30:48,521 3405 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 23:30:48,563 3447 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 173 added to the database
+2016-05-26 23:30:48,596 3480 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 174 added to the database
+2016-05-26 23:30:48,600 3484 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+2016-05-26 23:30:48,600 3484 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'Roasted barley' for key 'asset_name_uindex'
+2016-05-26 23:30:48,640 3524 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 23:30:48,646 3530 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+2016-05-26 23:30:48,646 3530 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'Munich' for key 'asset_name_uindex'
+2016-05-26 23:30:48,686 3570 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 23:30:48,730 3614 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 177 added to the database
+2016-05-26 23:30:48,829 3713 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 178 added to the database
+2016-05-26 23:30:48,862 3746 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 179 added to the database
+2016-05-26 23:30:48,897 3781 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 180 added to the database
+2016-05-26 23:30:48,901 3785 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+2016-05-26 23:30:48,901 3785 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'Yakima Gol' for key 'asset_name_uindex'
+2016-05-26 23:30:48,940 3824 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 23:30:48,986 3870 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 182 added to the database
+2016-05-26 23:30:49,018 3902 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 183 added to the database
+2016-05-26 23:30:49,052 3936 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 184 added to the database
+2016-05-26 23:30:49,056 3940 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+2016-05-26 23:30:49,056 3940 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'Roasted barley' for key 'asset_name_uindex'
+2016-05-26 23:30:49,085 3969 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 23:30:49,130 4014 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 186 added to the database
+2016-05-26 23:30:49,203 4087 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 187 added to the database
+2016-05-26 23:30:49,207 4091 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+2016-05-26 23:30:49,207 4091 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'Munich' for key 'asset_name_uindex'
+2016-05-26 23:30:49,252 4136 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 23:30:49,296 4180 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 189 added to the database
+2016-05-26 23:30:49,299 4183 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+2016-05-26 23:30:49,300 4184 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'Victory' for key 'asset_name_uindex'
+2016-05-26 23:30:49,330 4214 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 23:30:49,374 4258 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 191 added to the database
+2016-05-26 23:30:49,378 4262 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+2016-05-26 23:30:49,378 4262 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'Munich' for key 'asset_name_uindex'
+2016-05-26 23:30:49,408 4292 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 23:30:49,451 4335 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 193 added to the database
+2016-05-26 23:30:49,486 4370 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 194 added to the database
+2016-05-26 23:30:49,489 4373 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+2016-05-26 23:30:49,489 4373 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'Munich' for key 'asset_name_uindex'
+2016-05-26 23:30:49,519 4403 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 23:30:49,522 4406 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+2016-05-26 23:30:49,522 4406 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'Sorachi Ace' for key 'asset_name_uindex'
+2016-05-26 23:30:49,552 4436 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 23:30:49,596 4480 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 197 added to the database
+2016-05-26 23:30:49,601 4485 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+2016-05-26 23:30:49,601 4485 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'Cashmere' for key 'asset_name_uindex'
+2016-05-26 23:30:49,641 4525 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 23:30:49,646 4530 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+2016-05-26 23:30:49,646 4530 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'Roasted barley' for key 'asset_name_uindex'
+2016-05-26 23:30:49,688 4572 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 23:30:49,732 4616 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 200 added to the database
+2016-05-26 23:30:49,773 4657 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 201 added to the database
+2016-05-26 23:30:49,808 4692 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 202 added to the database
+2016-05-26 23:30:49,875 4759 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 203 added to the database
+2016-05-26 23:30:49,877 4761 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+2016-05-26 23:30:49,877 4761 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'Victory' for key 'asset_name_uindex'
+2016-05-26 23:30:49,943 4827 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 23:30:50,000 4884 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 205 added to the database
+2016-05-26 23:30:50,064 4948 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 206 added to the database
+2016-05-26 23:30:50,067 4951 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+2016-05-26 23:30:50,068 4952 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'Chocolate' for key 'asset_name_uindex'
+2016-05-26 23:30:50,096 4980 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 23:30:50,141 5025 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 208 added to the database
+2016-05-26 23:30:50,145 5029 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+2016-05-26 23:30:50,145 5029 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'Black malt' for key 'asset_name_uindex'
+2016-05-26 23:30:50,185 5069 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 23:30:50,241 5125 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 210 added to the database
+2016-05-26 23:30:50,244 5128 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+2016-05-26 23:30:50,245 5129 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'Chocolate' for key 'asset_name_uindex'
+2016-05-26 23:30:50,274 5158 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 23:30:50,278 5162 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+2016-05-26 23:30:50,278 5162 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'Carapils' for key 'asset_name_uindex'
+2016-05-26 23:30:50,308 5192 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 23:30:50,311 5195 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+2016-05-26 23:30:50,312 5196 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry 'Chocolate' for key 'asset_name_uindex'
+2016-05-26 23:30:50,341 5225 [main] ERROR persistence.DataAccessObject  - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2016-05-26 23:30:50,375 5259 [main] INFO  persistence.DataAccessObject  - class entities.Asset with id of 214 added to the database
+2016-05-26 23:30:50,862 5746 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:30:50,863 5747 [main] INFO  persistence.OrderDao  - entities.Order@cc
+2016-05-26 23:30:51,195 6079 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:30:51,196 6080 [main] INFO  persistence.OrderDao  - entities.Order@cd
+2016-05-26 23:30:51,485 6369 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:30:51,519 6403 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:30:51,551 6435 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:30:51,551 6435 [main] INFO  persistence.OrderDao  - entities.Order@ce
+2016-05-26 23:30:51,874 6758 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:30:51,874 6758 [main] INFO  persistence.OrderDao  - entities.Order@cf
+2016-05-26 23:30:52,219 7103 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:30:52,252 7136 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:30:52,285 7169 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:30:52,319 7203 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:30:52,319 7203 [main] INFO  persistence.OrderDao  - entities.Order@d0
+2016-05-26 23:30:52,607 7491 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:30:52,607 7491 [main] INFO  persistence.OrderDao  - entities.Order@d1
+2016-05-26 23:30:52,885 7769 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:30:52,918 7802 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:30:52,918 7802 [main] INFO  persistence.OrderDao  - entities.Order@d2
+2016-05-26 23:30:53,241 8125 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:30:53,241 8125 [main] INFO  persistence.OrderDao  - entities.Order@d3
+2016-05-26 23:30:53,518 8402 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:30:53,552 8436 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:30:53,585 8469 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:30:53,619 8503 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:30:53,619 8503 [main] INFO  persistence.OrderDao  - entities.Order@d4
+2016-05-26 23:30:53,974 8858 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:30:53,975 8859 [main] INFO  persistence.OrderDao  - entities.Order@d5
+2016-05-26 23:30:54,297 9181 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:30:54,297 9181 [main] INFO  persistence.OrderDao  - entities.Order@d6
+2016-05-26 23:30:54,663 9547 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:30:54,696 9580 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:30:54,696 9580 [main] INFO  persistence.OrderDao  - entities.Order@d7
+2016-05-26 23:30:55,030 9914 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:30:55,064 9948 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:30:55,064 9948 [main] INFO  persistence.OrderDao  - entities.Order@d8
+2016-05-26 23:30:55,475 10359 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:30:55,508 10392 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:30:55,541 10425 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:30:55,541 10425 [main] INFO  persistence.OrderDao  - entities.Order@d9
+2016-05-26 23:30:55,786 10670 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:30:55,819 10703 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:30:55,853 10737 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:30:56,007 10891 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:30:56,008 10892 [main] INFO  persistence.OrderDao  - entities.Order@da
+2016-05-26 23:30:56,241 11125 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:30:56,242 11126 [main] INFO  persistence.OrderDao  - entities.Order@db
+2016-05-26 23:30:56,530 11414 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:30:56,563 11447 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:30:56,563 11447 [main] INFO  persistence.OrderDao  - entities.Order@dc
+2016-05-26 23:30:56,808 11692 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:30:56,842 11726 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:30:56,874 11758 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:30:56,874 11758 [main] INFO  persistence.OrderDao  - entities.Order@dd
+2016-05-26 23:33:17,304 0    [main] INFO  org.hibernate.annotations.common.Version  - HCANN000001: Hibernate Commons Annotations {4.0.2.Final}
+2016-05-26 23:33:17,316 12   [main] INFO  org.hibernate.Version  - HHH000412: Hibernate Core {4.2.2.Final}
+2016-05-26 23:33:17,319 15   [main] INFO  org.hibernate.cfg.Environment  - HHH000206: hibernate.properties not found
+2016-05-26 23:33:17,322 18   [main] INFO  org.hibernate.cfg.Environment  - HHH000021: Bytecode provider name : javassist
+2016-05-26 23:33:17,367 63   [main] INFO  org.hibernate.cfg.Configuration  - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2016-05-26 23:33:17,368 64   [main] INFO  org.hibernate.cfg.Configuration  - HHH000040: Configuration resource: /hibernate.cfg.xml
+2016-05-26 23:33:17,490 186  [main] INFO  org.hibernate.cfg.Configuration  - HHH000041: Configured SessionFactory: null
+2016-05-26 23:33:17,590 286  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2016-05-26 23:33:17,597 293  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000115: Hibernate connection pool size: 20
+2016-05-26 23:33:17,597 293  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000006: Autocommit mode: false
+2016-05-26 23:33:17,597 293  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/homebrew]
+2016-05-26 23:33:17,597 293  [main] INFO  org.hibernate.service.jdbc.connections.internal.DriverManagerConnectionProviderImpl  - HHH000046: Connection properties: {user=root, password=****}
+2016-05-26 23:33:17,910 606  [main] INFO  org.hibernate.dialect.Dialect  - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2016-05-26 23:33:17,926 622  [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder  - HHH000423: Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2016-05-26 23:33:18,254 950  [main] INFO  org.hibernate.engine.transaction.internal.TransactionFactoryInitiator  - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2016-05-26 23:33:18,265 961  [main] INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory  - HHH000397: Using ASTQueryTranslatorFactory
+2016-05-26 23:33:19,674 2370 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:33:19,751 2447 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:33:19,818 2514 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:33:19,818 2514 [main] INFO  persistence.OrderDao  - entities.Order@de
+2016-05-26 23:33:20,300 2996 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:33:20,300 2996 [main] INFO  persistence.OrderDao  - entities.Order@df
+2016-05-26 23:33:20,574 3270 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:33:20,617 3313 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:33:20,651 3347 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:33:20,684 3380 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:33:20,684 3380 [main] INFO  persistence.OrderDao  - entities.Order@e0
+2016-05-26 23:33:21,091 3787 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:33:21,152 3848 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:33:21,275 3971 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:33:21,354 4050 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:33:21,355 4051 [main] INFO  persistence.OrderDao  - entities.Order@e1
+2016-05-26 23:33:21,618 4314 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:33:21,651 4347 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:33:21,694 4390 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:33:21,694 4390 [main] INFO  persistence.OrderDao  - entities.Order@e2
+2016-05-26 23:33:21,907 4603 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:33:21,952 4648 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:33:21,985 4681 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:33:21,985 4681 [main] INFO  persistence.OrderDao  - entities.Order@e3
+2016-05-26 23:33:22,196 4892 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:33:22,270 4966 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:33:22,318 5014 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:33:22,351 5047 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:33:22,351 5047 [main] INFO  persistence.OrderDao  - entities.Order@e4
+2016-05-26 23:33:22,729 5425 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:33:22,763 5459 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:33:22,795 5491 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:33:22,796 5492 [main] INFO  persistence.OrderDao  - entities.Order@e5
+2016-05-26 23:33:23,073 5769 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:33:23,074 5770 [main] INFO  persistence.OrderDao  - entities.Order@e6
+2016-05-26 23:33:23,340 6036 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:33:23,373 6069 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:33:23,407 6103 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:33:23,441 6137 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:33:23,441 6137 [main] INFO  persistence.OrderDao  - entities.Order@e7
+2016-05-26 23:33:23,663 6359 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:33:23,696 6392 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:33:23,729 6425 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:33:23,763 6459 [main] INFO  persistence.OrderDao  - class entities.OrderItem with id of 1 added to the database
+2016-05-26 23:33:23,763 6459 [main] INFO  persistence.OrderDao  - entities.Order@e8
