@@ -15,7 +15,7 @@ public class SessionFactoryProvider {
 
     public static void createSessionFactory() {
         Configuration configuration = new Configuration();
-        configuration.configure().addAnnotatedClass(Order.class).addAnnotatedClass(Asset.class).addAnnotatedClass(OrderItem.class).addAnnotatedClass(Member.class);
+        configuration.configure().addAnnotatedClass(Order.class).addAnnotatedClass(Asset.class).addAnnotatedClass(OrderItem.class).addAnnotatedClass(Member.class).addAnnotatedClass(MemberRole.class);
         ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
         sessionFactory = configuration.buildSessionFactory(serviceRegistry);
     }

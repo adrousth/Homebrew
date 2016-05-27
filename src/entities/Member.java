@@ -6,6 +6,7 @@ import org.hibernate.annotations.CascadeType;
 import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -16,7 +17,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "member")
-public class Member {
+public class Member implements Serializable{
     @Id
     @GeneratedValue
     @Column(name = "member_id")
@@ -32,6 +33,9 @@ public class Member {
     @Column(name = "password")
     private String password;
 
+    @OneToMany(mappedBy = "member", cascade = javax.persistence.CascadeType.ALL)
+    private Set<MemberRole> roles;
+
     @OneToMany(mappedBy = "member", fetch = FetchType.EAGER)
     private Set<Order> memberOrders;
 
@@ -39,6 +43,7 @@ public class Member {
 
     public Member() {
         memberOrders = new HashSet<>();
+        roles = new HashSet<>();
     }
 
     public int getMemberId() {
@@ -81,15 +86,15 @@ public class Member {
         this.phone = phone;
     }
 
-    public Set<Order> getOrders() {
+    public Set<Order> getMemberOrders() {
         return memberOrders;
     }
 
-    public void setOrders(Set<Order> memberOrders) {
+    public void setMemberOrders(Set<Order> memberOrders) {
         this.memberOrders = memberOrders;
     }
 
-    public void addOrder(Order order) {
+    public void addMemberOrder(Order order) {
         memberOrders.add(order);
     }
 
@@ -99,5 +104,27 @@ public class Member {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Set<MemberRole> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<MemberRole> roles) {
+        this.roles = roles;
+    }
+
+    public void addRole(MemberRole role) {
+        roles.add(role);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 }

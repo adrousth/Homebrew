@@ -1,12 +1,10 @@
 package persistence;
 
-import entities.Asset;
-import entities.Member;
-import entities.Order;
-import entities.OrderItem;
+import entities.*;
 import org.junit.Before;
 import org.junit.Test;
-import org.opensaml.xml.encryption.P;
+
+import java.util.List;
 
 import static org.junit.Assert.assertTrue;
 
@@ -121,8 +119,8 @@ public class Testing {
         dao.setType(Member.class);
         Member member = (Member) dao.getRecordById(7);
         System.out.println(member.getFirstName());
-        System.out.println(member.getOrders().size());
-        for (Order order1 : member.getOrders()) {
+        System.out.println(member.getMemberOrders().size());
+        for (Order order1 : member.getMemberOrders()) {
             System.out.println();
             for (OrderItem item :
                     order1.getOrderItems()) {
@@ -159,17 +157,37 @@ public class Testing {
         OrderItem item = new OrderItem();
         OrderItem item2 = new OrderItem();
 
-        item.setAssetId(asset1.getAssetId());
+        item.setAssetId(61);
         item.setQuantity((float) 7.2);
 
-        item2.setAssetId(asset2.getAssetId());
+        item2.setAssetId(62);
         item2.setQuantity((float) 0.9);
 
         order.addOrderItem(item);
         order.addOrderItem(item2);
-        order.setMemberId(7);
+        order.setMemberId(147);
 
         int i = orderDao.createNewOrder(order);
         System.out.println(i);
+    }
+
+    @Test
+    public void test7() {
+        dao = new DataAccessObject(Member.class);
+        Member member = (Member) dao.getRecordById(104);
+        MemberRole role = new MemberRole();
+        role.setEmail(member.getEmail());
+        role.setRole("MEMBER");
+        member.addRole(role);
+        dao.updateRecord(member);
+    }
+
+    @Test
+    public void test8() {
+        dao = new DataAccessObject(Asset.class);
+        List<Asset> hops = dao.searchNumberOfRecords(0, 1000, "type", "HOP");
+        List<Asset> grains = dao.searchNumberOfRecords(0, 1000, "type", "GRAIN");
+        System.out.println(hops.size());
+        System.out.println(grains.size());
     }
 }
