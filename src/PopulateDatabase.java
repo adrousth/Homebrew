@@ -82,7 +82,7 @@ public class PopulateDatabase {
             int numOrders = faker.number().numberBetween(0, 10);
             for (int i = 0; i < numOrders; i++) {
 
-                System.out.println();
+
                 if (faker.bool().bool()) {
                     order = createOrder(hops, "HOP");
                     order.setOrderStatus("filled");
@@ -96,7 +96,7 @@ public class PopulateDatabase {
                 orderDao.createNewOrder(order);
 
             }
-            System.out.println("Ending orders for " + member.getMemberId());
+
         }
 
     }
@@ -121,18 +121,12 @@ public class PopulateDatabase {
                 orderItem.setType(type);
                 order.addOrderItem(orderItem);
 
-
-                System.out.println(assetList.get(num).getAssetId() + " " + assetList.get(num).getType() + " " + assetList.get(num).getName());
-                System.out.println("Quantity " + orderItem.getQuantity());
-                total += orderItem.getQuantity();
-
             }
 
             assetList.remove(num);
             quantities.remove(num2);
 
         }
-        System.out.println("Total quantity for this order " + total);
         return order;
     }
 

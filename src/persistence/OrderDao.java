@@ -25,9 +25,7 @@ public class OrderDao extends DataAccessObject {
             for (OrderItem orderItem : order.getOrderItems()) {
                 orderItem.setOrderId(id);
                 id2 = addRecord(orderItem);
-                System.out.println(id2);
             }
-            log.info(order);
         } catch (HibernateException ex) {
             if (transaction!=null) transaction.rollback();
             log.error(ex);
