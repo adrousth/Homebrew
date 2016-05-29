@@ -1,9 +1,11 @@
 package servlets;
 
+import entities.Member;
 import entities.Results;
 import org.apache.catalina.authenticator.FormAuthenticator;
 import org.apache.catalina.connector.Request;
 import org.apache.catalina.connector.RequestFacade;
+import persistence.DataAccessObject;
 
 
 import javax.servlet.RequestDispatcher;
@@ -13,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.crypto.Data;
 import java.io.IOException;
 import java.security.Principal;
 import java.util.Enumeration;
@@ -47,7 +50,7 @@ public class LoginServlet extends BaseServlet {
 
     }
     /**
-     * Handles HTTP GET requests.
+     * Handles HTTP POST requests.
      *
      * @param request  the HttpServletRequest object
      * @param response the HttpServletResponse object
@@ -70,15 +73,22 @@ public class LoginServlet extends BaseServlet {
 
             Principal principal = request.getUserPrincipal();
             if (principal != null) {
-                results.addMessage("Now you need to get the user and have it set to the context in the login servlet, ok?");
-
+                DataAccessObject dao = (DataAccessObject) getServletContext().getAttribute("dao");
+                dao.setType(Member.class);
+                getServletContext().setAttribute("user", dao.getRecordByEmail(request.getRemoteUser()));
 
             }
         } catch (ServletException e) {
             results.setType("Login error");
             results.addMessage("invalid username and password");
+            results.setSuccess(false);
         }
         request.setAttribute("results", results);
+        if (request.isUserInRole("MEMBER")) {
+            content = "/member.jsp";
+        } else {
+            content = "/login.jsp";
+        }
         servletResponse(request, response);
 
     }

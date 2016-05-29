@@ -74,14 +74,26 @@ public class DataAccessObject<T> {
     public T getRecordById(int id) {
         T record;
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
-        record = (T) session.get(type, id);
+        record = type.cast(session.get(type, id));
         session.close();
         return record;
     }
 
-    public T getRecordByEmail(String email) {
+    public List<T> getRecords(String searchType, String searchValue) {
+        ArrayList<T> records;
         beginSession();
-        return (T) session.createCriteria(type).add(Restrictions.eq("email", email)).list().get(0);
+
+        records = (ArrayList<T>) session.createCriteria(type).add(Restrictions.like(searchType, "%" + searchValue + "%")).list();
+
+        return records;
+    }
+
+    public T getRecordByEmail(String email) {
+        T record;
+        Session session = SessionFactoryProvider.getSessionFactory().openSession();
+        record = type.cast(session.createCriteria(type).add(Restrictions.eq("email", email)).list().get(0));
+        session.close();
+        return record;
     }
 
     public List<T> searchNumberOfRecords(int firstResult, int numberOfResults, String searchType, String searchValue) {

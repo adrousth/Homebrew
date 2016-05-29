@@ -6,16 +6,18 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.Date;
+
 /**
  * @author Alex
  *         5/25/2016
  */
 public class OrderDao extends DataAccessObject {
+
     public int createNewOrder(Order order) {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Transaction transaction = null;
         int id = 0;
-        int id2 = 0;
         try {
             transaction = session.beginTransaction();
             id = (int) session.save(order);
@@ -24,7 +26,7 @@ public class OrderDao extends DataAccessObject {
             setType(OrderItem.class);
             for (OrderItem orderItem : order.getOrderItems()) {
                 orderItem.setOrderId(id);
-                id2 = addRecord(orderItem);
+                addRecord(orderItem);
             }
         } catch (HibernateException ex) {
             if (transaction!=null) transaction.rollback();
@@ -33,8 +35,11 @@ public class OrderDao extends DataAccessObject {
         } finally {
             session.close();
         }
-
-
         return id;
+    }
+
+    public void updateOrder(Order order) {
+        order.setUpdatedAt(new Date());
+        updateRecord(order);
     }
 }

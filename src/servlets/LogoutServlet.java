@@ -3,6 +3,8 @@ package servlets;
  * Created by Alex on 5/18/2016.
  */
 
+import entities.Results;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,16 +29,18 @@ public class LogoutServlet extends HttpServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String message = "";
 
+        Results results = new Results();
         if (request.getRemoteUser() == null) {
-            message += "not logged in";
+            results.setSuccess(false);
+            results.addMessage("not logged in");
         } else {
+            results.setSuccess(true);
             request.logout();
-            request.getSession().setAttribute("loggedIn", false);
-            message += "Logged out";
+            results.addMessage("Logged out");
+            getServletContext().setAttribute("user", null);
         }
-        request.setAttribute("message", message);
+        request.setAttribute("results", results);
         String url = "/index.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);

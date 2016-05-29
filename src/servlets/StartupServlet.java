@@ -2,6 +2,7 @@ package servlets;
 
 import entities.Member;
 import org.apache.catalina.deploy.LoginConfig;
+import persistence.DataAccessObject;
 import persistence.MemberDao;
 
 import javax.servlet.ServletContext;
@@ -26,7 +27,7 @@ public class StartupServlet extends HttpServlet {
 
     public void init() {
 
-        MemberDao dao = new MemberDao();
+        DataAccessObject dao = new DataAccessObject();
 
         ServletContext context = getServletContext();
 

@@ -5,6 +5,7 @@
     <link href="bootstrap/bootstrap-3.3.6-dist/css/bootstrap.css" rel="stylesheet">
     <link href="bootstrap/style.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="bootstrap/testing.js"></script>
     <script src="bootstrap/bootstrap-3.3.6-dist/js/bootstrap.js"></script>
 </head>
 <body>
@@ -41,10 +42,14 @@
             </li>
         </ul>
         <form class="navbar-form navbar-left">
-            <div class="form-group">
+            <div class="input-group">
                 <input class="form-control" type="text" placeholder="Search">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">submit</button>
+                </span>
             </div>
-            <button class="btn btn-default" type="submit">Submit</button>
+
+
         </form>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Link</a></li>
@@ -61,30 +66,98 @@
                 </ul>
             </div>
         <div class="center-block" id="form">
-            <form class="form-horizontal" action="/login" method="POST">
-                <h3 class="text-center">Sign In</h3>
+
+                <h3 class="text-center">Order Form</h3>
+                <p>plz enter quantities to the nearest 1/2 ounce</p>
+                <p>total must be less than or equal to 10 ounces</p>
                 <hr/>
                 <fieldset>
                     <div class="form-group">
-                        <label for="inputUserId" class="col-sm-3 control-label">User name</label>
-                        <div class="col-sm-8">
-                            <input class="form-control" id="inputUserId" placeholder="User name" type="text" name="username">
+                        <label for="hopOne" class="col-sm-3 control-label">Hop #1</label>
+                        <div class="col-sm-6">
+                            <select class="form-control" id="hopOne">
+                                <option>Millennium&ensp;&ensp;&ensp;&ensp;&ensp;~ qty in stock 10.0</option>
+                                <option>Sorachi Ace&ensp;&ensp;&ensp;&ensp; ~ qty in stock 216.0</option>
+                                <option>Brave&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;  ~ qty in stock 9.05</option>
+                                <option>Northern Brewer ~ qty in stock 18.6</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-3 input-group">
+                            <input class="form-control qty" id="hopOneQty" value="0.0" step="0.5" type="number" name="username" min="0.0" max="10.0">
+                            <div class="input-group-addon">oz</div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputPassword" class="col-sm-3 control-label">Password</label>
-                        <div class="col-sm-8">
-                            <input class="form-control" id="inputPassword" placeholder="Password" type="password" name="password">
+                        <label for="hopTwo" class="col-sm-3 control-label">Hop #2</label>
+                        <div class="col-sm-6">
+                            <select class="form-control" id="hopTwo">
+                                <option>Hop one</option>
+                                <option>Hop two</option>
+                                <option>Hop three</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-3 input-group">
+                            <input class="form-control qty" id="hopTwoQty" value="0.0" step="0.5" type="number" name="username" min="0.0" max="10.0">
+                            <div class="input-group-addon">oz</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="hopThree" class="col-sm-3 control-label">Hop #3</label>
+                        <div class="col-sm-6">
+                            <select class="form-control" id="hopThree">
+                                <option>Hop one</option>
+                                <option>Hop two</option>
+                                <option>Hop three</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-3 input-group">
+                            <input class="form-control qty" id="hopThreeQty" value="0.0" step="0.5" type="number" name="username" min="0.0" max="10.0">
+                            <div class="input-group-addon">oz</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="hopFour" class="col-sm-3 control-label">Hop #4</label>
+                        <div class="col-sm-6">
+                            <select class="form-control" id="hopFour">
+                                <option>Hop one</option>
+                                <option>Hop two</option>
+                                <option>Hop three</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-3 input-group">
+                            <input class="form-control qty" id="hopFourQty" value="0.0" step="0.5" type="number" name="username" min="0.0" max="10.0">
+                            <div class="input-group-addon">oz</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="hopFive" class="col-sm-3 control-label">Hop #5</label>
+                        <div class="col-sm-6">
+                            <select class="form-control" id="hopFive">
+                                <option>Hop one</option>
+                                <option>Hop two</option>
+                                <option>Hop three</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-3 input-group">
+                            <input class="form-control qty" id="hopFiveQty" value="0.0" step="0.5" type="number" name="username" min="0.0" max="10.0">
+                            <div class="input-group-addon">oz</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-sm-offset-6 control-label">Total</label>
+                        <div class="col-sm-3 input-group alert-danger">
+                            <input readonly="readonly" class="form-control" id="totalQty" type="text" value="0.0">
+                            <div class="input-group-addon">oz</div>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-3 col-sm-8">
-                            <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                            <button class="btn btn-primary btn-block">Place order</button>
                         </div>
                     </div>
 
                 </fieldset>
-            </form>
+
         </div>
     </div>
 </div>

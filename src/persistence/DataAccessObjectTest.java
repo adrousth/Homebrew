@@ -12,14 +12,14 @@ import static org.junit.Assert.*;
  *         5/21/2016
  */
 public class DataAccessObjectTest {
-    static DataAccessObject dao;
-    static Member testMember1;
-    static Member testMember2;
-    static Member testMember3;
-    static Member testMember4;
-    static Member testMember;
+    private static DataAccessObject dao;
+    private static Member testMember1;
+    private static Member testMember2;
+    private static Member testMember3;
+    private static Member testMember4;
+    private static Member testMember;
 
-    static int count;
+    private static int count;
 
     @Before
     public void startTest() {
@@ -99,7 +99,7 @@ public class DataAccessObjectTest {
     @Test
     public void searchNumberOfRecords() throws Exception {
         System.out.println("Testing searchNumberOfRecords");
-        List<Member> members = dao.searchNumberOfRecords(0, 5, "firstName", "Jo");
+        List<Member> members = dao.searchNumberOfRecords(0, 5, "firstName", "ar");
         System.out.println("got " + members.size() + " records");
         assertTrue(members.size() >= 2);
     }

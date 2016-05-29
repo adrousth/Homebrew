@@ -28,8 +28,13 @@ public class Order implements Serializable {
     private String orderStatus;
     @Column(name = "notes")
     private String notes;
-    @Column
+    @Column(name = "type")
     private String type;
+    @Column(name = "created_at")
+    private Date createdAt;
+    @Column(name = "updated_at")
+    private Date updatedAt;
+
 
     @ManyToOne
     @JoinColumn(name = "member_id", insertable = false, updatable = false, referencedColumnName = "member_id")
@@ -100,6 +105,22 @@ public class Order implements Serializable {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     @Override

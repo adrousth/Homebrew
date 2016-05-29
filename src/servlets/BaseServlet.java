@@ -30,6 +30,11 @@ public class BaseServlet extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
+    public void redirecting(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.sendRedirect(url);
+    }
+
 
 
 

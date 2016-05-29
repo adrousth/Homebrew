@@ -4,7 +4,9 @@ import persistence.DataAccessObject;
 import persistence.OrderDao;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author Alex
@@ -21,14 +23,21 @@ public class PopulateDatabase {
 
         // adding admin member
         Member member = new Member();
-        member.setFirstName("Example");
+        member.setFirstName("Admin");
         member.setLastName("Member");
         member.setEmail("hello@world.net");
         member.setPassword("foobar");
         member.addRole(new MemberRole(member.getEmail(), "MEMBER"));
         member.addRole(new MemberRole(member.getEmail(), "ADMIN"));
         member.addRole(new MemberRole(member.getEmail(), "HOP CZAR"));
+        dao.addRecord(member);
 
+        member = new Member();
+        member.setFirstName("Normal");
+        member.setLastName("Member");
+        member.setEmail("example@example.com");
+        member.setPassword("foobar");
+        member.addRole(new MemberRole(member.getEmail(), "MEMBER"));
         dao.addRecord(member);
 
         // adding 20 normal members
@@ -85,11 +94,11 @@ public class PopulateDatabase {
 
                 if (faker.bool().bool()) {
                     order = createOrder(hops, "HOP");
-                    order.setOrderStatus("filled");
+                    order.setOrderStatus("completed");
                     order.setType("HOP");
                 } else {
                     order = createOrder(grains, "GRAIN");
-                    order.setOrderStatus("filled");
+                    order.setOrderStatus("completed");
                     order.setType("GRAIN");
                 }
                 order.setMemberId(member.getMemberId());
@@ -108,7 +117,10 @@ public class PopulateDatabase {
         List<Asset> assetList = new ArrayList<>(assets);
         List<Float> quantities = getQuantities(numItems);
         numItems = quantities.size();
-        float total = 0;
+        Date dateOrdered = faker.date().past(360, TimeUnit.DAYS);
+        Date dateCompleted = faker.date().future(15, TimeUnit.DAYS, dateOrdered);
+        order.setCreatedAt(dateOrdered);
+        order.setUpdatedAt(dateCompleted);
         for (int x = 0; x < numItems; x++) {
 
             OrderItem orderItem = new OrderItem();

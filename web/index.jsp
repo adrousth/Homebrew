@@ -10,6 +10,7 @@
 <html>
 <head>
     <c:import url="head.jsp"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
 </head>
 <body>
 
