@@ -1,14 +1,21 @@
 package servlets;
 
 import entities.Asset;
+import entities.OrderResults;
+import entities.Results;
+import org.opensaml.xml.encryption.P;
 import persistence.DataAccessObject;
+import persistence.OrderDao;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * @author Alex
@@ -18,7 +25,7 @@ import java.util.ArrayList;
         name = "order-form",
         urlPatterns = { "/orderForm" }
 )
-public class HopOrderServlet extends BaseServlet {
+public class OrderServlet extends BaseServlet {
     /**
      * Handles HTTP GET requests.
      *
@@ -48,17 +55,23 @@ public class HopOrderServlet extends BaseServlet {
      */
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ArrayList<String> hops = new ArrayList<>();
+        OrderResults results = new OrderResults();
+        OrderDao orderDao = (OrderDao) getServletContext().getAttribute("orderDao");
+        Map<String, String> orderItems = new TreeMap<>();
         for (int i = 0; i < 5; i++) {
-            hops.add(request.getParameter("hop" + (i + 1)));
+            if (!orderItems.containsKey(request.getParameter("hop" + (i + 1))) ||request.getParameter("hop" + (i + 1)).equals("")) {
+                orderItems.put(request.getParameter("hop" + (i + 1)), request.getParameter("hop" + (i + 1) + "Qty"));
+            } else {
+                results.setSuccess(false);
+                results.addMessage("Please do not select a hop more than once");
+                request.setAttribute("results", results);
+                doGet(request, response);
+            }
         }
-        ArrayList<String> qty = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
-            qty.add(request.getParameter("hop" + (i + 1) + "Qty"));
-        }
-        for (int i = 0; i < 5; i++) {
-            System.out.println(hops.get(i) + " " + qty.get(i) + " ounces");
-        }
+        results = orderDao.orderFromWebForm(orderItems, request.getRemoteUser(), "HOP");
+
+        request.setAttribute("results", results);
+
         doGet(request, response);
     }
 

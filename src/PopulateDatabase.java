@@ -72,7 +72,8 @@ public class PopulateDatabase {
                 asset.setName(faker.beer().malt());
             }
             asset.setDescription(faker.lorem().paragraph(2));
-            asset.setCurrentStock(faker.number().numberBetween(50, 200) / (float) 10);
+            asset.setCurrentStock((float) ((Math.round(2 * faker.number().numberBetween(40, 150) / (float) 10)) / 2.0));
+
             dao.addRecord(asset);
         }
     }
@@ -183,7 +184,7 @@ public class PopulateDatabase {
     private void run() {
         faker = new Faker();
         //createMembers();
-        //createAssets();
+        createAssets();
         createOrders();
 
     }

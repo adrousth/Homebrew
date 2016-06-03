@@ -8,6 +8,12 @@
     margin-top: 20px;
     padding: 3px;
 }
+.popover {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+
+}
 
 
 .center-block {

@@ -14,7 +14,7 @@
                         <ul class="dropdown-menu">
                             <li><a href="/member">Profile</a></li>
                             <li><a href="#">Settings</a></li>
-                            <li><a href="#">Orders</a></li>
+                            <li><a href="/orderForm">Orders</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="/logout">Log out</a></li>
                         </ul>

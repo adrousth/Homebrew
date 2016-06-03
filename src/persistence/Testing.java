@@ -4,7 +4,7 @@ import entities.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.List;
+import java.util.*;
 
 import static org.junit.Assert.assertTrue;
 
@@ -35,7 +35,7 @@ public class Testing {
         asset2.setName("Mr. Hop");
         asset2.setType("Hop");
         asset2.setDescription("Married to Mrs. Hop");
-        order = (Order) dao.getRecordById(11);
+
     }
 
     @Test
@@ -76,27 +76,7 @@ public class Testing {
 
     }
 
-    @Test
-    public void test3() {
-        dao = new DataAccessObject(Order.class);
-        Order order2 = new Order();
-        order2.setMemberId(5);
-        order2.setOrderStatus("unfilled");
 
-        OrderItem item = new OrderItem();
-        item.setAssetId(asset1.getAssetId());
-        item.setOrderId(order2.getOrderId());
-        item.setQuantity((float) 7.2);
-        order2.addOrderItem(item);
-
-
-        OrderItem item2 = new OrderItem();
-        item2.setAssetId(asset2.getAssetId());
-        item2.setOrderId(order2.getOrderId());
-        item2.setQuantity((float) 0.9);
-        order2.addOrderItem(item2);
-        dao.updateRecord(order2);
-    }
 
     @Test
     public void test4() {
@@ -105,10 +85,10 @@ public class Testing {
 
         assertTrue(order2.getOrderItems().size() > 0);
         for (OrderItem item: order2.getOrderItems()) {
-            System.out.println(item.getOrderId());
+            System.out.println(item.getOrder().getOrderId());
             System.out.println(item.getAssetId());
             System.out.println(item.getQuantity());
-            System.out.println(item.getItem().getName());
+            System.out.println(item.getAsset().getName());
             System.out.println(item.getOrder().getOrderStatus());
             System.out.println();
         }
@@ -124,7 +104,7 @@ public class Testing {
             System.out.println();
             for (OrderItem item :
                     order1.getOrderItems()) {
-                System.out.println(item.getOrderId() + " " + item.getAssetId());
+                System.out.println(item.getOrder().getOrderId() + " " + item.getAssetId());
             }
 
         }
@@ -151,21 +131,28 @@ public class Testing {
 
     @Test
     public void test6() {
+
         OrderDao orderDao = new OrderDao();
         Order order = new Order();
-
+        dao = new DataAccessObject(Asset.class);
         OrderItem item = new OrderItem();
         OrderItem item2 = new OrderItem();
+        OrderItem item3 = new OrderItem();
+        item.setAsset((Asset) dao.getRecordById(367));
+        item2.setAsset((Asset) dao.getRecordById(370));
+        item3.setAsset((Asset) dao.getRecordById(377));
 
-        item.setAssetId(61);
-        item.setQuantity((float) 7.2);
-
-        item2.setAssetId(62);
-        item2.setQuantity((float) 0.9);
+        item.setQuantity((float) 7.0);
+        item.setOrder(order);
+        item2.setQuantity((float) 1.0);
+        item2.setOrder(order);
+        item3.setQuantity((float) 0.5);
+        item3.setOrder(order);
 
         order.addOrderItem(item);
         order.addOrderItem(item2);
-        order.setMemberId(147);
+        order.addOrderItem(item3);
+        order.setMemberId(187);
 
         int i = orderDao.createNewOrder(order);
         System.out.println(i);
@@ -189,5 +176,72 @@ public class Testing {
         List<Asset> grains = dao.searchNumberOfRecords(0, 1000, "type", "GRAIN");
         System.out.println(hops.size());
         System.out.println(grains.size());
+    }
+
+    @Test
+    public void test9() {
+        dao = new DataAccessObject(Asset.class);
+        Set<Integer> stringSet = new TreeSet<>();
+
+        stringSet.add(165);
+        stringSet.add(166);
+        stringSet.add(174);
+        stringSet.add(180);
+
+        List<Asset> assets = dao.getRecordsByParam("assetId", stringSet);
+        System.out.println(assets.size());
+    }
+
+    @Test
+    public void test10() {
+        OrderDao orderDao = new OrderDao();
+        Map<String, String> webOrder = new TreeMap<>();
+        webOrder.put("", "");
+
+        webOrder.put("366", "2.0");
+        webOrder.put("367", "1.0");
+
+        OrderResults results = orderDao.orderFromWebForm(webOrder, "hello@world.net", "HOP");
+        System.out.println(results.isSuccess());
+        System.out.println(results.getType());
+        for (String message: results.getMessages()) {
+            System.out.println(message);
+        }
+        System.out.println();
+        for (OrderItem item: results.getOrder().getOrderItems()) {
+            System.out.println();
+            System.out.println(item.getAssetId() + " " + item.getOrder().getOrderId() + " " + item.getQuantity());
+        }
+
+
+
+    }
+
+    @Test
+    public void test11() {
+        Order order = new Order();
+        dao = new DataAccessObject(Asset.class);
+
+        OrderItem item = new OrderItem();
+        OrderItem item2 = new OrderItem();
+        OrderItem item3 = new OrderItem();
+
+        item.setAssetId(366);
+        item2.setAssetId(370);
+        item3.setAssetId(377);
+
+        item.setQuantity((float) 7.0);
+        item2.setQuantity((float) 1.0);
+        item3.setQuantity((float) 0.5);
+
+        order.addOrderItem(item);
+        order.addOrderItem(item2);
+        order.addOrderItem(item3);
+        order.setMemberId(187);
+
+        dao.setType(Order.class);
+        int i = dao.addRecord(order);
+
+        System.out.println(i);
     }
 }

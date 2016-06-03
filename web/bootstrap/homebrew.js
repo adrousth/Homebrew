@@ -18,7 +18,6 @@ function getTotalQty() {
     });
     if (value > 10) {
         if (!$('.popover').hasClass('in')) {
-            $("input.qty").addClass("alert-danger");
             total.addClass("alert-danger");
             total.popover({content: "Total can not be greater than 10oz", trigger: "manual", placement: "bottom"});
             total.popover("show");
@@ -28,12 +27,9 @@ function getTotalQty() {
     } else {
 
         if ($('.popover').hasClass('in')) {
-            $("input.qty").removeClass("alert-danger");
             total.removeClass("alert-danger");
             $('[data-toggle="popover"]').popover("hide");
         }
     }
     total.text(value);
-    $('#hiddenQty').val(value);
 }
-

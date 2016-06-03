@@ -2,7 +2,6 @@ package entities;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
-import org.hibernate.annotations.ForeignKey;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -13,16 +12,11 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "order_item")
-public class OrderItem implements Serializable {
-
+public class OrderItem implements Serializable, Comparable  {
 
     @Id
     @Column(name = "asset_id")
     private int assetId;
-
-    @Id
-    @Column(name = "order_id")
-    private int orderId;
 
     @Column(name = "quantity")
     private float quantity;
@@ -31,21 +25,24 @@ public class OrderItem implements Serializable {
     private String type;
 
     @ManyToOne
-    @JoinColumn(name = "order_id", insertable = false, updatable = false, referencedColumnName = "order_id")
+    @JoinColumn(name = "order_id")
     private Order order;
 
     @ManyToOne
     @JoinColumn(name = "asset_id", insertable = false, updatable = false, referencedColumnName = "asset_id")
-    private Asset item;
+    private Asset asset;
 
+    public OrderItem() {
 
-    public int getOrderId() {
-        return orderId;
     }
 
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
+    public OrderItem(Asset asset, float quantity, String type) {
+        this.asset = asset;
+        this.assetId = asset.getAssetId();
+        this.quantity = quantity;
+        this.type = type;
     }
+
     public int getAssetId() {
         return assetId;
     }
@@ -54,12 +51,12 @@ public class OrderItem implements Serializable {
         this.assetId = assetId;
     }
 
-    public Asset getItem() {
-        return item;
+    public Asset getAsset() {
+        return asset;
     }
 
-    public void setItem(Asset item) {
-        this.item = item;
+    public void setAsset(Asset asset) {
+        this.asset = asset;
     }
 
     public Order getOrder() {
@@ -88,7 +85,7 @@ public class OrderItem implements Serializable {
 
     @Override
     public int hashCode() {
-        return new HashCodeBuilder(17, 37).append(orderId).append(assetId).toHashCode();
+        return new HashCodeBuilder(17, 37).append(assetId).toHashCode();
     }
 
     @Override
@@ -101,7 +98,19 @@ public class OrderItem implements Serializable {
         OrderItem that = (OrderItem) obj;
         return new EqualsBuilder()
                 .append(assetId, that.getAssetId())
-                .append(orderId, that.getOrderId())
                 .isEquals();
+    }
+
+
+    @Override
+    public int compareTo(Object o) {
+        if (assetId == ((OrderItem)o).getAssetId()) {
+            return 0;
+        } else if (assetId > ((OrderItem)o).getAssetId()) {
+            return 1;
+        } else {
+            return -1;
+        }
+
     }
 }

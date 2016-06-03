@@ -24,7 +24,7 @@ public class Asset {
     @Column(name = "type")
     private String type;
 
-    @OneToMany(mappedBy = "item", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "asset")
     private Set<OrderItem> orderItems;
 
     public Asset() {

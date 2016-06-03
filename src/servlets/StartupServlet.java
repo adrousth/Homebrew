@@ -4,6 +4,7 @@ import entities.Member;
 import org.apache.catalina.deploy.LoginConfig;
 import persistence.DataAccessObject;
 import persistence.MemberDao;
+import persistence.OrderDao;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -28,9 +29,11 @@ public class StartupServlet extends HttpServlet {
     public void init() {
 
         DataAccessObject dao = new DataAccessObject();
+        OrderDao orderDao = new OrderDao();
 
         ServletContext context = getServletContext();
 
+        context.setAttribute("orderDao", orderDao);
         context.setAttribute("dao", dao);
         context.setAttribute("stuff", "stuff");
         context.setAttribute("pageContent", "/home.jsp");

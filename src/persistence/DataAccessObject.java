@@ -6,12 +6,10 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
-import org.hibernate.sql.ordering.antlr.Factory;
 
-import javax.xml.crypto.Data;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author Alex
@@ -48,14 +46,12 @@ public class DataAccessObject<T> {
 
         try {
             transaction = session.beginTransaction();
-            try {
-                objectId = (int) session.save(newRecord.getClass().getName(), newRecord);
-            } catch (ClassCastException e) {
-                session.save(newRecord.getClass().getName(), newRecord);
-                objectId = 1;
-            }
-            transaction.commit();
+
+            session.persist(newRecord.getClass().getName(), newRecord);
             log.info(newRecord.getClass().toString() + " with id of " + objectId + " added to the database");
+
+            transaction.commit();
+            objectId = 1;
         } catch (HibernateException ex) {
             if (transaction!=null) transaction.rollback();
             objectId = -1;
@@ -69,6 +65,31 @@ public class DataAccessObject<T> {
         }
 
         return objectId;
+    }
+
+    public boolean persistRecord(T newRecord) {
+        beginSession();
+        Transaction transaction = null;
+        boolean success = false;
+
+        try {
+            transaction = session.beginTransaction();
+
+            session.persist(newRecord.getClass().getName(), newRecord);
+            transaction.commit();
+            success = true;
+        } catch (HibernateException ex) {
+            if (transaction!=null) transaction.rollback();
+            log.error(ex);
+        } finally {
+            try {
+                session.close();
+            } catch (HibernateException ex) {
+                log.error(ex);
+            }
+        }
+
+    return success;
     }
 
     public T getRecordById(int id) {
@@ -131,25 +152,6 @@ public class DataAccessObject<T> {
         } finally {
             session.close();
         }
-        /*
-        Session session = SessionFactoryProvider.getSessionFactory().openSession();
-        Transaction tx = null;
-        int i = 0;
-        try {
-            tx = session.beginTransaction();
-            session.update("Book", book);
-            tx.commit();
-            log.info("Book with: " + book.getIsbn() + " updated");
-            i = 1;
-        } catch (HibernateException e) {
-            if (tx!=null) tx.rollback();
-            log.error(e);
-            i = -1;
-        } finally {
-            session.close();
-        }
-        return i;
-         */
     }
 
     public void deleteRecord(T record) {
@@ -178,5 +180,14 @@ public class DataAccessObject<T> {
         session = factory.openSession();
     }
 
+    public List<T> getRecordsByParam(String param, Set<Object> ids) {
+        ArrayList<T> records;
+        Session session = SessionFactoryProvider.getSessionFactory().openSession();
+
+        records = (ArrayList<T>) session.createCriteria(type).add(Restrictions.in(param, ids)).list();
+
+        return records;
+
+    }
 
 }

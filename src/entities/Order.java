@@ -3,6 +3,7 @@ package entities;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.openjpa.persistence.jdbc.ElementColumn;
+import org.hibernate.Hibernate;
 import org.hibernate.annotations.*;
 
 import javax.persistence.*;
@@ -40,8 +41,9 @@ public class Order implements Serializable {
     @JoinColumn(name = "member_id", insertable = false, updatable = false, referencedColumnName = "member_id")
     private Member member;
 
-    @OneToMany(mappedBy = "order", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "order", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<OrderItem> orderItems;
+
 
     public Order() {
         orderItems = new HashSet<>();
@@ -89,6 +91,7 @@ public class Order implements Serializable {
 
     public void addOrderItem(OrderItem item) {
         orderItems.add(item);
+        item.setOrder(this);
     }
 
     public Member getMember() {
@@ -139,5 +142,6 @@ public class Order implements Serializable {
         return new EqualsBuilder()
                 .append(orderId, that.getOrderId())
                 .isEquals();
+
     }
 }
