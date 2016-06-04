@@ -1,6 +1,4 @@
-package servlets;/**
- * Created by Alex on 5/18/2016.
- */
+package servlets;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,11 +6,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * @author Alex
+ *         6/4/2016
+ */
 @WebServlet(
-        name = "member}",
-        urlPatterns = {"/member"}
+        name = "about",
+        urlPatterns = {"/about"}
 )
-public class MemberServlet extends BaseServlet {
+public class AboutServlet extends BaseServlet {
+
     /**
      * Handles HTTP GET requests.
      *
@@ -23,9 +26,9 @@ public class MemberServlet extends BaseServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        title = "Member Home";
-        content = "/member/member.jsp";
+        content = "/about.jsp";
+        title = "About";
+
         servletResponse(request, response);
     }
-
 }

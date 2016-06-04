@@ -1,7 +1,7 @@
 package entities;
 
-import org.hibernate.annotations.*;
-import org.hibernate.annotations.CascadeType;
+
+
 
 import javax.persistence.*;
 import javax.persistence.Entity;
@@ -33,7 +33,7 @@ public class Member implements Serializable{
     @Column(name = "password")
     private String password;
 
-    @OneToMany(mappedBy = "member", cascade = javax.persistence.CascadeType.ALL)
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<MemberRole> roles;
 
     @OneToMany(mappedBy = "member", fetch = FetchType.EAGER)
@@ -116,6 +116,16 @@ public class Member implements Serializable{
 
     public void addRole(MemberRole role) {
         roles.add(role);
+    }
+
+    public boolean containsRole(String roleType) {
+        for (MemberRole role: roles) {
+            if (role.getRole().equals(roleType)) {
+                return true;
+            }
+        }
+        return false;
+
     }
 
     @Override

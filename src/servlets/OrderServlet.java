@@ -36,7 +36,7 @@ public class OrderServlet extends BaseServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        content = "/orderForm.jsp";
+        content = "/member/orderForm.jsp";
         title = "Order Form";
         DataAccessObject dao = (DataAccessObject) getServletContext().getAttribute("dao");
         dao.setType(Asset.class);

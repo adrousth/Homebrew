@@ -11,7 +11,7 @@ import java.io.IOException;
  * 5/18/2016
  */
 @WebServlet(
-        name = "admin}",
+        name = "admin",
         urlPatterns = {"/admin"}
 )
 public class AdminServlet extends BaseServlet {

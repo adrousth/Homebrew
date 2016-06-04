@@ -2,8 +2,8 @@
 <div class="navbar col-lg-3 col-md-3 col-sm-3 navbar-default" role="navigation">
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
+            <li><a href="${pageContext.request.contextPath}/">Home</a></li>
+            <li><a href="${pageContext.request.contextPath}/about">About</a></li>
             <c:choose>
                 <c:when test="${user == null}">
                     <li><a href="/login">Log in</a></li>
@@ -14,13 +14,24 @@
                         <ul class="dropdown-menu">
                             <li><a href="/member">Profile</a></li>
                             <li><a href="#">Settings</a></li>
-                            <li><a href="/orderForm">Orders</a></li>
+                            <li><a>Order</a></li>
+                            <li><a href="/member/orderForm?form=hops"> - Hops</a></li>
+                            <li><a href="/member/orderForm?form=grains"> - Grains</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="/logout">Log out</a></li>
                         </ul>
                     </li>
                 </c:otherwise>
             </c:choose>
+            <li class="dropdown">
+                <a class="dropdown-toggle" href="#" data-toggle="dropdown">Members <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Beer School</a></li>
+                    <li><a href="#">Club Directory</a></li>
+                    <li><a href="#">Member Benefits</a></li>
+                    <li><a href="#">Photo Gallery</a></li>
+                </ul>
+            </li>
         </ul>
         <form class="navbar-form navbar-left">
             <div class="input-group">
@@ -31,7 +42,9 @@
             </div>
         </form>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Link</a></li>
+            <li><a href="#">Calendar</a></li>
+            <li><a href="#">Contact us</a></li>
+            <li><a href="#">Great Taste of the Midwest</a></li>
         </ul>
     </div>
 </div>

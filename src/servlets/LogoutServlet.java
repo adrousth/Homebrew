@@ -33,11 +33,11 @@ public class LogoutServlet extends HttpServlet {
         Results results = new Results();
         if (request.getRemoteUser() == null) {
             results.setSuccess(false);
-            results.addMessage("not logged in");
+            results.setType("not logged in");
         } else {
             results.setSuccess(true);
             request.logout();
-            results.addMessage("Logged out");
+            results.setType("Logged out");
             getServletContext().setAttribute("user", null);
         }
         request.setAttribute("results", results);

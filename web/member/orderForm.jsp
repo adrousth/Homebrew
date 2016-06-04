@@ -16,9 +16,7 @@
                         <select class="form-control" id="hop${number}" name="hop${number}">
                             <option value="">SELECTION #${number}</option>
                             <c:forEach var="hop" items="${hops}">
-                                <option value="${hop.assetId}"
-                                <c:if test="${results.orderItems[number - 1].assetId == hop.assetId}">selected="selected"</c:if>
-                                >
+                                <option value="${hop.assetId}" <c:if test="${results.orderItems[number - 1].assetId == hop.assetId}">selected="selected"</c:if>>
                                     ${hop.name} --
                                     <c:choose>
                                         <c:when test="${hop.currentStock == 0}">

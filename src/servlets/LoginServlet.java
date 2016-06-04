@@ -73,9 +73,10 @@ public class LoginServlet extends BaseServlet {
 
             Principal principal = request.getUserPrincipal();
             if (principal != null) {
+                String user = request.getRemoteUser();
                 DataAccessObject dao = (DataAccessObject) getServletContext().getAttribute("dao");
                 dao.setType(Member.class);
-                getServletContext().setAttribute("user", dao.getRecordByEmail(request.getRemoteUser()));
+                getServletContext().setAttribute("user", dao.getRecordByEmail(user));
 
             }
         } catch (ServletException e) {
@@ -85,12 +86,14 @@ public class LoginServlet extends BaseServlet {
         }
         request.setAttribute("results", results);
         if (request.isUserInRole("MEMBER")) {
-            content = "/member.jsp";
+            url = "/member";
         } else {
-            content = "/login.jsp";
+            url = "/";
         }
-        servletResponse(request, response);
-
+        request.getRequestURI();
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
+        
+        dispatcher.forward(request, response);
     }
 
 
