@@ -41,11 +41,13 @@ public class LoginServlet extends BaseServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        title = "Login";
-        content = "/login.jsp";
-
-
-        servletResponse(request, response);
+        if (request.getUserPrincipal() == null) {
+            title = "Login";
+            content = "/login.jsp";
+            servletResponse(request, response);
+        } else {
+            response.sendRedirect("/member");
+        }
 
 
     }
@@ -90,45 +92,9 @@ public class LoginServlet extends BaseServlet {
         } else {
             url = "/";
         }
-        request.getRequestURI();
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
-        
-        dispatcher.forward(request, response);
+        getServletContext().setAttribute("results", results);
+        response.sendRedirect(url);
+
     }
-
-
-    /*
-     public void login() throws IOException {
-        FacesContext context = FacesContext.getCurrentInstance();
-        ExternalContext externalContext = context.getExternalContext();
-        HttpServletRequest request = (HttpServletRequest) externalContext.getRequest();
-
-        try {
-            request.login(username, password);
-            User user = userService.find(username, password);
-            externalContext.getSessionMap().put("user", user);
-            externalContext.redirect(originalURL);
-        } catch (ServletException e) {
-            // Handle unknown username/password in request.login().
-            context.addMessage(null, new FacesMessage("Unknown login"));
-        }
-    }
-
-    public void logout() throws IOException {
-        ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
-        externalContext.invalidateSession();
-        externalContext.redirect(externalContext.getRequestContextPath() + "/login.xhtml");
-    }
-
-    public User getUser() {
-        if (user == null) {
-            Principal principal = FacesContext.getCurrentInstance().getExternalContext().getUserPrincipal();
-            if (principal != null) {
-                user = userService.find(principal.getName()); // Find User by j_username.
-            }
-        }
-        return user;
-    }
-    */
 
 }

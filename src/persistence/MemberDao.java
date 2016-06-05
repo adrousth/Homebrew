@@ -14,7 +14,7 @@ import java.util.ArrayList;
 /**
  * Created by Alex on 4/7/2016.
  */
-public class MemberDao extends DataAccessObject{
+public class MemberDao extends DataAccessObject {
 
 
     public Member getMemberByEmail(String email) {

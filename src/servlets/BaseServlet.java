@@ -38,7 +38,10 @@ public class BaseServlet extends HttpServlet {
     }
 
 
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-
-
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
+        dispatcher.forward(request, response);
+    }
 }

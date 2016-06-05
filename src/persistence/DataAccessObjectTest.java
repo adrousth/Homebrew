@@ -35,7 +35,8 @@ public class DataAccessObjectTest {
 
     @BeforeClass
     public static void setup() {
-        dao = new DataAccessObject(Member.class);
+
+        dao = new DataAccessObject<Member>();
         count = 0;
         testMember = new Member();
         testMember1 = new Member();

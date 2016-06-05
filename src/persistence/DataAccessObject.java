@@ -190,4 +190,24 @@ public class DataAccessObject<T> {
 
     }
 
+    public boolean addOrUpdateRecord(T record) {
+        Session session = SessionFactoryProvider.getSessionFactory().openSession();
+        Transaction transaction = null;
+        boolean success = false;
+        try {
+            transaction = session.beginTransaction();
+            session.saveOrUpdate(type.getName(), record);
+            transaction.commit();
+            success = true;
+            log.info(record.getClass().getName() + " updated");
+        } catch (HibernateException ex) {
+            if (transaction!=null) transaction.rollback();
+            log.error(ex);
+        } finally {
+            session.close();
+        }
+
+        return success;
+    }
+
 }

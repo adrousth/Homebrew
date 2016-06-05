@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="center-block" id="form">
-    <form class="form-horizontal" action="/orderForm" method="POST">
+    <form class="form-horizontal" action="${pageContext.request.contextPath}/member/orderForm" method="POST">
         <h3 class="text-center">Hop Order Form</h3>
         <ul>
             <li>Quantities must be to the nearest 1/2 ounce</li>
@@ -30,7 +30,7 @@
                             </c:forEach>
                         </select>
                     </div>
-                    <div class="col-sm-3 input-group">
+                    <div    class="col-sm-3 input-group">
                         <c:set var="itemQuantity" value="0.0"/>
                         <c:if test="${not empty results.orderItems[number - 1]}">
                             <c:set var="itemQuantity" value="${results.orderItems[number - 1].quantity}"/>

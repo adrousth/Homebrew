@@ -14,3 +14,5 @@
         </c:forEach>
     </ul>
 </div>
+<c:set var="results" value=""/>
+<c:remove var="results"/>

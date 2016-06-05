@@ -23,7 +23,7 @@ import java.util.TreeMap;
  */
 @WebServlet(
         name = "order-form",
-        urlPatterns = { "/orderForm" }
+        urlPatterns = { "/member/orderForm" }
 )
 public class OrderServlet extends BaseServlet {
     /**
