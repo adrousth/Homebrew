@@ -49,6 +49,12 @@
                 </div>
             </div>
             <div class="form-group">
+                <label for="notes" class="col-sm-3 control-label">Notes</label>
+                <div class="col-sm-9">
+                    <textarea class="form-control" id="notes" name="notes" rows="3" placeholder="Notes">${results.notes}</textarea>
+                </div>
+            </div>
+            <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-8">
                     <button type="submit" class="btn btn-primary btn-block">Place order</button>
                 </div>

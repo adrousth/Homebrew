@@ -7,9 +7,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author Alex
@@ -208,6 +206,16 @@ public class DataAccessObject<T> {
         }
 
         return success;
+    }
+
+    public List<T> searchMultipleParams(Map searchParams) {
+        ArrayList<T> records;
+        beginSession();
+
+        records = (ArrayList<T>) session.createCriteria(type).add(Restrictions.allEq(searchParams)).list();
+
+
+        return records;
     }
 
 }

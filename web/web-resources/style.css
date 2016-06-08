@@ -1,7 +1,3 @@
-#dropdown-menu {
-
-}
-
 .navbar {
     padding: 0px;
 }
@@ -21,7 +17,6 @@
 
 
 .center-block {
-
     margin-left: auto;
     margin-right: auto;
 }
@@ -35,8 +30,27 @@
     max-width: 1000px;
     min-width: 600px;
 }
+
+table {
+    max-width: 1000px;
+    min-width: 600px;
+    table-layout: fixed;
+}
+
 td {
-    width: 50%;
+
+    min-width: 200px;
+}
+
+li.row:before,
+li.row:after {
+    margin-bottom: 2px;
+    display: block;
+
+}
+
+li.divider-line hr {
+    margin: 8px;
 }
 
 .float-left {

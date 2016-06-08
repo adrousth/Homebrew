@@ -8,7 +8,7 @@
             <div class="form-group">
                 <label for="inputUserId" class="col-sm-3 control-label">User name</label>
                 <div class="col-sm-8">
-                    <input class="form-control" id="inputUserId" placeholder="User name" type="text" name="username">
+                    <input class="form-control" id="inputUserId" placeholder="User name" type="text" name="username" autofocus="autofocus">
                 </div>
             </div>
             <div class="form-group">

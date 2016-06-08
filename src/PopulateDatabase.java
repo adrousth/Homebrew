@@ -3,9 +3,7 @@ import entities.*;
 import persistence.DataAccessObject;
 import persistence.OrderDao;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -80,7 +78,7 @@ public class PopulateDatabase {
 
     private void createOrders() {
         dao = new DataAccessObject(Member.class);
-        List<Member> members = dao.getNumberOfRecords(1,3);
+        Set<Member> members = new TreeSet<>(dao.getNumberOfRecords(4,10));
 
         dao.setType(Asset.class);
         List<Asset> hops = dao.searchNumberOfRecords(0,10,"type","HOP");
@@ -89,26 +87,26 @@ public class PopulateDatabase {
         Order order;
         OrderDao orderDao = new OrderDao();
         for (Member member: members) {
-            int numOrders = faker.number().numberBetween(0, 10);
+            int numOrders = faker.number().numberBetween(3, 6);
             for (int i = 0; i < numOrders; i++) {
 
 
                 if (faker.bool().bool()) {
                     order = createOrder(hops, "HOP");
-                    order.setOrderStatus("completed");
+                    order.setOrderStatus("unfilled");
                     order.setType("HOP");
+                    order.setNotes(faker.lorem().paragraph());
                 } else {
                     order = createOrder(grains, "GRAIN");
-                    order.setOrderStatus("completed");
+                    order.setOrderStatus("unfilled");
                     order.setType("GRAIN");
+                    order.setNotes(faker.lorem().paragraph());
                 }
                 order.setMemberId(member.getMemberId());
                 orderDao.createNewOrder(order);
 
             }
-
         }
-
     }
 
     public Order createOrder(List<Asset> assets, String type) {
@@ -184,7 +182,7 @@ public class PopulateDatabase {
     private void run() {
         faker = new Faker();
         //createMembers();
-        createAssets();
+        //createAssets();
         createOrders();
 
     }

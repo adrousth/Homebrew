@@ -38,11 +38,10 @@ public class LogoutServlet extends HttpServlet {
             results.setSuccess(true);
             request.logout();
             results.setType("Logged out");
-            getServletContext().setAttribute("user", null);
+            request.getSession().setAttribute("user", null);
         }
-        request.setAttribute("results", results);
-        String url = "/index.jsp";
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
-        dispatcher.forward(request, response);
+
+        getServletContext().setAttribute("results", results);
+        response.sendRedirect("/");
     }
 }

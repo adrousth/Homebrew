@@ -24,18 +24,6 @@ public class Testing {
     @Before
     public void setup() {
         dao = new DataAccessObject(Order.class);
-        asset1 = new Asset();
-        asset1.setAssetId(1);
-        asset1.setName("Hopalisucus");
-        asset1.setType("Hop");
-        asset1.setDescription("very hoppy");
-
-        asset2 = new Asset();
-        asset2.setAssetId(5);
-        asset2.setName("Mr. Hop");
-        asset2.setType("Hop");
-        asset2.setDescription("Married to Mrs. Hop");
-
     }
 
     @Test
@@ -201,7 +189,7 @@ public class Testing {
         webOrder.put("366", "2.0");
         webOrder.put("367", "1.0");
 
-        OrderResults results = orderDao.orderFromWebForm(webOrder, "hello@world.net", "HOP");
+        OrderResults results = orderDao.orderFromWebForm(webOrder, "hello@world.net", "HOP", "notes");
         System.out.println(results.isSuccess());
         System.out.println(results.getType());
         for (String message: results.getMessages()) {
@@ -243,5 +231,23 @@ public class Testing {
         int i = dao.addRecord(order);
 
         System.out.println(i);
+    }
+
+    @Test
+    public void test12() {
+        Map<String, String> map = new TreeMap<>();
+        map.put("type", "HOP");
+
+        DataAccessObject<Order> dao = new DataAccessObject<>();
+
+        dao.setType(Order.class);
+        Set<Order> orders = new TreeSet<>(dao.searchMultipleParams(map));
+
+        for (Order order: orders) {
+            System.out.println(order.getOrderId() + " " + order.getOrderStatus() + " " + order.getType());
+            System.out.println();
+        }
+
+
     }
 }

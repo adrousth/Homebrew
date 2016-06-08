@@ -6,17 +6,18 @@
             <li><a href="${pageContext.request.contextPath}/about">About</a></li>
             <c:choose>
                 <c:when test="${user == null}">
-                    <li><a href="/login">Log in</a></li>
+                    <li><a href="${pageContext.request.contextPath}/login">Log in</a></li>
                 </c:when>
                 <c:otherwise>
                     <li class="dropdown">
                         <a class="dropdown-toggle" href="#" data-toggle="dropdown">Account <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/member">Profile</a></li>
+                            <li><a href="${pageContext.request.contextPath}/member">Profile</a></li>
                             <li><a href="#">Settings</a></li>
                             <li><a>Order</a></li>
-                            <li><a href="/member/orderForm?form=hops"> - Hops</a></li>
-                            <li><a href="/member/orderForm?form=grains"> - Grains</a></li>
+                            <li><a href="${pageContext.request.contextPath}/member/orderForm?form=hops"> - Hops</a></li>
+                            <li><a href="${pageContext.request.contextPath}/member/orderForm?form=grains"> - Grains</a></li>
+                            <li><a href="${pageContext.request.contextPath}/admin/orders/hop">Hop Orders</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="/logout">Log out</a></li>
                         </ul>
@@ -29,6 +30,8 @@
                     <li><a href="#">Beer School</a></li>
                     <li><a href="#">Club Directory</a></li>
                     <li><a href="#">Member Benefits</a></li>
+                    <li><a href="${pageContext.request.contextPath}/member/hops"> - Hops</a></li>
+                    <li><a href="${pageContext.request.contextPath}/member/grains"> - Grains</a></li>
                     <li><a href="#">Photo Gallery</a></li>
                 </ul>
             </li>

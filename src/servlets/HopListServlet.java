@@ -17,7 +17,7 @@ import java.util.ArrayList;
  */
 @WebServlet(
         name = "hops}",
-        urlPatterns = {"/hops"}
+        urlPatterns = {"/member/hops", "/member/grains"}
 )
 public class HopListServlet extends BaseServlet {
     /**

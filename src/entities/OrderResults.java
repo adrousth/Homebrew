@@ -10,6 +10,7 @@ import java.util.List;
 public class OrderResults extends Results {
     private Order order = new Order();
     private List<OrderItem> orderItems = new ArrayList<>();
+    private String notes;
 
     public Order getOrder() {
         return order;
@@ -29,5 +30,13 @@ public class OrderResults extends Results {
 
     public void addOrderItem(OrderItem orderItem) {
         orderItems.add(orderItem);
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
 }

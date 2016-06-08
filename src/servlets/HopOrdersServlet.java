@@ -1,26 +1,26 @@
-package servlets;/**
- * Created by Alex on 5/18/2016.
- */
+package servlets;
 
-import entities.Member;
+import entities.Asset;
 import entities.Order;
 import persistence.DataAccessObject;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
+import java.util.*;
 
+/**
+ * @author Alex
+ *         6/6/2016
+ */
 @WebServlet(
-        name = "member}",
-        urlPatterns = {"/member"}
+        name = "admin/orders/hop}",
+        urlPatterns = {"/admin/orders/hop"}
 )
-public class MemberServlet extends BaseServlet {
+public class HopOrdersServlet extends BaseServlet {
     /**
      * Handles HTTP GET requests.
      *
@@ -31,13 +31,13 @@ public class MemberServlet extends BaseServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        title = "Member Home";
-        content = "/member/member.jsp";
+
+        content = "/admin/orders.jsp";
+        title = "Hop Orders";
         DataAccessObject dao = (DataAccessObject) getServletContext().getAttribute("dao");
         dao.setType(Order.class);
-        Map<String, Object> map = new TreeMap<>();
-        Member member = (Member) request.getSession().getAttribute("user");
-        map.put("memberId", member.getMemberId());
+        Map<String, String> map = new TreeMap<>();
+        map.put("type", "HOP");
         map.put("orderStatus", "unfilled");
         Set<Order> orders = new TreeSet<>(dao.searchMultipleParams(map));
         request.setAttribute("orders", orders);
@@ -45,4 +45,16 @@ public class MemberServlet extends BaseServlet {
 
     }
 
+    /**
+     * Handles HTTP POST requests.
+     *
+     * @param request  the HttpServletRequest object
+     * @param response the HttpServletResponse object
+     * @throws ServletException if there is a Servlet failure
+     * @throws IOException      if there is an IO failure
+     */
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+    }
 }

@@ -58,6 +58,8 @@ public class OrderServlet extends BaseServlet {
         OrderResults results = new OrderResults();
         OrderDao orderDao = (OrderDao) getServletContext().getAttribute("orderDao");
         Map<String, String> orderItems = new TreeMap<>();
+        String notes = request.getParameter("notes");
+        results.setNotes(notes);
         for (int i = 0; i < 5; i++) {
             if (!orderItems.containsKey(request.getParameter("hop" + (i + 1))) ||request.getParameter("hop" + (i + 1)).equals("")) {
                 orderItems.put(request.getParameter("hop" + (i + 1)), request.getParameter("hop" + (i + 1) + "Qty"));
@@ -68,7 +70,7 @@ public class OrderServlet extends BaseServlet {
                 doGet(request, response);
             }
         }
-        results = orderDao.orderFromWebForm(orderItems, request.getRemoteUser(), "HOP");
+        results = orderDao.orderFromWebForm(orderItems, request.getRemoteUser(), "HOP", notes);
 
         request.setAttribute("results", results);
 

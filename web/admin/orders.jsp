@@ -1,22 +1,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<div class="text-center">
-    <h2>User page</h2>
-    <p class="h4">for ${user.firstName} ${user.lastName}</p>
-    <p class="h4">Recent Orders</p>
-</div>
+
 <table class="center-block table table-striped" id="list">
+
+    <h2 class="text-center">Hop Orders</h2>
     <c:forEach var="order" items="${orders}" varStatus="loopStatus">
         <c:if test="${loopStatus.index % 2 == 0}">
             <tr>
         </c:if>
-
         <td>
-            <p class="col-sm-offset-1 row h4"><span class="col-sm-4">Order Status:</span><span class="text-capitalize"><b>${order.orderStatus}</b></span></p>
-
+            <h3>${order.member.firstName} ${order.member.lastName}</h3>
+            <p class="col-sm-offset-1">status: ${order.orderStatus}</p>
             <hr/>
             <ul>
-                <li class="list-unstyled row h4"><span class="col-sm-offset-1 col-sm-4">Order Type:</span><span class="text-lowercase">${order.type}</span></li>
-                <li class="list-unstyled row divider-line"><hr/></li>
                 <c:set var="total" value="${0.0}"/>
                 <c:forEach var="item" items="${order.orderItems}">
                     <li class="row"><span class="col-lg-4 col-md-5 col-sm-5 col-xs-6">${item.asset.name}</span>${item.quantity} oz</li>

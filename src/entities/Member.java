@@ -17,7 +17,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "member")
-public class Member implements Serializable{
+public class Member implements Serializable, Comparable {
     @Id
     @GeneratedValue
     @Column(name = "member_id")
@@ -136,5 +136,16 @@ public class Member implements Serializable{
     @Override
     public boolean equals(Object obj) {
         return super.equals(obj);
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        if (memberId == ((Member)o).getMemberId()) {
+            return 0;
+        } else if (memberId > ((Member)o).getMemberId()) {
+            return 1;
+        } else {
+            return -1;
+        }
     }
 }

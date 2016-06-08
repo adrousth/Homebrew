@@ -22,12 +22,14 @@ public class OrderDao extends DataAccessObject {
             transaction = session.beginTransaction();
             if (persistRecord(order)) {
                 id = order.getOrderId();
+                /*
                 setType(Asset.class);
                 for (OrderItem orderItem : order.getOrderItems()) {
                     Asset asset = orderItem.getAsset();
                     asset.setCurrentStock(asset.getCurrentStock() - orderItem.getQuantity());
                     updateRecord(asset);
                 }
+                */
             }
 
             transaction.commit();
@@ -50,14 +52,14 @@ public class OrderDao extends DataAccessObject {
 
     }
 
-    public OrderResults orderFromWebForm(Map<String, String> webOrder, String memberEmail, String type) {
+    public OrderResults orderFromWebForm(Map<String, String> webOrder, String memberEmail, String type, String notes) {
         setType(Asset.class);
         List<OrderItem> orderItems = new ArrayList<>();
         MemberDao memberDao = new MemberDao();
         OrderResults results = new OrderResults();
         results.setType("");
         Order order = new Order();
-
+        order.setNotes(notes);
         if (memberEmail == null) {
             results.addMessage("Must be logged in to place an order");
             results.setType("Error");

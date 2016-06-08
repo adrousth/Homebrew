@@ -41,6 +41,9 @@ public class LoginServlet extends BaseServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        request.getSession().setAttribute("url", request.getAttribute("javax.servlet.forward.request_uri"));
+
         if (request.getUserPrincipal() == null) {
             title = "Login";
             content = "/login.jsp";
@@ -62,13 +65,13 @@ public class LoginServlet extends BaseServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+
         Results results = new Results();
 
         try {
             request.login(request.getParameter("username"), request.getParameter("password"));
-            results.setType("Logged in");
 
-            results.addMessage("Success!");
+
             results.setSuccess(true);
             results.addMessage("admin: " + request.isUserInRole("ADMIN"));
             results.addMessage("member: " + request.isUserInRole("MEMBER"));
@@ -78,7 +81,9 @@ public class LoginServlet extends BaseServlet {
                 String user = request.getRemoteUser();
                 DataAccessObject dao = (DataAccessObject) getServletContext().getAttribute("dao");
                 dao.setType(Member.class);
-                getServletContext().setAttribute("user", dao.getRecordByEmail(user));
+                Member member = (Member) dao.getRecordByEmail(user);
+                request.getSession().setAttribute("user", member);
+                results.setType("Welcome " + member.getFirstName() + " " + member.getLastName());
 
             }
         } catch (ServletException e) {
@@ -87,11 +92,21 @@ public class LoginServlet extends BaseServlet {
             results.setSuccess(false);
         }
         request.setAttribute("results", results);
+
         if (request.isUserInRole("MEMBER")) {
-            url = "/member";
+            if (request.getSession().getAttribute("url") == null) {
+                url = "/member";
+            } else if (request.getSession().getAttribute("url").equals("/login")) {
+                url = "/member";
+            } else {
+                url = (String) request.getSession().getAttribute("url");
+            }
         } else {
-            url = "/";
+            url = "/login";
+            System.out.println(3);
+            System.out.println(url);
         }
+
         getServletContext().setAttribute("results", results);
         response.sendRedirect(url);
 
