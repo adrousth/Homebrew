@@ -11,11 +11,10 @@
         </c:if>
 
         <td>
-            <p class="col-sm-offset-1 row h4"><span class="col-sm-4">Order Status:</span><span class="text-capitalize"><b>${order.orderStatus}</b></span></p>
-
+            <p class="col-sm-offset-1 row h4"><span class="col-sm-6">${order.type} Order Status: ${order.orderStatus}</span></p>
             <hr/>
+            <p class="col-sm-offset-2 row h5">${order.timeSinceLastUpdate()}</p>
             <ul>
-                <li class="list-unstyled row h4"><span class="col-sm-offset-1 col-sm-4">Order Type:</span><span class="text-lowercase">${order.type}</span></li>
                 <li class="list-unstyled row divider-line"><hr/></li>
                 <c:set var="total" value="${0.0}"/>
                 <c:forEach var="item" items="${order.orderItems}">

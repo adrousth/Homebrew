@@ -1,6 +1,5 @@
 package servlets;
 
-import entities.Asset;
 import entities.Order;
 import persistence.DataAccessObject;
 
@@ -10,17 +9,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.*;
 
 /**
  * @author Alex
- *         6/6/2016
+ *         6/10/2016
  */
 @WebServlet(
-        name = "admin-orders-hop",
-        urlPatterns = {"/admin/orders/hop"}
+        name = "admin-order}",
+        urlPatterns = {"/admin/order/*"}
 )
-public class HopOrdersServlet extends BaseServlet {
+public class UpdateOrderServlet extends BaseServlet {
     /**
      * Handles HTTP GET requests.
      *
@@ -32,17 +30,21 @@ public class HopOrdersServlet extends BaseServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        content = "/admin/orders.jsp";
-        title = "Hop Orders";
-        DataAccessObject dao = (DataAccessObject) getServletContext().getAttribute("dao");
-        dao.setType(Order.class);
-        Map<String, String> map = new TreeMap<>();
-        map.put("type", "HOP");
-        map.put("orderStatus", "unfilled");
-        Set<Order> orders = new TreeSet<>(dao.searchMultipleParams(map));
-        request.setAttribute("orders", orders);
-        servletResponse(request, response);
+        String orderId = request.getPathInfo();
 
+        if (orderId == null) {
+            response.sendRedirect("/");
+        } else if (!orderId.equals("")) {
+            DataAccessObject dao = (DataAccessObject) getServletContext().getAttribute("dao");
+            dao.setType(Order.class);
+            Order order = (Order) dao.getRecordById(Integer.parseInt(orderId.substring(1)));
+            request.setAttribute("order", order);
+
+            title = "Order Update Form";
+        }
+        content = "/admin/orderUpdate.jsp";
+
+        servletResponse(request, response);
     }
 
     /**
@@ -55,6 +57,12 @@ public class HopOrdersServlet extends BaseServlet {
      */
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String status = request.getParameter("status");
+        String orderId = request.getParameter("orderId");
+
+        DataAccessObject dao = (DataAccessObject) getServletContext().getAttribute("dao");
+
+        dao.setType(Order.class);
 
     }
 }

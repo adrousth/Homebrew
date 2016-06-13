@@ -59,78 +59,54 @@
     </div>
 </div>
 
-
         <div class="col-sm-12" id="main">
+            <div id="main-part" class="center-block">
+                <h3 class="col-sm-offset-1">Example Member</h3>
+                <p class="col-sm-offset-1">Hop order status: unfilled</p>
+                <hr>
+                <ul>
 
 
-
-            <h2 class="text-center">Hop orders</h2>
-            <div id="list" class="center-block">
-            <table class="table table-striped">
-                <tr>
+                    <li class="row"><span class="col-lg-4 col-md-5 col-sm-5 col-xs-6">Santiam</span>2.0 oz</li>
 
 
-                    <td>
-                        <p class="col-sm-offset-1 row h4"><span class="col-sm-4">Order Status:</span><span class="text-capitalize"><b>filled</b></span></p>
-                        <p class="col-sm-offset-1 row"><span class="col-sm-2">Filled:</span>about 1 day ago</p><p class="col-sm-offset-2">please pick up your order within the next 1 day</p>
+                    <li class="row"><span class="col-lg-4 col-md-5 col-sm-5 col-xs-6">Crystal</span>2.0 oz</li>
 
 
-                        <hr>
-                        <ul>
-                            <li class="list-unstyled row h4"><span class="col-sm-offset-1 col-sm-4">Order Type:</span><span class="text-lowercase">GRAIN</span></li>
+                    <li class="row"><span class="col-lg-4 col-md-5 col-sm-5 col-xs-6">Warrior</span>0.5 oz</li>
 
 
-                            <li class="row"><span class="col-lg-4 col-md-5 col-sm-5 col-xs-6">Chocolate</span>5.0 lbs</li>
-                            <li class="row"><span class="col-lg-4 col-md-5 col-sm-5 col-xs-6">Munich</span>3.5 lbs</li>
+                    <li class="row"><span class="col-lg-4 col-md-5 col-sm-5 col-xs-6">Magnum</span>2.5 oz</li>
 
 
-                            <li class="row"><span class="col-lg-4 col-md-5 col-sm-5 col-xs-6">Vienna</span>3.0 lbs</li>
+                    <li class="list-unstyled row divider-line"><hr class="col-lg-5 col-md-6 col-sm-6 col-xs-7"></li>
+                    <li class="list-unstyled row">
+                        <span class="col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1 col-lg-3 col-md-4 col-sm-4 col-xs-5">
+                            Total:
+                        </span>10.0 oz
+                    </li>
 
-                            <li class="list-unstyled row divider-line"><hr class="col-lg-5 col-md-6 col-sm-6 col-xs-7"></li>
-                            <li class="list-unstyled row">
-                    <span class="col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1 col-lg-3 col-md-4 col-sm-4 col-xs-5">
-                        Total:
-                    </span>5.0 lbs
-                            </li>
+                </ul>
+                <hr>
+                <div class="h4">Notes: </div>
+                <p>In voluptas voluptas voluptates provident quaerat et. Et et porro excepturi vel. Delectus consectetur cum et vitae reprehenderit.</p>
+                <form action="/" method="post">
+                    <div class="form-group">
+                        <label for="status" class="col-sm-3 control-label">Order Status</label>
+                        <div class="col-sm-6">
 
-                        </ul>
-                        <hr>
-                        <p>Notes: Nulla officia similique enim earum omnis ipsa dolore. Sit culpa delectus sit. Dolores et iste voluptatem sed ut. Ea suscipit pariatur doloremque doloremque dolorem voluptas.</p>
-                    </td>
-
-
-
-
-                    <td>
-                        <p class="col-sm-offset-1 row h4"><span class="col-sm-4">Order Status:</span><span class="text-capitalize"><b>unfilled</b></span></p>
-
-                        <hr>
-                        <ul>
-                            <li class="list-unstyled row h4"><span class="col-sm-offset-1 col-sm-4">Order Type:</span><span class="text-lowercase">GRAIN</span></li>
-
-
-                            <li class="row"><span class="col-lg-4 col-md-5 col-sm-5 col-xs-6">Munich</span>3.5 lbs</li>
-
-
-                            <li class="row"><span class="col-lg-4 col-md-5 col-sm-5 col-xs-6">Vienna</span>3.0 lbs</li>
-
-
-                            <li class="list-unstyled row divider-line"><hr class="col-lg-5 col-md-6 col-sm-6 col-xs-7"></li>
-                            <li class="list-unstyled row">
-                    <span class="col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1 col-lg-3 col-md-4 col-sm-4 col-xs-5">
-                        Total:
-                    </span>6.5 lbs
-                            </li>
-
-                        </ul>
-                        <hr>
-                        <p>Notes: Facere enim ut nemo. Porro dolor accusamus dolorem nobis cupiditate voluptatem labore. Omnis facilis officiis natus provident. Cumque velit recusandae blanditiis et fugit quos.</p>
-                    </td>
-
-                </tr>
-            </table>
+                            <select class="form-control" id="status" name="status">
+                                <option value="">--Order Status--</option>
+                                <option value="filled">Filled</option>
+                                <option value="complete">Complete</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Update</button>
+                </form>
             </div>
         </div>
+
     </div>
     </div>
 <div class="container col-lg-12">

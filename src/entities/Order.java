@@ -155,19 +155,28 @@ public class Order implements Serializable, Comparable {
         }
     }
 
-    public String pickUpTime() {
-        String days = "";
-        if (orderStatus.equals("unfilled")) {
-
-            Calendar calendar = new GregorianCalendar();
-            PrettyTime formatter = new PrettyTime();
-            formatter.setReference(calendar.getTime());
-            calendar = new GregorianCalendar();
-            calendar.setTimeInMillis(updatedAt.getTime() + 72*60*60*100);
-            days = formatter.format(calendar);
+    public String timeSinceLastUpdate() {
+        PrettyTime formatter = new PrettyTime();
+        String time = "";
+        Calendar calendar = new GregorianCalendar();
+        switch (orderStatus) {
+            case "unfilled":
+                calendar.setTime(createdAt);
+                time += "Order placed ";
+                break;
+            case "filled":
+                calendar.setTime(updatedAt);
+                time += "Order filled ";
+                break;
+            default:
+                calendar.setTime(updatedAt);
+                time += "Order completed ";
+                break;
         }
 
-        return days;
+
+        time += formatter.formatUnrounded(calendar);
+        return time;
     }
 
 }

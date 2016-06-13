@@ -1,17 +1,26 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="center-block" id="form">
     <form class="form-horizontal" action="/admin/hop/${hop.assetId}" method="POST">
-        <h3 class="text-center">Hop Form</h3>
+        <c:choose>
+            <c:when test="${hop != null}">
+                <h3 class="text-center">Update Hop</h3>
+            </c:when>
+            <c:otherwise>
+                <h3 class="text-center">New Hop Form</h3>
+            </c:otherwise>
+        </c:choose>
+
         <hr/>
         <fieldset>
-
-
+            <c:if test="${hop != null}">
+                <p class="help-block text-center">Update Hop, or add a new one <a href="${pageContext.request.contextPath}/admin/hop">Here</a>.</p>
+            </c:if>
             <div class="form-group">
                 <label for="hopName" class="col-sm-3 control-label">Name</label>
                 <div class="col-sm-9">
                     <input class="form-control" id="hopName" name="hopName" type="text" value="${hop.name}" placeholder="Name"/>
                 </div>
             </div>
-
             <div class="form-group">
                 <label for="currentStock" class="col-sm-3 control-label">Current stock</label>
                 <div class="col-sm-4">

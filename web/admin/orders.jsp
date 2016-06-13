@@ -26,7 +26,9 @@
 
             </ul>
             <hr/>
-            <p>Notes: ${order.notes}</p>
+            <div class="h4">Notes: </div>
+            <p>${order.notes}</p>
+            <a class="btn btn-primary center-block" href="${pageContext.request.contextPath}/admin/order/${order.orderId}">Update Order</a>
         </td>
         <c:if test="${loopStatus.index % 2 == 1 || loopStatus.last}">
             </tr>

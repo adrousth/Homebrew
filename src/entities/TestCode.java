@@ -6,8 +6,6 @@ import org.ocpsoft.prettytime.PrettyTime;
 import persistence.DataAccessObject;
 
 import java.util.*;
-import java.util.concurrent.ThreadLocalRandom;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Alex on 4/5/2016.
@@ -38,16 +36,10 @@ public class TestCode {
         Set<Order> orders = new TreeSet<>(dao.searchMultipleParams(map));
         Faker faker = new Faker();
 
+        Date date = new Date();
         for (Order order : orders) {
             System.out.println();
-
-            Date dateOrdered = faker.date().past(72, TimeUnit.HOURS);
-            Calendar calendar = new GregorianCalendar();
-            PrettyTime formatter = new PrettyTime();
-            calendar.setTimeInMillis(dateOrdered.getTime() + 72*60*60*100);
-            formatter.setReference(calendar.getTime());
-
-            System.out.println(formatter.format(new Date()));
+            System.out.println(order.timeSinceLastUpdate());
             /*
             Calendar calendar = new GregorianCalendar();
             calendar.setTimeInMillis(order.getUpdatedAt().getTime() + 72*60*60*1000);
@@ -60,6 +52,10 @@ public class TestCode {
             */
         }
 
+
+
+        PrettyTime prettyTime = new PrettyTime();
+        System.out.println(prettyTime.format(date));
 
     }
 

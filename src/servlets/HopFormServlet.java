@@ -32,7 +32,6 @@ public class HopFormServlet extends BaseServlet {
             throws ServletException, IOException {
 
         String assetId = request.getPathInfo();
-        System.out.println(assetId);
         String button = "";
         if (assetId == null) {
             title = "New Hop Form";
@@ -70,10 +69,7 @@ public class HopFormServlet extends BaseServlet {
         String assetId = request.getParameter("id");
 
         Results results = new Results();
-        System.out.println(name);
-        System.out.println(currentStock);
-        System.out.println(description);
-        System.out.println(assetId);
+
         Asset asset = new Asset();
         asset.setName(name);
         if (!assetId.equals("")) {

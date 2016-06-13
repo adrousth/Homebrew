@@ -25,7 +25,7 @@ import java.util.TreeMap;
         name = "order-form",
         urlPatterns = { "/member/orderForm" }
 )
-public class OrderServlet extends BaseServlet {
+public class OrderFormServlet extends BaseServlet {
     /**
      * Handles HTTP GET requests.
      *
@@ -61,7 +61,7 @@ public class OrderServlet extends BaseServlet {
         String notes = request.getParameter("notes");
         results.setNotes(notes);
         for (int i = 0; i < 5; i++) {
-            if (!orderItems.containsKey(request.getParameter("hop" + (i + 1))) ||request.getParameter("hop" + (i + 1)).equals("")) {
+            if (!orderItems.containsKey(request.getParameter("hop" + (i + 1))) || request.getParameter("hop" + (i + 1)).equals("")) {
                 orderItems.put(request.getParameter("hop" + (i + 1)), request.getParameter("hop" + (i + 1) + "Qty"));
             } else {
                 results.setSuccess(false);
