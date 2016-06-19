@@ -235,8 +235,9 @@ public class Testing {
 
     @Test
     public void test12() {
-        Map<String, String> map = new TreeMap<>();
-        map.put("type", "HOP");
+        Map<String, Object> map = new TreeMap<>();
+        map.put("firstName", "lo");
+        //map.put("orderStatus", "unfilled");
 
         DataAccessObject<Order> dao = new DataAccessObject<>();
 
@@ -245,7 +246,6 @@ public class Testing {
 
         for (Order order: orders) {
             System.out.println(order.getOrderId() + " " + order.getOrderStatus() + " " + order.getType());
-            System.out.println();
         }
 
 

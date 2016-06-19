@@ -30,10 +30,12 @@ public class StartupServlet extends HttpServlet {
 
         DataAccessObject dao = new DataAccessObject();
         OrderDao orderDao = new OrderDao();
+        MemberDao memberDao = new MemberDao();
 
         ServletContext context = getServletContext();
 
         context.setAttribute("orderDao", orderDao);
+        context.setAttribute("memberDao", memberDao);
         context.setAttribute("dao", dao);
         context.setAttribute("stuff", "stuff");
         context.setAttribute("pageContent", "/home.jsp");

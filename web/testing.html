@@ -24,7 +24,7 @@
 
 <div class="container-fluid">
     <div class="row">
-<div class="navbar col-lg-3 col-md-3 col-sm-3 navbar-default" role="navigation">
+        <div class="navbar col-lg-3 col-md-3 col-sm-3 navbar-default" role="navigation">
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav">
             <li><a href="#">Home</a></li>
@@ -60,54 +60,75 @@
 </div>
 
         <div class="col-sm-12" id="main">
-            <div id="main-part" class="center-block">
-                <h3 class="col-sm-offset-1">Example Member</h3>
-                <p class="col-sm-offset-1">Hop order status: unfilled</p>
-                <hr>
-                <ul>
+            <h3 class="text-center">Search</h3>
+            <form class="form-horizontal center-block searchForm" method="get" action="search">
+                <fieldset class="">
+                    <legend class="h4 col-sm-12">Members</legend>
 
-
-                    <li class="row"><span class="col-lg-4 col-md-5 col-sm-5 col-xs-6">Santiam</span>2.0 oz</li>
-
-
-                    <li class="row"><span class="col-lg-4 col-md-5 col-sm-5 col-xs-6">Crystal</span>2.0 oz</li>
-
-
-                    <li class="row"><span class="col-lg-4 col-md-5 col-sm-5 col-xs-6">Warrior</span>0.5 oz</li>
-
-
-                    <li class="row"><span class="col-lg-4 col-md-5 col-sm-5 col-xs-6">Magnum</span>2.5 oz</li>
-
-
-                    <li class="list-unstyled row divider-line"><hr class="col-lg-5 col-md-6 col-sm-6 col-xs-7"></li>
-                    <li class="list-unstyled row">
-                        <span class="col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1 col-lg-3 col-md-4 col-sm-4 col-xs-5">
-                            Total:
-                        </span>10.0 oz
-                    </li>
-
-                </ul>
-                <hr>
-                <div class="h4">Notes: </div>
-                <p>In voluptas voluptas voluptates provident quaerat et. Et et porro excepturi vel. Delectus consectetur cum et vitae reprehenderit.</p>
-                <form action="/" method="post">
                     <div class="form-group">
-                        <label for="status" class="col-sm-3 control-label">Order Status</label>
+                        <label for="firstName" class="col-sm-3 control-label">First name</label>
                         <div class="col-sm-6">
-
-                            <select class="form-control" id="status" name="status">
-                                <option value="">--Order Status--</option>
-                                <option value="filled">Filled</option>
-                                <option value="complete">Complete</option>
-                            </select>
+                            <input class="form-control" type="text" id="firstName"/>
                         </div>
                     </div>
-                    <button class="btn btn-primary" type="submit">Update</button>
-                </form>
+
+
+                    <div class="form-group">
+                        <label for="lastName" class="col-sm-3 control-label">Last name</label>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="text" id="lastName"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-8 col-sm-offset-3">
+                            <button type="submit" class="col-sm-5 btn btn-primary">Search</button>
+                        </div>
+                    </div>
+
+                </fieldset>
+            </form>
+
+            <form class="form-horizontal center-block searchForm" >
+                <fieldset>
+                    <legend class="h4 col-sm-12">Order</legend>
+
+                        <div class="form-group">
+                            <label for="orderStatus" class="col-sm-3 control-label">Status</label>
+                            <div class="col-sm-5">
+                                <select class="form-control" id="orderStatus" name="orderStatus">
+                                    <option value="all">All</option>
+                                    <option value="unfilled">Unfilled</option>
+                                    <option value="filled">Filled</option>
+                                    <option value="complete">Complete</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-3" style="">Type</label>
+                            <div class="col-sm-6">
+                                <label class="radio-inline">
+                                    <input type="radio" name="type" value="hop"> Hop
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="type" value="grain"> Grain
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="type" value="both" checked="checked"> Both
+                                </label>
+                            </div>
+                        </div>
+                    <div class="form-group">
+                        <div class="col-sm-8 col-sm-offset-3">
+                            <button type="submit" class="col-sm-5 btn btn-primary">Search</button>
+                        </div>
+                    </div>
+                </fieldset>
+
+            </form>
             </div>
         </div>
-
-    </div>
     </div>
 <div class="container col-lg-12">
     <hr />

@@ -1,9 +1,12 @@
 package persistence;
 
 import entities.*;
+import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.MatchMode;
+import org.hibernate.criterion.Restrictions;
 
 import java.util.*;
 
@@ -138,5 +141,40 @@ public class OrderDao extends DataAccessObject {
         }
 
         return results;
+    }
+
+    public List<Order> searchMultipleParam(Map searchParams) {
+        Session session = SessionFactoryProvider.getSessionFactory().openSession();
+
+        ArrayList<Order> records;
+
+
+        Criteria criteria = session.createCriteria(Order.class)
+                .createAlias("member", "m")
+                .add(Restrictions.eqProperty("m.firstName", "Example"));
+
+        records = (ArrayList<Order>) criteria.list();
+
+        //records = (ArrayList<Order>) session.createCriteria(Order.class).add(Restrictions.allEq(searchParams)).list();
+
+        session.close();
+        return records;
+    }
+
+    public Set searchOrders(String orderStatus, String type) {
+        Set orders;
+        Session session = SessionFactoryProvider.getSessionFactory().openSession();
+        Criteria criteria = session.createCriteria(Order.class);
+        if (type != null) {
+            if (!type.equals("BOTH")) {
+                criteria.add(Restrictions.eq("type", type));
+            }
+        }
+
+        orders = new TreeSet<>(session.createCriteria(Order.class)
+                .add(Restrictions.eq("orderStatus", orderStatus)).list());
+
+        session.close();
+        return orders;
     }
 }

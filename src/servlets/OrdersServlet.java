@@ -1,6 +1,5 @@
 package servlets;
 
-import entities.Asset;
 import entities.Order;
 import persistence.DataAccessObject;
 
@@ -17,10 +16,10 @@ import java.util.*;
  *         6/6/2016
  */
 @WebServlet(
-        name = "admin-orders-hop",
-        urlPatterns = {"/admin/orders/hop"}
+        name = "admin-orders",
+        urlPatterns = {"/admin/orders"}
 )
-public class HopOrdersServlet extends BaseServlet {
+public class OrdersServlet extends BaseServlet {
     /**
      * Handles HTTP GET requests.
      *
@@ -32,11 +31,21 @@ public class HopOrdersServlet extends BaseServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        Map<String, Object> map = new TreeMap<>();
+
+
+        map.put("firstName", request.getParameter("firstName"));
+        map.put("lastName", request.getParameter("lastName"));
+        map.put("orderStatus", request.getParameter("orderStatus"));
+        map.put("type", request.getParameterValues("orderType"));
+
+
+
         content = "/admin/orders.jsp";
-        title = "Hop Orders";
+        title = "Orders";
         DataAccessObject dao = (DataAccessObject) getServletContext().getAttribute("dao");
         dao.setType(Order.class);
-        Map<String, String> map = new TreeMap<>();
+
         map.put("type", "HOP");
         map.put("orderStatus", "unfilled");
         Set<Order> orders = new TreeSet<>(dao.searchMultipleParams(map));

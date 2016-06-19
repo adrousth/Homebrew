@@ -57,6 +57,10 @@ li.divider-line hr {
     margin: 8px;
 }
 
+hr.divider-line {
+    margin: 8px;
+}
+
 .float-left {
     float: left;
 }
@@ -68,7 +72,14 @@ li.divider-line hr {
     width: 600px;
 }
 
-/*tr:nth-child(even) {background-color: #f2f2f2}*/
+.searchForm {
+    width: 500px;
+}
+
+#list td {
+    min-width: 300px;
+    max-width: 500px;
+}
 
 
 

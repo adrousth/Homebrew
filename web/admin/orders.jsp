@@ -1,7 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <table class="center-block table table-striped" id="list">
-
     <h2 class="text-center">Hop Orders</h2>
     <c:forEach var="order" items="${orders}" varStatus="loopStatus">
         <c:if test="${loopStatus.index % 2 == 0}">

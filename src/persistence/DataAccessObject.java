@@ -214,7 +214,7 @@ public class DataAccessObject<T> {
 
         records = (ArrayList<T>) session.createCriteria(type).add(Restrictions.allEq(searchParams)).list();
 
-
+        session.close();
         return records;
     }
 
