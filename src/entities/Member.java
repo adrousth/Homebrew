@@ -46,6 +46,14 @@ public class Member implements Serializable, Comparable {
         roles = new HashSet<>();
     }
 
+    public Member(String firstName, String lastName, String email, String phone) {
+        this();
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phone = phone;
+    }
+
     public int getMemberId() {
         return memberId;
     }
@@ -116,6 +124,7 @@ public class Member implements Serializable, Comparable {
 
     public void addRole(MemberRole role) {
         roles.add(role);
+        role.setMember(this);
     }
 
     public boolean containsRole(String roleType) {

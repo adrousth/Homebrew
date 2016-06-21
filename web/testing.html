@@ -1,5 +1,4 @@
-
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <title>TESTING</title>
     <link href="web-resources/bootstrap-3.3.6-dist/css/bootstrap.css" rel="stylesheet">
@@ -60,73 +59,60 @@
 </div>
 
         <div class="col-sm-12" id="main">
-            <h3 class="text-center">Search</h3>
-            <form class="form-horizontal center-block searchForm" method="get" action="search">
-                <fieldset class="">
-                    <legend class="h4 col-sm-12">Members</legend>
+            <h3 class="text-center">New Member</h3>
+            <form class="form-horizontal center-block searchForm" method="POST" action="/admin/newMember">
 
+
+                <fieldset>
+                    <legend class="h4 col-sm-12">Name</legend>
                     <div class="form-group">
-                        <label for="firstName" class="col-sm-3 control-label">First name</label>
+                        <label for="firstName" class="col-sm-3 control-label">First</label>
                         <div class="col-sm-6">
                             <input class="form-control" type="text" id="firstName"/>
                         </div>
                     </div>
-
-
                     <div class="form-group">
-                        <label for="lastName" class="col-sm-3 control-label">Last name</label>
+                        <label for="lastName" class="col-sm-3 control-label">Last</label>
                         <div class="col-sm-6">
                             <input class="form-control" type="text" id="lastName"/>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class="col-sm-8 col-sm-offset-3">
-                            <button type="submit" class="col-sm-5 btn btn-primary">Search</button>
-                        </div>
-                    </div>
-
                 </fieldset>
-            </form>
-
-            <form class="form-horizontal center-block searchForm" >
                 <fieldset>
-                    <legend class="h4 col-sm-12">Order</legend>
-
-                        <div class="form-group">
-                            <label for="orderStatus" class="col-sm-3 control-label">Status</label>
-                            <div class="col-sm-5">
-                                <select class="form-control" id="orderStatus" name="orderStatus">
-                                    <option value="all">All</option>
-                                    <option value="unfilled">Unfilled</option>
-                                    <option value="filled">Filled</option>
-                                    <option value="complete">Complete</option>
-                                </select>
-                            </div>
-                        </div>
-
-
-                        <div class="form-group">
-                            <label class="control-label col-sm-3" style="">Type</label>
-                            <div class="col-sm-6">
-                                <label class="radio-inline">
-                                    <input type="radio" name="type" value="hop"> Hop
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" name="type" value="grain"> Grain
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" name="type" value="both" checked="checked"> Both
-                                </label>
-                            </div>
-                        </div>
+                    <legend class="h4 col-sm-12">Email</legend>
                     <div class="form-group">
-                        <div class="col-sm-8 col-sm-offset-3">
-                            <button type="submit" class="col-sm-5 btn btn-primary">Search</button>
+                        <label for="email" class="col-sm-3 control-label">Email address</label>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="email" id="email"/>
                         </div>
                     </div>
+                    <fieldset>
+                        <legend class="h4 col-sm-12">Phone</legend>
+                        <div class="form-group">
+                            <label for="home" class="col-sm-3 control-label">Home</label>
+                            <div class="col-sm-6">
+                                <input class="form-control" type="tel" id="home"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="cell" class="col-sm-3 control-label">Cell</label>
+                            <div class="col-sm-6">
+                                <input class="form-control" type="tel" id="cell"/>
+                            </div>
+                        </div>
+                    </fieldset>
                 </fieldset>
 
+                    <div class="form-group">
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <button type="submit" class="btn btn-block btn-primary">Submit</button>
+                        </div>
+                    </div>
+
+
             </form>
+
+
             </div>
         </div>
     </div>

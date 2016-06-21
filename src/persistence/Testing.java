@@ -151,7 +151,7 @@ public class Testing {
         dao = new DataAccessObject(Member.class);
         Member member = (Member) dao.getRecordById(104);
         MemberRole role = new MemberRole();
-        role.setEmail(member.getEmail());
+
         role.setRole("MEMBER");
         member.addRole(role);
         dao.updateRecord(member);
@@ -247,6 +247,20 @@ public class Testing {
         for (Order order: orders) {
             System.out.println(order.getOrderId() + " " + order.getOrderStatus() + " " + order.getType());
         }
+
+
+    }
+
+    @Test
+    public void test13() {
+        String firstName = "Johnson";
+        String lastName = "Smithson";
+        String phone = "777 777-7777";
+        String email = "hello@mynameis.net";
+        MemberDao memberDao = new MemberDao();
+
+        memberDao.createNewMemberFromForm(firstName, lastName, phone, email);
+
 
 
     }

@@ -10,7 +10,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "asset")
-public class Asset {
+public class Asset implements Comparable {
     @Id
     @GeneratedValue
     @Column(name = "asset_id")
@@ -81,5 +81,16 @@ public class Asset {
 
     public void addOrderItem(OrderItem item) {
         orderItems.add(item);
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        if (assetId == ((Asset)o).getAssetId()) {
+            return 0;
+        } else if (assetId > ((Asset)o).getAssetId()) {
+            return 1;
+        } else {
+            return -1;
+        }
     }
 }

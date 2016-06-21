@@ -25,9 +25,9 @@ public class PopulateDatabase {
         member.setLastName("Member");
         member.setEmail("hello@world.net");
         member.setPassword("foobar");
-        member.addRole(new MemberRole(member.getEmail(), "MEMBER"));
-        member.addRole(new MemberRole(member.getEmail(), "ADMIN"));
-        member.addRole(new MemberRole(member.getEmail(), "HOP CZAR"));
+        member.addRole(new MemberRole("MEMBER"));
+        member.addRole(new MemberRole("ADMIN"));
+        member.addRole(new MemberRole("HOP CZAR"));
         dao.addRecord(member);
 
         member = new Member();
@@ -35,7 +35,7 @@ public class PopulateDatabase {
         member.setLastName("Member");
         member.setEmail("example@example.com");
         member.setPassword("foobar");
-        member.addRole(new MemberRole(member.getEmail(), "MEMBER"));
+        member.addRole(new MemberRole("MEMBER"));
         dao.addRecord(member);
 
         // adding 20 normal members
@@ -50,7 +50,6 @@ public class PopulateDatabase {
             member.setPhone(faker.phoneNumber().phoneNumber());
             member.setPassword("foobar" + (i + 1));
             role.setRole("MEMBER");
-            role.setEmail(member.getEmail());
             member.addRole(role);
             dao.addRecord(member);
         }

@@ -1,5 +1,6 @@
 package persistence;
 
+import com.sun.corba.se.spi.ior.ObjectKey;
 import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -14,7 +15,7 @@ import java.util.*;
  *         5/21/2016
  */
 public class DataAccessObject<T> {
-    protected final Logger log = Logger.getLogger(this.getClass());
+    final Logger log = Logger.getLogger(this.getClass());
 
     private Class<T> type;
     private SessionFactory factory;
@@ -98,11 +99,11 @@ public class DataAccessObject<T> {
         return record;
     }
 
-    public List<T> getRecords(String searchType, String searchValue) {
-        ArrayList<T> records;
+    public List getRecords(String searchType, String searchValue) {
+        List records;
         beginSession();
 
-        records = (ArrayList<T>) session.createCriteria(type).add(Restrictions.like(searchType, "%" + searchValue + "%")).list();
+        records = session.createCriteria(type).add(Restrictions.like(searchType, "%" + searchValue + "%")).list();
 
         return records;
     }
@@ -115,21 +116,22 @@ public class DataAccessObject<T> {
         return record;
     }
 
-    public List<T> searchNumberOfRecords(int firstResult, int numberOfResults, String searchType, String searchValue) {
-        ArrayList<T> records;
+    public List searchNumberOfRecords(int firstResult, int numberOfResults, String searchType, String searchValue) {
+        List records;
         beginSession();
 
-        records = (ArrayList<T>) session.createCriteria(type).add(Restrictions.like(searchType, "%" + searchValue + "%"))
+        records = session.createCriteria(type).add(Restrictions.like(searchType, "%" + searchValue + "%"))
                 .setFirstResult(firstResult).setMaxResults(numberOfResults).list();
 
         return records;
     }
 
-    public List<T> getNumberOfRecords(int firstResult, int numberOfResults) {
-        ArrayList<T> records;
+    public List getNumberOfRecords(int firstResult, int numberOfResults) {
+        List records;
         beginSession();
 
-        records = (ArrayList<T>) session.createCriteria(type).setFirstResult(firstResult).setMaxResults(numberOfResults).list();
+
+        records = session.createCriteria(type).setFirstResult(firstResult).setMaxResults(numberOfResults).list();
 
         return records;
     }
@@ -178,11 +180,11 @@ public class DataAccessObject<T> {
         session = factory.openSession();
     }
 
-    public List<T> getRecordsByParam(String param, Set<Object> ids) {
-        ArrayList<T> records;
+    public List getRecordsByParam(String param, Set<Object> ids) {
+        List records;
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
 
-        records = (ArrayList<T>) session.createCriteria(type).add(Restrictions.in(param, ids)).list();
+        records = session.createCriteria(type).add(Restrictions.in(param, ids)).list();
 
         return records;
 
@@ -208,11 +210,11 @@ public class DataAccessObject<T> {
         return success;
     }
 
-    public List<T> searchMultipleParams(Map searchParams) {
-        ArrayList<T> records;
+    public List searchMultipleParams(Map searchParams) {
+        List records;
         beginSession();
 
-        records = (ArrayList<T>) session.createCriteria(type).add(Restrictions.allEq(searchParams)).list();
+        records = session.createCriteria(type).add(Restrictions.allEq(searchParams)).list();
 
         session.close();
         return records;
