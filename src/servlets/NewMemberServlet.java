@@ -1,5 +1,8 @@
 package servlets;
 
+import entities.MemberResults;
+import persistence.MemberDao;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -49,8 +52,12 @@ public class NewMemberServlet extends BaseServlet {
         String phone = request.getParameter("home");
         String email = request.getParameter("email");
 
+        MemberDao dao = (MemberDao) getServletContext().getAttribute("memberDao");
 
+        MemberResults results = dao.createNewMemberFromForm(firstName, lastName, email, phone);
 
+        request.setAttribute("results", results);
 
+        doGet(request, response);
     }
 }

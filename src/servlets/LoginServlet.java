@@ -6,6 +6,7 @@ import org.apache.catalina.authenticator.FormAuthenticator;
 import org.apache.catalina.connector.Request;
 import org.apache.catalina.connector.RequestFacade;
 import persistence.DataAccessObject;
+import persistence.MemberDao;
 
 
 import javax.servlet.RequestDispatcher;
@@ -73,15 +74,13 @@ public class LoginServlet extends BaseServlet {
 
 
             results.setSuccess(true);
-            results.addMessage("admin: " + request.isUserInRole("ADMIN"));
-            results.addMessage("member: " + request.isUserInRole("MEMBER"));
 
             Principal principal = request.getUserPrincipal();
             if (principal != null) {
                 String user = request.getRemoteUser();
-                DataAccessObject dao = (DataAccessObject) getServletContext().getAttribute("dao");
-                dao.setType(Member.class);
-                Member member = (Member) dao.getRecordByEmail(user);
+                MemberDao dao = (MemberDao) getServletContext().getAttribute("memberDao");
+
+                Member member = dao.getMemberByEmail(user);
                 request.getSession().setAttribute("user", member);
                 results.setType("Welcome " + member.getFirstName() + " " + member.getLastName());
 
@@ -103,8 +102,7 @@ public class LoginServlet extends BaseServlet {
             }
         } else {
             url = "/login";
-            System.out.println(3);
-            System.out.println(url);
+
         }
 
         getServletContext().setAttribute("results", results);

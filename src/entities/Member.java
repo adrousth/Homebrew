@@ -13,7 +13,8 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Created by Alex on 4/4/2016.
+ * @author Alex
+ * 4/4/2016
  */
 @Entity
 @Table(name = "member")
@@ -26,17 +27,17 @@ public class Member implements Serializable, Comparable {
     private String firstName;
     @Column(name = "last_name")
     private String lastName;
-    @Column(name = "email")
+    @Column(name = "email", unique = true, nullable = false)
     private String email;
     @Column(name = "phone")
     private String phone;
     @Column(name = "password")
     private String password;
 
-    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "member", fetch = FetchType.EAGER)
     private Set<MemberRole> roles;
 
-    @OneToMany(mappedBy = "member", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "member")
     private Set<Order> memberOrders;
 
 

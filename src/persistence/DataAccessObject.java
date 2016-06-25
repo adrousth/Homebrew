@@ -1,10 +1,9 @@
 package persistence;
 
-import com.sun.corba.se.spi.ior.ObjectKey;
 import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
@@ -12,25 +11,21 @@ import java.util.*;
 
 /**
  * @author Alex
- *         5/21/2016
+ *  5/21/2016
  */
 public class DataAccessObject<T> {
     final Logger log = Logger.getLogger(this.getClass());
 
     private Class<T> type;
-    private SessionFactory factory;
-    private Session session;
+
+
 
     public void setType(Class<T> type) {
         this.type = type;
     }
 
     public DataAccessObject() {
-        try{
-            factory = SessionFactoryProvider.getSessionFactory();
-        }catch (Throwable ex) {
-            log.error(ex);
-        }
+
     }
 
     public DataAccessObject(Class<T> type) {
@@ -38,36 +33,32 @@ public class DataAccessObject<T> {
         this.type = type;
     }
 
-    public int addRecord(T newRecord) {
-        beginSession();
+    public Object addRecord(T newRecord) {
+        Session session = createSession();
         Transaction transaction = null;
-        int objectId = 0;
+        Object objectId = 0;
 
         try {
             transaction = session.beginTransaction();
 
-            session.persist(newRecord.getClass().getName(), newRecord);
+            objectId = session.save(newRecord);
             log.info(newRecord.getClass().toString() + " with id of " + objectId + " added to the database");
 
             transaction.commit();
-            objectId = 1;
         } catch (HibernateException ex) {
             if (transaction!=null) transaction.rollback();
             objectId = -1;
             log.error(ex);
         } finally {
-            try {
-                session.close();
-            } catch (HibernateException ex) {
-                log.error(ex);
-            }
+            session.close();
         }
 
         return objectId;
     }
 
     public boolean persistRecord(T newRecord) {
-        beginSession();
+        Session session = createSession();
+
         Transaction transaction = null;
         boolean success = false;
 
@@ -81,11 +72,7 @@ public class DataAccessObject<T> {
             if (transaction!=null) transaction.rollback();
             log.error(ex);
         } finally {
-            try {
-                session.close();
-            } catch (HibernateException ex) {
-                log.error(ex);
-            }
+            session.close();
         }
 
     return success;
@@ -94,50 +81,50 @@ public class DataAccessObject<T> {
     public T getRecordById(int id) {
         T record;
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
+
         record = type.cast(session.get(type, id));
+
         session.close();
         return record;
     }
 
-    public List getRecords(String searchType, String searchValue) {
-        List records;
-        beginSession();
+    @SuppressWarnings("unchecked")
+    public List<T> getRecords(String searchType, String searchValue) {
+        List<T> records;
+        Session session = createSession();
 
         records = session.createCriteria(type).add(Restrictions.like(searchType, "%" + searchValue + "%")).list();
 
+        session.close();
         return records;
     }
 
-    public T getRecordByEmail(String email) {
-        T record;
-        Session session = SessionFactoryProvider.getSessionFactory().openSession();
-        record = type.cast(session.createCriteria(type).add(Restrictions.eq("email", email)).list().get(0));
-        session.close();
-        return record;
-    }
-
-    public List searchNumberOfRecords(int firstResult, int numberOfResults, String searchType, String searchValue) {
-        List records;
-        beginSession();
+    @SuppressWarnings("unchecked")
+    public List<T> searchNumberOfRecords(int firstResult, int numberOfResults, String searchType, String searchValue) {
+        List<T> records;
+        Session session = createSession();
 
         records = session.createCriteria(type).add(Restrictions.like(searchType, "%" + searchValue + "%"))
                 .setFirstResult(firstResult).setMaxResults(numberOfResults).list();
 
+        session.close();
+
         return records;
     }
 
-    public List getNumberOfRecords(int firstResult, int numberOfResults) {
-        List records;
-        beginSession();
-
+    @SuppressWarnings("unchecked")
+    public List<T> getNumberOfRecords(int firstResult, int numberOfResults) {
+        List<T> records;
+        Session session = createSession();
 
         records = session.createCriteria(type).setFirstResult(firstResult).setMaxResults(numberOfResults).list();
 
+        session.close();
         return records;
     }
 
 
-    public void updateRecord(T record) {
+    void updateRecord(T record) {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Transaction transaction = null;
 
@@ -155,7 +142,7 @@ public class DataAccessObject<T> {
     }
 
     public void deleteRecord(T record) {
-        beginSession();
+        Session session = createSession();
         Transaction transaction = null;
 
         try {
@@ -168,38 +155,41 @@ public class DataAccessObject<T> {
             if (transaction!=null) transaction.rollback();
             log.error(ex);
         } finally {
-            try {
-                session.close();
-            } catch (HibernateException ex) {
-                log.error(ex);
-            }
+            session.close();
         }
     }
 
-    public void beginSession() {
-        session = factory.openSession();
-    }
 
-    public List getRecordsByParam(String param, Set<Object> ids) {
-        List records;
-        Session session = SessionFactoryProvider.getSessionFactory().openSession();
+    @SuppressWarnings("unchecked")
+    public List<T> getRecordsByParam(String param, Set<Object> ids) {
+        List<T> records;
+        Session session = createSession();
 
         records = session.createCriteria(type).add(Restrictions.in(param, ids)).list();
+
+        session.close();
 
         return records;
 
     }
 
     public boolean addOrUpdateRecord(T record) {
-        Session session = SessionFactoryProvider.getSessionFactory().openSession();
+        Session session = createSession();
         Transaction transaction = null;
+
         boolean success = false;
+
         try {
+
             transaction = session.beginTransaction();
+
             session.saveOrUpdate(type.getName(), record);
+
             transaction.commit();
+
             success = true;
             log.info(record.getClass().getName() + " updated");
+
         } catch (HibernateException ex) {
             if (transaction!=null) transaction.rollback();
             log.error(ex);
@@ -210,14 +200,29 @@ public class DataAccessObject<T> {
         return success;
     }
 
-    public List searchMultipleParams(Map searchParams) {
-        List records;
-        beginSession();
+    @SuppressWarnings("unchecked")
+    public List<T> searchMultipleParams(Map searchParams) {
+        List<T> records;
+        Session session = createSession();
 
         records = session.createCriteria(type).add(Restrictions.allEq(searchParams)).list();
 
         session.close();
         return records;
+    }
+
+    public Object getRecordById(int id, Class c) {
+        Object o;
+        Session session = createSession();
+
+        o = session.get(c, id);
+
+        session.close();
+        return o;
+    }
+
+    private Session createSession() {
+        return SessionFactoryProvider.getSessionFactory().openSession();
     }
 
 }

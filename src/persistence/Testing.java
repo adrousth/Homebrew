@@ -40,7 +40,7 @@ public class Testing {
         asset.setDescription("Married to Mrs. Hop");
 
         int i = 0;
-        i = dao.addRecord(asset);
+        i = (int) dao.addRecord(asset);
 
         assertTrue(i > 0);
 
@@ -58,7 +58,7 @@ public class Testing {
 
         order.setNotes("first order");
         dao = new DataAccessObject(Order.class);
-        int i = dao.addRecord(order);
+        int i = (int) dao.addRecord(order);
 
         assertTrue(i > 0);
 
@@ -228,7 +228,7 @@ public class Testing {
         order.setMemberId(187);
 
         dao.setType(Order.class);
-        int i = dao.addRecord(order);
+        int i = (int) dao.addRecord(order);
 
         System.out.println(i);
     }
@@ -253,13 +253,23 @@ public class Testing {
 
     @Test
     public void test13() {
-        String firstName = "Johnson";
+        String firstName = "Jo";
         String lastName = "Smithson";
-        String phone = "777 777-7777";
-        String email = "hello@mynameis.net";
+        String phone = "777-777-7777";
+        String email = "hello@yahoo.com";
         MemberDao memberDao = new MemberDao();
 
-        memberDao.createNewMemberFromForm(firstName, lastName, phone, email);
+        MemberResults results = memberDao.createNewMemberFromForm(firstName, lastName, email, phone);
+        System.out.println(results.getType());
+        for (String message : results.getMessages()) {
+            System.out.println();
+            System.out.println(message);
+        }
+        System.out.println(results.getMember().getRoles().size());
+
+        assertTrue(results.isSuccess());
+
+        memberDao.deleteRecord(memberDao.getRecordById(results.getMember().getMemberId()));
 
 
 

@@ -15,14 +15,13 @@ public class MemberRole implements Serializable {
     private String role;
 
     @ManyToOne
-    @JoinColumn(name = "email", insertable = false, updatable = false, referencedColumnName = "email")
+    @JoinColumn(name = "email", referencedColumnName = "email")
     private Member member;
 
     public MemberRole() {
     }
 
     public MemberRole(String role) {
-        this();
         this.role = role;
     }
 

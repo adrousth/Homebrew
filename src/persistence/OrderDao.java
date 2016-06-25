@@ -14,10 +14,11 @@ import java.util.*;
  * @author Alex
  *         5/25/2016
  */
-public class OrderDao extends DataAccessObject {
+public class OrderDao extends DataAccessObject<Order> {
+
+
 
     public int createNewOrder(Order order) {
-        setType(Order.class);
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Transaction transaction = null;
         int id = 0;
@@ -56,13 +57,14 @@ public class OrderDao extends DataAccessObject {
     }
 
     public OrderResults orderFromWebForm(Map<String, String> webOrder, String memberEmail, String type, String notes) {
-        setType(Asset.class);
+
         List<OrderItem> orderItems = new ArrayList<>();
         MemberDao memberDao = new MemberDao();
         OrderResults results = new OrderResults();
         results.setType("");
         Order order = new Order();
         order.setNotes(notes);
+
         if (memberEmail == null) {
             results.addMessage("Must be logged in to place an order");
             results.setType("Error");
@@ -79,14 +81,17 @@ public class OrderDao extends DataAccessObject {
                     float quantity = (float) (Math.round(Float.parseFloat(item.getValue()) * 2) / 2.0);
                     total += quantity;
 
-                    Asset asset = (Asset) getRecordById(id);
+
+
+                    Asset asset = (Asset) getRecordById(id, Asset.class);
+
                     if (asset == null || !asset.getType().equals(type)) {
                         results.setType("Error");
                         results.addMessage("Invalid item in order");
                         return results;
                     } else if (asset.getCurrentStock() < quantity) {
                         if (asset.getCurrentStock() == 0) {
-                            results.addMessage(asset.getName() + " is out of stock, please try again. ");
+                            results.addMessage(asset.getName() + " is out of stock, please try again.");
                         } else {
                             results.addMessage(asset.getName() + " only has "
                                     + asset.getCurrentStock() + "oz in stock, please try again");
@@ -143,17 +148,17 @@ public class OrderDao extends DataAccessObject {
         return results;
     }
 
-    public List<Order> searchMultipleParam(Map searchParams) {
+    public List searchMultipleParam(Map searchParams) {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
 
-        ArrayList<Order> records;
+        List records;
 
 
         Criteria criteria = session.createCriteria(Order.class)
                 .createAlias("member", "m")
                 .add(Restrictions.eqProperty("m.firstName", "Example"));
 
-        records = (ArrayList<Order>) criteria.list();
+        records = criteria.list();
 
         //records = (ArrayList<Order>) session.createCriteria(Order.class).add(Restrictions.allEq(searchParams)).list();
 
