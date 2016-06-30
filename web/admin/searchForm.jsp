@@ -1,5 +1,5 @@
 <h3 class="text-center">Search</h3>
-<form class="form-horizontal center-block searchForm" method="get" action="${pageContext.request.contextPath}/search/members">
+<form class="form-horizontal center-block searchForm" method="get" action="${pageContext.request.contextPath}/admin/search/members">
     <fieldset class="">
         <legend class="h4 col-sm-12">Members</legend>
 
@@ -26,7 +26,7 @@
     </fieldset>
 </form>
 
-<form class="form-horizontal center-block searchForm" method="get" action="${pageContext.request.contextPath}/search/orders">
+<form class="form-horizontal center-block searchForm" method="get" action="${pageContext.request.contextPath}/admin/search/orders">
     <fieldset>
         <legend class="h4 col-sm-12">Order</legend>
 

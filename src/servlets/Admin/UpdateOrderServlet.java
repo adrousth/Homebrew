@@ -1,7 +1,9 @@
-package servlets;
+package servlets.Admin;
 
-import entities.MemberResults;
-import persistence.MemberDao;
+import entities.Order;
+import persistence.DataAccessObject;
+import persistence.OrderDao;
+import servlets.BaseServlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,13 +14,13 @@ import java.io.IOException;
 
 /**
  * @author Alex
- *         6/19/2016
+ *         6/10/2016
  */
 @WebServlet(
-        name = "admin-newMember",
-        urlPatterns = {"/admin/newMember"}
+        name = "admin-order}",
+        urlPatterns = {"/admin/order/*"}
 )
-public class NewMemberServlet extends BaseServlet {
+public class UpdateOrderServlet extends BaseServlet {
     /**
      * Handles HTTP GET requests.
      *
@@ -30,8 +32,18 @@ public class NewMemberServlet extends BaseServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        title = "New Member Form";
-        content = "/admin/newMemberForm.jsp";
+        String orderId = request.getPathInfo();
+
+        if (orderId == null) {
+            response.sendRedirect("/");
+        } else if (!orderId.equals("")) {
+            OrderDao dao = (OrderDao) getServletContext().getAttribute("orderDao");
+            Order order = dao.getRecordById(Integer.parseInt(orderId.substring(1)));
+            request.setAttribute("order", order);
+
+            title = "Order Update Form";
+        }
+        content = "/admin/orderUpdate.jsp";
 
         servletResponse(request, response);
     }
@@ -46,18 +58,16 @@ public class NewMemberServlet extends BaseServlet {
      */
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String status = request.getParameter("status");
+        String orderId = request.getParameter("orderId");
 
-        String firstName = request.getParameter("firstName");
-        String lastName = request.getParameter("lastName");
-        String phone = request.getParameter("home");
-        String email = request.getParameter("email");
+        OrderDao dao = (OrderDao) getServletContext().getAttribute("orderDao");
+        Order order = dao.getRecordById(Integer.parseInt(orderId.substring(1)));
+        order.setOrderStatus(status);
 
-        MemberDao dao = (MemberDao) getServletContext().getAttribute("memberDao");
+        dao.updateOrder(order);
 
-        MemberResults results = dao.createNewMemberFromForm(firstName, lastName, email, phone);
 
-        request.setAttribute("results", results);
 
-        doGet(request, response);
     }
 }

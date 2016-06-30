@@ -1,7 +1,9 @@
-package servlets;
+package servlets.Member;
 
 import entities.Asset;
+import persistence.AssetDao;
 import persistence.DataAccessObject;
+import servlets.BaseServlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,10 +18,10 @@ import java.util.ArrayList;
  *         6/2/2016
  */
 @WebServlet(
-        name = "hops}",
+        name = "hops",
         urlPatterns = {"/member/hops", "/member/grains"}
 )
-public class HopListServlet extends BaseServlet {
+public class AssetsListServlet extends BaseServlet {
     /**
      * Handles HTTP GET requests.
      *
@@ -30,12 +32,28 @@ public class HopListServlet extends BaseServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        content = "/hops.jsp";
-        title = "Hop List";
-        DataAccessObject dao = (DataAccessObject) getServletContext().getAttribute("dao");
-        dao.setType(Asset.class);
-        ArrayList<Asset> hops = (ArrayList<Asset>) dao.getRecords("type", "HOP");
-        request.setAttribute("hops", hops);
+
+        String assetType = request.getRequestURI();
+
+        String type = "";
+
+        if (assetType.equals("/member/hops")) {
+            title = "Hop List";
+            type = "hop";
+        } else if (assetType.equals("/member/grains")) {
+            title = "Grain List";
+            type = "grain";
+        }
+
+
+        AssetDao dao = (AssetDao) getServletContext().getAttribute("assetDao");
+        ArrayList<Asset> assets = (ArrayList<Asset>) dao.getRecords("type", type);
+
+
+        request.setAttribute("assets", assets);
+        request.setAttribute("assetType", type);
+
+        content = "/member/assets.jsp";
         servletResponse(request, response);
     }
 }

@@ -1,11 +1,13 @@
-package servlets;
+package servlets.Member;
 
 import entities.Asset;
 import entities.OrderResults;
 import entities.Results;
 import org.opensaml.xml.encryption.P;
+import persistence.AssetDao;
 import persistence.DataAccessObject;
 import persistence.OrderDao;
+import servlets.BaseServlet;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -38,9 +40,11 @@ public class OrderFormServlet extends BaseServlet {
             throws ServletException, IOException {
         content = "/member/orderForm.jsp";
         title = "Order Form";
-        DataAccessObject dao = (DataAccessObject) getServletContext().getAttribute("dao");
+        AssetDao dao = (AssetDao) getServletContext().getAttribute("assetDao");
         dao.setType(Asset.class);
+
         ArrayList<Asset> hops = (ArrayList<Asset>) dao.getRecords("type", "HOP");
+
         request.setAttribute("hops", hops);
         servletResponse(request, response);
     }
@@ -55,6 +59,7 @@ public class OrderFormServlet extends BaseServlet {
      */
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         OrderResults results = new OrderResults();
         OrderDao orderDao = (OrderDao) getServletContext().getAttribute("orderDao");
         Map<String, String> orderItems = new TreeMap<>();

@@ -81,6 +81,7 @@ public class LoginServlet extends BaseServlet {
                 MemberDao dao = (MemberDao) getServletContext().getAttribute("memberDao");
 
                 Member member = dao.getMemberByEmail(user);
+
                 request.getSession().setAttribute("user", member);
                 results.setType("Welcome " + member.getFirstName() + " " + member.getLastName());
 
@@ -100,6 +101,7 @@ public class LoginServlet extends BaseServlet {
             } else {
                 url = (String) request.getSession().getAttribute("url");
             }
+            request.getSession().setAttribute("url", null);
         } else {
             url = "/login";
 

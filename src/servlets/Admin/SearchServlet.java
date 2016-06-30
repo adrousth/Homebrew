@@ -1,9 +1,10 @@
-package servlets;
+package servlets.Admin;
 
 import entities.Member;
 import persistence.DataAccessObject;
 import persistence.MemberDao;
 import persistence.OrderDao;
+import servlets.BaseServlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,7 +21,7 @@ import java.util.Set;
  */
 @WebServlet(
         name = "searching",
-        urlPatterns = {"/search/*"}
+        urlPatterns = {"/admin/search/*"}
 )
 public class SearchServlet extends BaseServlet {
     /**
@@ -33,32 +34,55 @@ public class SearchServlet extends BaseServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         String searchType = request.getPathInfo();
 
         if (searchType == null) {
-            response.sendRedirect("/search");
+            response.sendRedirect("/admin/search");
         } else if (searchType.equals("/members")) {
             MemberDao dao = (MemberDao) getServletContext().getAttribute("memberDao");
 
-            String firstName = request.getParameter("firstName");
-            String lastName = request.getParameter("lastName");
+            String firstName = "";
+            String lastName = "";
+
+            if (request.getParameter("firstName") != null) {
+                firstName = request.getParameter("firstName");
+            }
+            if (request.getParameter("lastName") != null) {
+                lastName = request.getParameter("lastName");
+            }
+
+
             Set memberList = dao.searchMemberByName(firstName, lastName);
             request.setAttribute("members", memberList);
             title = "Member Search";
             content = "admin/members.jsp";
-        } else if (searchType.equals("/orders")) {
-            OrderDao dao = (OrderDao) getServletContext().getAttribute("orderDao");
-            String orderStatus = request.getParameter("orderStatus");
-            String types = request.getParameter("type");
 
-            Set orderList = dao.searchOrders(orderStatus, types);
+        } else if (searchType.equals("/orders")) {
+
+            OrderDao dao = (OrderDao) getServletContext().getAttribute("orderDao");
+
+            String orderStatus = "";
+            String type = "";
+
+            if (request.getParameter("orderStatus") != null) {
+                orderStatus = request.getParameter("orderStatus");
+            }
+            if (request.getParameter("orderType") != null) {
+                type = request.getParameter("type");
+            }
+
+
+
+
+            Set orderList = dao.searchOrders(orderStatus, type);
 
             request.setAttribute("orders", orderList);
 
             title = "Order Search";
             content = "admin/orders.jsp";
         } else {
-            response.sendRedirect("/search");
+            response.sendRedirect("/admin/search");
         }
 
         servletResponse(request, response);

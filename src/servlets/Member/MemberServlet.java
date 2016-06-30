@@ -1,10 +1,12 @@
-package servlets;/**
+package servlets.Member;/**
  * Created by Alex on 5/18/2016.
  */
 
 import entities.Member;
 import entities.Order;
 import persistence.DataAccessObject;
+import persistence.OrderDao;
+import servlets.BaseServlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -33,8 +35,8 @@ public class MemberServlet extends BaseServlet {
             throws ServletException, IOException {
         title = "Member Home";
         content = "/member/member.jsp";
-        DataAccessObject dao = (DataAccessObject) getServletContext().getAttribute("dao");
-        dao.setType(Order.class);
+        OrderDao dao = (OrderDao) getServletContext().getAttribute("orderDao");
+
         Map<String, Object> map = new TreeMap<>();
         Member member = (Member) request.getSession().getAttribute("user");
         map.put("memberId", member.getMemberId());

@@ -1,4 +1,6 @@
-package servlets;
+package servlets.Admin;
+
+import servlets.BaseServlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,7 +28,7 @@ public class AdminServlet extends BaseServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        content = "/admin.jsp";
+        content = "/admin/admin.jsp";
         title = "Admin Home";
 
         servletResponse(request, response);

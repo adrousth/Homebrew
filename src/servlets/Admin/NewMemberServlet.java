@@ -1,7 +1,8 @@
-package servlets;
+package servlets.Admin;
 
-import entities.Order;
-import persistence.DataAccessObject;
+import entities.MemberResults;
+import persistence.MemberDao;
+import servlets.BaseServlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,17 +10,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.*;
 
 /**
  * @author Alex
- *         6/6/2016
+ *         6/19/2016
  */
 @WebServlet(
-        name = "admin-orders",
-        urlPatterns = {"/admin/orders"}
+        name = "admin-newMember",
+        urlPatterns = {"/admin/newMember"}
 )
-public class OrdersServlet extends BaseServlet {
+public class NewMemberServlet extends BaseServlet {
     /**
      * Handles HTTP GET requests.
      *
@@ -31,27 +31,10 @@ public class OrdersServlet extends BaseServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        Map<String, Object> map = new TreeMap<>();
+        title = "New Member Form";
+        content = "/admin/newMemberForm.jsp";
 
-
-        map.put("firstName", request.getParameter("firstName"));
-        map.put("lastName", request.getParameter("lastName"));
-        map.put("orderStatus", request.getParameter("orderStatus"));
-        map.put("type", request.getParameterValues("orderType"));
-
-
-
-        content = "/admin/orders.jsp";
-        title = "Orders";
-        DataAccessObject dao = (DataAccessObject) getServletContext().getAttribute("dao");
-        dao.setType(Order.class);
-
-        map.put("type", "HOP");
-        map.put("orderStatus", "unfilled");
-        Set<Order> orders = new TreeSet<>(dao.searchMultipleParams(map));
-        request.setAttribute("orders", orders);
         servletResponse(request, response);
-
     }
 
     /**
@@ -65,5 +48,17 @@ public class OrdersServlet extends BaseServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        String firstName = request.getParameter("firstName");
+        String lastName = request.getParameter("lastName");
+        String phone = request.getParameter("home");
+        String email = request.getParameter("email");
+
+        MemberDao dao = (MemberDao) getServletContext().getAttribute("memberDao");
+
+        MemberResults results = dao.createNewMemberFromForm(firstName, lastName, email, phone);
+
+        request.setAttribute("results", results);
+
+        doGet(request, response);
     }
 }

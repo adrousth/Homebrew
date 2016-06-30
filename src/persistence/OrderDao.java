@@ -16,6 +16,9 @@ import java.util.*;
  */
 public class OrderDao extends DataAccessObject<Order> {
 
+    public OrderDao() {
+        setType(Order.class);
+    }
 
 
     public int createNewOrder(Order order) {
@@ -177,7 +180,7 @@ public class OrderDao extends DataAccessObject<Order> {
         }
 
         orders = new TreeSet<>(session.createCriteria(Order.class)
-                .add(Restrictions.eq("orderStatus", orderStatus)).list());
+                .add(Restrictions.ilike("orderStatus", orderStatus)).list());
 
         session.close();
         return orders;

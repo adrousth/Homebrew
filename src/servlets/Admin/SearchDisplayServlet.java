@@ -1,4 +1,6 @@
-package servlets;
+package servlets.Admin;
+
+import servlets.BaseServlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,7 +15,7 @@ import java.io.IOException;
  */
 @WebServlet(
         name = "search",
-        urlPatterns = {"/search"}
+        urlPatterns = {"/admin/search"}
 
 )
 public class SearchDisplayServlet extends BaseServlet {
@@ -27,7 +29,8 @@ public class SearchDisplayServlet extends BaseServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        content = "/searchForm.jsp";
+
+        content = "/admin/searchForm.jsp";
         title = "Search";
 
         servletResponse(request, response);

@@ -18,8 +18,6 @@ public class DataAccessObject<T> {
 
     private Class<T> type;
 
-
-
     public void setType(Class<T> type) {
         this.type = type;
     }
