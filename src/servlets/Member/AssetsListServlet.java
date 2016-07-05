@@ -2,16 +2,15 @@ package servlets.Member;
 
 import entities.Asset;
 import persistence.AssetDao;
-import persistence.DataAccessObject;
 import servlets.BaseServlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.TreeSet;
 
 /**
  * @author Alex
@@ -47,7 +46,7 @@ public class AssetsListServlet extends BaseServlet {
 
 
         AssetDao dao = (AssetDao) getServletContext().getAttribute("assetDao");
-        ArrayList<Asset> assets = (ArrayList<Asset>) dao.getRecords("type", type);
+        TreeSet<Asset> assets = dao.searchLikeRecords("type", type);
 
 
         request.setAttribute("assets", assets);

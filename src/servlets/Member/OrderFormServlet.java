@@ -2,14 +2,10 @@ package servlets.Member;
 
 import entities.Asset;
 import entities.OrderResults;
-import entities.Results;
-import org.opensaml.xml.encryption.P;
 import persistence.AssetDao;
-import persistence.DataAccessObject;
 import persistence.OrderDao;
 import servlets.BaseServlet;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,6 +14,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 /**
  * @author Alex
@@ -41,9 +38,8 @@ public class OrderFormServlet extends BaseServlet {
         content = "/member/orderForm.jsp";
         title = "Order Form";
         AssetDao dao = (AssetDao) getServletContext().getAttribute("assetDao");
-        dao.setType(Asset.class);
 
-        ArrayList<Asset> hops = (ArrayList<Asset>) dao.getRecords("type", "HOP");
+        TreeSet<Asset> hops = dao.searchLikeRecords("type", "HOP");
 
         request.setAttribute("hops", hops);
         servletResponse(request, response);

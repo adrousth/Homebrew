@@ -23,6 +23,7 @@ import java.util.regex.Pattern;
 public class MemberDao extends DataAccessObject<Member> {
 
     private DataAccessObject<MemberRole> dao;
+
     public MemberDao() {
         setType(Member.class);
          dao = new DataAccessObject<>();
@@ -44,6 +45,7 @@ public class MemberDao extends DataAccessObject<Member> {
         Set<Member> members;
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Criteria criteria = session.createCriteria(Member.class);
+
         if (firstName != null) {
             criteria.add(Restrictions.ilike("firstName", "%" + firstName + "%"));
         }

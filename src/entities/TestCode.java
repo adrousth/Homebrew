@@ -29,7 +29,7 @@ public class TestCode {
 
         DataAccessObject<Order> dao = new DataAccessObject<>();
 
-        dao.setType(Order.class);
+
 
         Map<String, Object> map = new TreeMap<>();
         map.put("memberId", 187);

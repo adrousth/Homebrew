@@ -1,6 +1,8 @@
 import com.github.javafaker.Faker;
 import entities.*;
+import persistence.AssetDao;
 import persistence.DataAccessObject;
+import persistence.MemberDao;
 import persistence.OrderDao;
 
 import java.util.*;
@@ -12,12 +14,13 @@ import java.util.concurrent.TimeUnit;
  */
 public class PopulateDatabase {
     private Faker faker;
-    private DataAccessObject dao;
+    private MemberDao memberDao;
+    private AssetDao assetDao;
 
     private void createMembers() {
         MemberRole role;
 
-        dao = new DataAccessObject(Member.class);
+         memberDao = new MemberDao();
 
         // adding admin member
         Member member = new Member();
@@ -28,7 +31,7 @@ public class PopulateDatabase {
         member.addRole(new MemberRole("MEMBER"));
         member.addRole(new MemberRole("ADMIN"));
         member.addRole(new MemberRole("HOP CZAR"));
-        dao.addRecord(member);
+        memberDao.addRecord(member);
 
         member = new Member();
         member.setFirstName("Normal");
@@ -36,7 +39,7 @@ public class PopulateDatabase {
         member.setEmail("example@example.com");
         member.setPassword("foobar");
         member.addRole(new MemberRole("MEMBER"));
-        dao.addRecord(member);
+        memberDao.addRecord(member);
 
         // adding 20 normal members
         for(int i = 0; i < 20; i++) {
@@ -51,13 +54,13 @@ public class PopulateDatabase {
             member.setPassword("foobar" + (i + 1));
             role.setRole("MEMBER");
             member.addRole(role);
-            dao.addRecord(member);
+            memberDao.addRecord(member);
         }
 
     }
 
     private void createAssets() {
-        dao = new DataAccessObject(Asset.class);
+        assetDao = new AssetDao();
         Asset asset;
         for(int i = 0; i < 50; i++) {
             asset = new Asset();
@@ -71,17 +74,17 @@ public class PopulateDatabase {
             asset.setDescription(faker.lorem().paragraph(2));
             asset.setCurrentStock((float) ((Math.round(2 * faker.number().numberBetween(40, 150) / (float) 10)) / 2.0));
 
-            dao.addRecord(asset);
+            assetDao.addRecord(asset);
         }
     }
 
     private void createOrders() {
-        dao = new DataAccessObject(Member.class);
-        Set<Member> members = new TreeSet<>(dao.getNumberOfRecords(4,10));
+        memberDao = new MemberDao();
+        Set<Member> members = memberDao.getNumberOfRecords(4,10);
 
-        dao.setType(Asset.class);
-        List<Asset> hops = dao.searchNumberOfRecords(0,10,"type","HOP");
-        List<Asset> grains = dao.searchNumberOfRecords(0,10,"type","GRAIN");
+        assetDao = new AssetDao();
+        Set<Asset> hops = assetDao.searchNumberOfRecords(0,10,"type","HOP");
+        Set<Asset> grains = assetDao.searchNumberOfRecords(0,10,"type","GRAIN");
 
         Order order;
         OrderDao orderDao = new OrderDao();
@@ -108,7 +111,7 @@ public class PopulateDatabase {
         }
     }
 
-    public Order createOrder(List<Asset> assets, String type) {
+    public Order createOrder(Set<Asset> assets, String type) {
         Order order = new Order();
 
         int numItems = faker.number().numberBetween(1, 5);
@@ -180,8 +183,8 @@ public class PopulateDatabase {
 
     private void run() {
         faker = new Faker();
-        //createMembers();
-        //createAssets();
+        createMembers();
+        createAssets();
         createOrders();
 
     }

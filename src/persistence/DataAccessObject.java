@@ -5,6 +5,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
 import java.util.*;
@@ -12,18 +13,15 @@ import java.util.*;
 /**
  * @author Alex
  *  5/21/2016
+ *
+ *  Generic Dao.
  */
 public class DataAccessObject<T> {
-    final Logger log = Logger.getLogger(this.getClass());
 
+    final Logger log = Logger.getLogger(this.getClass());
     private Class<T> type;
 
-    public void setType(Class<T> type) {
-        this.type = type;
-    }
-
     public DataAccessObject() {
-
     }
 
     public DataAccessObject(Class<T> type) {
@@ -31,6 +29,17 @@ public class DataAccessObject<T> {
         this.type = type;
     }
 
+
+    protected void setType(Class<T> type) {
+        this.type = type;
+    }
+
+
+    /**
+     * Adds a new record to the database.
+     * @param newRecord The record to be added.
+     * @return The id of the newly added record.
+     */
     public Object addRecord(T newRecord) {
         Session session = createSession();
         Transaction transaction = null;
@@ -54,6 +63,11 @@ public class DataAccessObject<T> {
         return objectId;
     }
 
+    /**
+     * Persists a record.
+     * @param newRecord The record to be persisted.
+     * @return True or false based on if the database transaction was successfully committed.
+     */
     public boolean persistRecord(T newRecord) {
         Session session = createSession();
 
@@ -76,6 +90,11 @@ public class DataAccessObject<T> {
     return success;
     }
 
+    /**
+     * Get a record based on it's id.
+     * @param id The id of the record.
+     * @return The record that was found, if any.
+     */
     public T getRecordById(int id) {
         T record;
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
@@ -86,50 +105,94 @@ public class DataAccessObject<T> {
         return record;
     }
 
+    /**
+     * Searches for all records that are like the search value.
+     * @param searchType The field being searched.
+     * @param searchValue The value being used to searched.
+     * @return A set of all records that match the search.
+     */
     @SuppressWarnings("unchecked")
-    public List<T> getRecords(String searchType, String searchValue) {
-        List<T> records;
+    public TreeSet<T> searchLikeRecords(String searchType, String searchValue) {
+        TreeSet<T> records;
         Session session = createSession();
 
-        records = session.createCriteria(type).add(Restrictions.like(searchType, "%" + searchValue + "%")).list();
+        records = new TreeSet<T>(session.createCriteria(type).add(Restrictions.like(searchType, "%" + searchValue + "%")).list());
 
         session.close();
         return records;
     }
 
+    /**
+     * Searches for all records that are equal to the search value.
+     * @param searchType The field being searched.
+     * @param searchValue The value being searched for.
+     * @return A set of all records that match the search.
+     */
     @SuppressWarnings("unchecked")
-    public List<T> searchNumberOfRecords(int firstResult, int numberOfResults, String searchType, String searchValue) {
-        List<T> records;
+    public TreeSet<T> searchRecords(String searchType, Object searchValue) {
+        TreeSet<T> records;
         Session session = createSession();
 
-        records = session.createCriteria(type).add(Restrictions.like(searchType, "%" + searchValue + "%"))
-                .setFirstResult(firstResult).setMaxResults(numberOfResults).list();
-
-        session.close();
-
-        return records;
-    }
-
-    @SuppressWarnings("unchecked")
-    public List<T> getNumberOfRecords(int firstResult, int numberOfResults) {
-        List<T> records;
-        Session session = createSession();
-
-        records = session.createCriteria(type).setFirstResult(firstResult).setMaxResults(numberOfResults).list();
+        records = new TreeSet<>(session.createCriteria(type).add(Restrictions.eq(searchType, searchValue)).list());
 
         session.close();
         return records;
     }
 
 
-    void updateRecord(T record) {
+    /**
+     * Searches for a number of records that are equal to the search value.
+     * @param firstResult The first result to add to the results.
+     * @param numberOfResults The number of the results to return.
+     * @param searchType the field being searched.
+     * @param searchValue the value being searched for.
+     * @return A set of records that match the search.
+     */
+    @SuppressWarnings("unchecked")
+    public TreeSet<T> searchNumberOfRecords(int firstResult, int numberOfResults, String searchType, String searchValue) {
+        TreeSet<T> records;
+        Session session = createSession();
+
+        records = new TreeSet<T>(session.createCriteria(type).add(Restrictions.like(searchType, "%" + searchValue + "%"))
+                .setFirstResult(firstResult).setMaxResults(numberOfResults).list());
+
+        session.close();
+
+        return records;
+    }
+
+    /**
+     * Returns all records that are in the range specified.
+     * @param firstResult The first record to add to the results.
+     * @param numberOfResults The number of records to be returned, can be less if not enough records to return.
+     * @return A set of all records that are in the range.
+     */
+    @SuppressWarnings("unchecked")
+    public TreeSet<T> getNumberOfRecords(int firstResult, int numberOfResults) {
+        TreeSet<T> records;
+        Session session = createSession();
+
+        records = new TreeSet<T>(session.createCriteria(type).setFirstResult(firstResult).setMaxResults(numberOfResults).list());
+
+        session.close();
+        return records;
+    }
+
+    /**
+     * Updates a record in the database.
+     * @param record The record to be updated.
+     * @return True or false based on if the record was successfully updated or not.
+     */
+    public boolean updateRecord(T record) {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Transaction transaction = null;
+        boolean success = false;
 
         try {
             transaction = session.beginTransaction();
             session.update(type.getName(), record);
             transaction.commit();
+            success = true;
             log.info(record.getClass().getName() + " updated");
         } catch (HibernateException ex) {
             if (transaction!=null) transaction.rollback();
@@ -137,17 +200,25 @@ public class DataAccessObject<T> {
         } finally {
             session.close();
         }
+        return success;
     }
 
-    public void deleteRecord(T record) {
+    /**
+     * Deletes a record in the database.
+     * @param record The record to be deleted.
+     * @return True or false based on if the record was successfully deleted or not.
+     */
+    public boolean deleteRecord(T record) {
         Session session = createSession();
         Transaction transaction = null;
+        boolean success = false;
 
         try {
 
             transaction = session.beginTransaction();
             session.delete(record);
             transaction.commit();
+            success = true;
             log.info(record.getClass().getName() + " deleted");
         } catch (HibernateException ex) {
             if (transaction!=null) transaction.rollback();
@@ -155,15 +226,22 @@ public class DataAccessObject<T> {
         } finally {
             session.close();
         }
+        return success;
     }
 
 
+    /**
+     * Gets all records that has one of the values pass to the method.
+     * @param property The field being searched.
+     * @param values The values being searched for.
+     * @return A set with all the records that have a value in the values passed to the method.
+     */
     @SuppressWarnings("unchecked")
-    public List<T> getRecordsByParam(String param, Set<Object> ids) {
-        List<T> records;
+    public TreeSet<T> getRecordsByParam(String property, Set<Object> values) {
+        TreeSet<T> records;
         Session session = createSession();
 
-        records = session.createCriteria(type).add(Restrictions.in(param, ids)).list();
+        records = new TreeSet<>(session.createCriteria(type).add(Restrictions.in(property, values)).list());
 
         session.close();
 
@@ -171,6 +249,11 @@ public class DataAccessObject<T> {
 
     }
 
+    /**
+     * Adds a record or updates it if it all ready exists.
+     * @param record The record to be added or updated.
+     * @return True or false based on if the record was successfully added or updated.
+     */
     public boolean addOrUpdateRecord(T record) {
         Session session = createSession();
         Transaction transaction = null;
@@ -184,12 +267,13 @@ public class DataAccessObject<T> {
             session.saveOrUpdate(type.getName(), record);
 
             transaction.commit();
-
             success = true;
             log.info(record.getClass().getName() + " updated");
 
         } catch (HibernateException ex) {
-            if (transaction!=null) transaction.rollback();
+            if (transaction!=null) {
+                transaction.rollback();
+            }
             log.error(ex);
         } finally {
             session.close();
@@ -198,27 +282,27 @@ public class DataAccessObject<T> {
         return success;
     }
 
+    /**
+     * Searches for all records that match the properties and values in the passed map.
+     * @param searchParams Map of all the values being searched for and what field to search for them in.
+     * @return A set with all the results found from the search.
+     */
     @SuppressWarnings("unchecked")
-    public List<T> searchMultipleParams(Map searchParams) {
-        List<T> records;
+    public TreeSet<T> searchMultipleParams(Map searchParams) {
+        TreeSet<T> records;
         Session session = createSession();
 
-        records = session.createCriteria(type).add(Restrictions.allEq(searchParams)).list();
+        records = new TreeSet<T>(session.createCriteria(type).add(Restrictions.allEq(searchParams)).list());
 
         session.close();
         return records;
     }
 
-    public Object getRecordById(int id, Class c) {
-        Object o;
-        Session session = createSession();
 
-        o = session.get(c, id);
-
-        session.close();
-        return o;
-    }
-
+    /**
+     * Creates a session and returns it.
+     * @return The newly created session.
+     */
     private Session createSession() {
         return SessionFactoryProvider.getSessionFactory().openSession();
     }

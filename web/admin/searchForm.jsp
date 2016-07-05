@@ -34,7 +34,7 @@
             <label for="orderStatus" class="col-sm-3 control-label">Status</label>
             <div class="col-sm-5">
                 <select class="form-control" id="orderStatus" name="orderStatus">
-                    <option value="">All</option>
+                    <option value="all">All</option>
                     <option value="unfilled">Unfilled</option>
                     <option value="filled">Filled</option>
                     <option value="complete">Complete</option>

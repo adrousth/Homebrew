@@ -160,8 +160,8 @@ public class Testing {
     @Test
     public void test8() {
         dao = new DataAccessObject(Asset.class);
-        List<Asset> hops = dao.searchNumberOfRecords(0, 1000, "type", "HOP");
-        List<Asset> grains = dao.searchNumberOfRecords(0, 1000, "type", "GRAIN");
+        Set<Asset> hops = dao.searchNumberOfRecords(0, 1000, "type", "HOP");
+        Set<Asset> grains = dao.searchNumberOfRecords(0, 1000, "type", "GRAIN");
         System.out.println(hops.size());
         System.out.println(grains.size());
     }
@@ -176,7 +176,7 @@ public class Testing {
         stringSet.add(174);
         stringSet.add(180);
 
-        List<Asset> assets = dao.getRecordsByParam("assetId", stringSet);
+        Set<Asset> assets = dao.getRecordsByParam("assetId", stringSet);
         System.out.println(assets.size());
     }
 
@@ -187,7 +187,7 @@ public class Testing {
         webOrder.put("", "");
 
         webOrder.put("366", "2.0");
-        webOrder.put("367", "1.0");
+        webOrder.put("367", ".0");
 
         OrderResults results = orderDao.orderFromWebForm(webOrder, "hello@world.net", "HOP", "notes");
         System.out.println(results.isSuccess());

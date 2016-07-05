@@ -55,10 +55,6 @@ public class OrderDao extends DataAccessObject<Order> {
         updateRecord(order);
     }
 
-    public void method() {
-
-    }
-
     public OrderResults orderFromWebForm(Map<String, String> webOrder, String memberEmail, String type, String notes) {
 
         List<OrderItem> orderItems = new ArrayList<>();
@@ -74,53 +70,9 @@ public class OrderDao extends DataAccessObject<Order> {
             return results;
         }
         int memberId = memberDao.getMemberByEmail(memberEmail).getMemberId();
-        float total = 0;
 
-        for (Map.Entry<String, String> item : webOrder.entrySet()) {
+        webOrderLoop(webOrder, type, results, order, orderItems);
 
-            try {
-                if (!item.getKey().equals("")) {
-                    int id = Integer.parseInt(item.getKey());
-                    float quantity = (float) (Math.round(Float.parseFloat(item.getValue()) * 2) / 2.0);
-                    total += quantity;
-
-
-
-                    Asset asset = (Asset) getRecordById(id, Asset.class);
-
-                    if (asset == null || !asset.getType().equals(type)) {
-                        results.setType("Error");
-                        results.addMessage("Invalid item in order");
-                        return results;
-                    } else if (asset.getCurrentStock() < quantity) {
-                        if (asset.getCurrentStock() == 0) {
-                            results.addMessage(asset.getName() + " is out of stock, please try again.");
-                        } else {
-                            results.addMessage(asset.getName() + " only has "
-                                    + asset.getCurrentStock() + "oz in stock, please try again");
-                        }
-                        results.setType("Error");
-
-                    }
-                    if (quantity > 0) {
-                        OrderItem orderItem = new OrderItem(asset, quantity, type);
-                        orderItems.add(orderItem);
-                        results.addOrderItem(new OrderItem(asset, quantity, type));
-                        order.addOrderItem(orderItem);
-                    }
-                }
-            } catch (NumberFormatException ex) {
-                results.setMessages(new ArrayList<>());
-                results.setType("Error");
-                results.addMessage("Quantities must be a number");
-                return results;
-            }
-        }
-        if (total > 10) {
-            results.setType("Error");
-            results.addMessage("Total can not be greater than 10 ounces");
-            return results;
-        }
         if (orderItems.size() <= 0) {
             results.setType("Error");
             results.addMessage("No items selected");
@@ -128,9 +80,6 @@ public class OrderDao extends DataAccessObject<Order> {
         if (results.getType().equals("Error")) {
             return results;
         }
-
-
-
 
 
         order.setOrderStatus("unfilled");
@@ -151,10 +100,58 @@ public class OrderDao extends DataAccessObject<Order> {
         return results;
     }
 
-    public List searchMultipleParam(Map searchParams) {
+    private void webOrderLoop(Map<String, String> webOrder, String type, OrderResults results, Order order, List<OrderItem> orderItems) {
+        float total = 0;
+        for (Map.Entry<String, String> item : webOrder.entrySet()) {
+
+            try {
+                if (!item.getKey().equals("")) {
+                    int id = Integer.parseInt(item.getKey());
+                    float quantity = (float) (Math.round(Float.parseFloat(item.getValue()) * 2) / 2.0);
+                    total += quantity;
+
+                    AssetDao assetDao = new AssetDao();
+                    Asset asset = assetDao.getRecordById(id);
+
+                    if (asset == null || !asset.getType().equals(type)) {
+                        results.setType("Error");
+                        results.addMessage("Invalid item in order");
+                        return;
+                    } else if (asset.getCurrentStock() < quantity) {
+                        if (asset.getCurrentStock() == 0) {
+                            results.addMessage(asset.getName() + " is out of stock, please try again.");
+                        } else {
+                            results.addMessage(asset.getName() + " only has "
+                                    + asset.getCurrentStock() + "oz in stock, please try again");
+                        }
+                        results.setType("Error");
+
+                    }
+                    if (quantity > 0) {
+                        OrderItem orderItem = new OrderItem(asset, quantity, type);
+                        orderItems.add(orderItem);
+                        results.addOrderItem(new OrderItem(asset, quantity, type));
+                        order.addOrderItem(orderItem);
+                    }
+                }
+            } catch (NumberFormatException ex) {
+
+                results.setType("Error");
+                results.addMessage("Quantities must be a number");
+                return;
+            }
+        }
+        if (total > 10) {
+            results.setType("Error");
+            results.addMessage("Total can not be greater than 10 ounces");
+        }
+
+    }
+
+    public List<Order> searchMultipleParam(Map searchParams) {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
 
-        List records;
+        List<Order> records;
 
 
         Criteria criteria = session.createCriteria(Order.class)
@@ -169,18 +166,27 @@ public class OrderDao extends DataAccessObject<Order> {
         return records;
     }
 
-    public Set searchOrders(String orderStatus, String type) {
-        Set orders;
+    public Set<Order> searchOrdersByStatus(String orderStatus, String type) {
+
+        Set<Order> orders;
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
+
         Criteria criteria = session.createCriteria(Order.class);
+
         if (type != null) {
-            if (!type.equals("BOTH")) {
-                criteria.add(Restrictions.eq("type", type));
+            if (!type.toLowerCase().equals("both")) {
+                criteria.add(Restrictions.eq("type", type).ignoreCase());
             }
         }
 
-        orders = new TreeSet<>(session.createCriteria(Order.class)
-                .add(Restrictions.ilike("orderStatus", orderStatus)).list());
+        if (orderStatus != null) {
+            if (!orderStatus.toLowerCase().equals("all")) {
+                criteria.add(Restrictions.eq("orderStatus", orderStatus).ignoreCase());
+            }
+        }
+
+
+        orders = new TreeSet<>(criteria.list());
 
         session.close();
         return orders;

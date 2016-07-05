@@ -1,27 +1,26 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <div class="center-block table table-striped" id="list">
-    <h2 class="text-center text-capitalize">${type} ${orderStatus} Orders</h2>
+    <h2 class="text-center text-capitalize">${member.firstName} ${member.lastName} ${orderStatus} Orders</h2>
     <p class="text-center">${orders.size()} results.</p>
     <c:forEach var="order" items="${orders}" varStatus="loopStatus">
-        <c:if test="${loopStatus.index % 2 == 0}">
-            <c:choose>
-                <c:when test="${loopStatus.index % 4 == 0}">
-                    <div class="row odd list-row">
-                </c:when>
-                <c:otherwise>
-                    <div class="row even list-row">
-                </c:otherwise>
-            </c:choose>
-        </c:if>
-        <div class="col-md-6 list-item">
-            <h3>${order.member.firstName} ${order.member.lastName}</h3>
-            <p class="col-sm-offset-1 text-capitalize">${order.type} order</p>
-            <p class="col-sm-offset-1">Order status: ${order.orderStatus}</p>
-            <p class="col-sm-offset-1">${order.timeSinceLastUpdate()}</p>
-            <hr/>
-            <ul>
-                <c:set var="total" value="${0.0}"/>
+    <c:if test="${loopStatus.index % 2 == 0}">
+        <c:choose>
+            <c:when test="${loopStatus.index % 4 == 0}">
+                <div class="row odd list-row">
+            </c:when>
+            <c:otherwise>
+                <div class="row even list-row">
+            </c:otherwise>
+        </c:choose>
+    </c:if>
+    <div class="col-md-6 list-item">
+        <h3>${order.type} order</h3>
+        <p class="col-sm-offset-1">Order status: ${order.orderStatus}</p>
+        <p class="col-sm-offset-1">${order.timeSinceLastUpdate()}</p>
+        <hr/>
+        <ul>
+            <c:set var="total" value="${0.0}"/>
                 <c:forEach var="item" items="${order.orderItems}">
                     <li class="row"><span class="col-lg-4 col-md-5 col-sm-5 col-xs-6">${item.asset.name}</span>${item.quantity} oz</li>
                     <c:set var="total" value="${total + item.quantity}"/>

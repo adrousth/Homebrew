@@ -1,18 +1,14 @@
 package servlets.Admin;
 
-import entities.Member;
-import persistence.DataAccessObject;
 import persistence.MemberDao;
 import persistence.OrderDao;
 import servlets.BaseServlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -68,15 +64,14 @@ public class SearchServlet extends BaseServlet {
             if (request.getParameter("orderStatus") != null) {
                 orderStatus = request.getParameter("orderStatus");
             }
-            if (request.getParameter("orderType") != null) {
+            if (request.getParameter("type") != null) {
                 type = request.getParameter("type");
             }
 
+            Set orderList = dao.searchOrdersByStatus(orderStatus, type);
 
-
-
-            Set orderList = dao.searchOrders(orderStatus, type);
-
+            request.setAttribute("type", type);
+            request.setAttribute("orderStatus", orderStatus);
             request.setAttribute("orders", orderList);
 
             title = "Order Search";
