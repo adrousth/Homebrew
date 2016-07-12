@@ -105,6 +105,7 @@ public class Member implements Serializable, Comparable {
 
     public void addMemberOrder(Order order) {
         memberOrders.add(order);
+        order.setMember(this);
     }
 
     public String getPassword() {

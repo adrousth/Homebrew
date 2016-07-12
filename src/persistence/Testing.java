@@ -52,7 +52,6 @@ public class Testing {
     public void test1() {
         dao.setType(OrderItem.class);
         Order order = new Order();
-        order.setMemberId(7);
 
         order.setOrderStatus("unfilled");
 
@@ -140,7 +139,6 @@ public class Testing {
         order.addOrderItem(item);
         order.addOrderItem(item2);
         order.addOrderItem(item3);
-        order.setMemberId(187);
 
         int i = orderDao.createNewOrder(order);
         System.out.println(i);
@@ -225,7 +223,7 @@ public class Testing {
         order.addOrderItem(item);
         order.addOrderItem(item2);
         order.addOrderItem(item3);
-        order.setMemberId(187);
+
 
         dao.setType(Order.class);
         int i = (int) dao.addRecord(order);

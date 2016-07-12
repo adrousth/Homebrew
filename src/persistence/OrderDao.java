@@ -69,7 +69,7 @@ public class OrderDao extends DataAccessObject<Order> {
             results.setType("Error");
             return results;
         }
-        int memberId = memberDao.getMemberByEmail(memberEmail).getMemberId();
+        Member member = memberDao.getMemberByEmail(memberEmail);
 
         webOrderLoop(webOrder, type, results, order, orderItems);
 
@@ -84,7 +84,7 @@ public class OrderDao extends DataAccessObject<Order> {
 
         order.setOrderStatus("unfilled");
         order.setType(type);
-        order.setMemberId(memberId);
+        member.addMemberOrder(order);
 
         if (createNewOrder(order) > 0) {
             results.setType("Success");

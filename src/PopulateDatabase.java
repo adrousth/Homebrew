@@ -104,7 +104,7 @@ public class PopulateDatabase {
                     order.setType("GRAIN");
                     order.setNotes(faker.lorem().paragraph());
                 }
-                order.setMemberId(member.getMemberId());
+                member.addMemberOrder(order);
                 orderDao.createNewOrder(order);
 
             }

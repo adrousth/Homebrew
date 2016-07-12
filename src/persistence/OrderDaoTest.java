@@ -28,13 +28,13 @@ public class OrderDaoTest {
     public void startTest() {
         count++;
         System.out.println("Starting Testing #" + count);
-        System.out.println();
+
     }
 
     @After
     public void endTest() {
-        System.out.println();
         System.out.println("Ending Testing #" + count);
+        System.out.println("--------------------------------------------");
         System.out.println();
     }
 
@@ -49,31 +49,30 @@ public class OrderDaoTest {
         testOrder3 = new Order();
 
 
+        MemberDao memberDao = new MemberDao();
         testMember = new Member();
         testMember.setFirstName("Johnson");
         testMember.setLastName("Doe");
         testMember.setEmail("jdoe@domain.com");
-        testMember.setMemberId((Integer) dao.addRecord(testOrder1));
+        testMember.setMemberId((Integer) memberDao.addRecord(testMember));
 
 
-        testMember.addMemberOrder(testOrder1);
+
         testOrder1.setOrderStatus("unfilled");
         testOrder1.setType("HOP");
-        testOrder1.addOrderItem(new OrderItem());
+        testMember.addMemberOrder(testOrder1);
         testOrder1.setOrderId((Integer) dao.addRecord(testOrder1));
 
 
         testMember.addMemberOrder(testOrder2);
         testOrder2.setOrderStatus("filled");
         testOrder2.setType("GRAIN");
-        testOrder2.addOrderItem(new OrderItem());
         testOrder2.setOrderId((Integer) dao.addRecord(testOrder2));
 
 
         testMember.addMemberOrder(testOrder3);
         testOrder3.setOrderStatus("COMPLETE");
         testOrder3.setType("HOP");
-        testOrder3.addOrderItem(new OrderItem());
         testOrder3.setOrderId((Integer) dao.addRecord(testOrder3));
 
 
@@ -85,6 +84,8 @@ public class OrderDaoTest {
         dao.deleteRecord(testOrder1);
         dao.deleteRecord(testOrder2);
         dao.deleteRecord(testOrder3);
+        MemberDao memberDao = new MemberDao();
+        memberDao.deleteRecord(testMember);
     }
 
 
@@ -97,21 +98,10 @@ public class OrderDaoTest {
         testMember.addMemberOrder(testOrder);
         testOrder.setOrderStatus("unfilled");
         testOrder.setType("HOP");
-        testOrder.addOrderItem(new OrderItem());
-
 
         int i = (int) dao.addRecord(testOrder);
 
         assert(i > 0);
-    }
-
-    @Test
-    public void addRecord2() {
-        System.out.println("Testing addRecord2");
-
-        int i = (int) dao.addRecord(testOrder1);
-
-        assert(i <= 0);
     }
 
 
@@ -142,7 +132,7 @@ public class OrderDaoTest {
     @Test
     public void searchNumberOfRecords2() {
         System.out.println("Testing searchNumberOfRecords2");
-        Set<Order> Orders = dao.searchNumberOfRecords(0, 1, "firstName", "filled");
+        Set<Order> Orders = dao.searchNumberOfRecords(0, 1, "orderStatus", "filled");
         System.out.println("got " + Orders.size() + " records");
         assertTrue(Orders.size() == 1);
     }
@@ -168,15 +158,13 @@ public class OrderDaoTest {
         System.out.println("Testing updateRecord");
         testOrder2.setOrderStatus("COMPLETE");
         assertTrue(dao.updateRecord(testOrder2));
-
-
     }
 
     @Test
     public void updateRecord2() {
         System.out.println("Testing updateRecord2");
         Order Order = new Order();
-        assertTrue(dao.updateRecord(Order));
+        assertFalse(dao.updateRecord(Order));
     }
 
     @Test

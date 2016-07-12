@@ -30,6 +30,10 @@ public class DataAccessObject<T> {
     }
 
 
+    /**
+     * Sets the class type.
+     * @param type The type to be set.
+     */
     protected void setType(Class<T> type) {
         this.type = type;
     }
@@ -133,7 +137,9 @@ public class DataAccessObject<T> {
         TreeSet<T> records;
         Session session = createSession();
 
-        records = new TreeSet<>(session.createCriteria(type).add(Restrictions.eq(searchType, searchValue)).list());
+        records = new TreeSet<>(session.createCriteria(type)
+                .setProjection(Projections.distinct(Projections.property(type.getSimpleName().toLowerCase() + "Id")))
+                .add(Restrictions.eq(searchType, searchValue)).list());
 
         session.close();
         return records;
@@ -153,7 +159,9 @@ public class DataAccessObject<T> {
         TreeSet<T> records;
         Session session = createSession();
 
-        records = new TreeSet<T>(session.createCriteria(type).add(Restrictions.like(searchType, "%" + searchValue + "%"))
+        records = new TreeSet<T>(session.createCriteria(type)
+                .setProjection(Projections.distinct(Projections.property(type.getSimpleName().toLowerCase() + "Id")))
+                .add(Restrictions.like(searchType, "%" + searchValue + "%"))
                 .setFirstResult(firstResult).setMaxResults(numberOfResults).list());
 
         session.close();
@@ -172,7 +180,9 @@ public class DataAccessObject<T> {
         TreeSet<T> records;
         Session session = createSession();
 
-        records = new TreeSet<T>(session.createCriteria(type).setFirstResult(firstResult).setMaxResults(numberOfResults).list());
+        records = new TreeSet<T>(session.createCriteria(type)
+                .setProjection(Projections.distinct(Projections.property(type.getSimpleName().toLowerCase() + "Id")))
+                .setFirstResult(firstResult).setMaxResults(numberOfResults).list());
 
         session.close();
         return records;
@@ -303,7 +313,7 @@ public class DataAccessObject<T> {
      * Creates a session and returns it.
      * @return The newly created session.
      */
-    private Session createSession() {
+    protected Session createSession() {
         return SessionFactoryProvider.getSessionFactory().openSession();
     }
 

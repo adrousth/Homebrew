@@ -22,8 +22,6 @@ public class Order implements Serializable, Comparable {
     @GeneratedValue
     @Column(name = "order_id")
     private int orderId;
-    @Column(name = "member_id")
-    private int memberId;
     @Column(name = "order_status")
     private String orderStatus;
     @Column(name = "notes")
@@ -37,7 +35,7 @@ public class Order implements Serializable, Comparable {
 
 
     @ManyToOne
-    @JoinColumn(name = "member_id", insertable = false, updatable = false, referencedColumnName = "member_id")
+    @JoinColumn(name = "member_id")
     private Member member;
 
     @OneToMany(mappedBy = "order", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -56,13 +54,6 @@ public class Order implements Serializable, Comparable {
         this.orderId = orderId;
     }
 
-    public int getMemberId() {
-        return memberId;
-    }
-
-    public void setMemberId(int memberId) {
-        this.memberId = memberId;
-    }
 
     public String getOrderStatus() {
         return orderStatus;
