@@ -47,9 +47,6 @@ public class OrderItem implements Serializable, Comparable  {
         return assetId;
     }
 
-    public void setAssetId(int assetId) {
-        this.assetId = assetId;
-    }
 
     public Asset getAsset() {
         return asset;
@@ -57,6 +54,7 @@ public class OrderItem implements Serializable, Comparable  {
 
     public void setAsset(Asset asset) {
         this.asset = asset;
+        this.assetId = asset.getAssetId();
     }
 
     public Order getOrder() {
@@ -97,6 +95,7 @@ public class OrderItem implements Serializable, Comparable  {
         }
         OrderItem that = (OrderItem) obj;
         return new EqualsBuilder()
+                .append(order.getOrderId(), that.getOrder().getOrderId())
                 .append(assetId, that.getAssetId())
                 .isEquals();
     }
@@ -104,7 +103,8 @@ public class OrderItem implements Serializable, Comparable  {
 
     @Override
     public int compareTo(Object o) {
-        if (assetId == ((OrderItem)o).getAssetId()) {
+
+        if (assetId == ((OrderItem)o).getAssetId() && order.getOrderId() == ((OrderItem)o).getOrder().getOrderId()) {
             return 0;
         } else if (assetId > ((OrderItem)o).getAssetId()) {
             return 1;

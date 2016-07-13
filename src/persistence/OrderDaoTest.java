@@ -15,6 +15,7 @@ import static org.junit.Assert.*;
  */
 public class OrderDaoTest {
     private static OrderDao dao;
+    private static AssetDao assetDao;
     private static Member testMember;
     private static Order testOrder1;
     private static Order testOrder2;
@@ -42,6 +43,7 @@ public class OrderDaoTest {
     public static void setup() {
 
         dao = new OrderDao();
+        assetDao = new AssetDao();
         count = 0;
         testOrder = new Order();
         testOrder1 = new Order();
@@ -181,5 +183,39 @@ public class OrderDaoTest {
         Order.setOrderId(-100);
         assertFalse(dao.deleteRecord(Order));
 
+    }
+
+    @Test
+    public void updateAssets() {
+        System.out.println("Testing updateAssets");
+        Order order = new Order();
+        OrderItem orderItem = new OrderItem();
+        orderItem.setAsset(assetDao.getRecordById(365));
+        orderItem.setQuantity(1.0f);
+        order.addOrderItem(orderItem);
+        dao.updateAssets(order);
+    }
+
+    @Test
+    public void createNewOrder() {
+        System.out.println("Testing createNewOrder");
+
+        testOrder = new Order();
+        testMember.addMemberOrder(testOrder);
+        testOrder.setOrderStatus("unfilled");
+        testOrder.setType("HOP");
+
+
+        OrderItem orderItem = new OrderItem();
+        orderItem.setAsset(assetDao.getRecordById(365));
+        orderItem.setQuantity(1.0f);
+
+        testOrder.addOrderItem(orderItem);
+
+        int i = dao.createNewOrder(testOrder);
+
+        assert(i > 0);
+
+        assetDao.updateRecord(orderItem.getAsset());
     }
 }

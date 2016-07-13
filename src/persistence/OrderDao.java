@@ -20,7 +20,11 @@ public class OrderDao extends DataAccessObject<Order> {
         setType(Order.class);
     }
 
-
+    /**
+     * Adds a new order to the database.
+     * @param order The order to be added.
+     * @return The new order's id.
+     */
     public int createNewOrder(Order order) {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Transaction transaction = null;
@@ -29,14 +33,7 @@ public class OrderDao extends DataAccessObject<Order> {
             transaction = session.beginTransaction();
             if (persistRecord(order)) {
                 id = order.getOrderId();
-                /*
-                setType(Asset.class);
-                for (OrderItem orderItem : order.getOrderItems()) {
-                    Asset asset = orderItem.getAsset();
-                    asset.setCurrentStock(asset.getCurrentStock() - orderItem.getQuantity());
-                    updateRecord(asset);
-                }
-                */
+                updateAssets(order);
             }
 
             transaction.commit();
@@ -50,13 +47,38 @@ public class OrderDao extends DataAccessObject<Order> {
         return id;
     }
 
-    public void updateOrder(Order order) {
-        order.setUpdatedAt(new Date());
-        updateRecord(order);
+    /**
+     * Updates the currentStock of an order's assets when an order is added.
+     * @param order The order that was added to the database.
+     */
+    public void updateAssets(Order order) {
+        AssetDao assetDao = new AssetDao();
+        for (OrderItem orderItem : order.getOrderItems()) {
+            Asset asset = assetDao.getRecordById(orderItem.getAsset().getAssetId());
+            asset.setCurrentStock(asset.getCurrentStock() - orderItem.getQuantity());
+            assetDao.updateRecord(asset);
+        }
     }
 
-    public OrderResults orderFromWebForm(Map<String, String> webOrder, String memberEmail, String type, String notes) {
+    /**
+     * Updates an order.
+     * @param order The order to be updated.
+     * @return True or false based on if the update was successful.
+     */
+    public boolean updateOrder(Order order) {
+        order.setUpdatedAt(new Date());
+        return updateRecord(order);
+    }
 
+    /**
+     * Adds a order to the database from a web form.
+     * @param webOrder The items and quantities for the order.
+     * @param memberEmail The member that is making the order email.
+     * @param type The type of order that is being made.
+     * @param notes Any notes for the order.
+     * @return The results from add the order to the database.
+     */
+    public OrderResults orderFromWebForm(Map<String, String> webOrder, String memberEmail, String type, String notes) {
         List<OrderItem> orderItems = new ArrayList<>();
         MemberDao memberDao = new MemberDao();
         OrderResults results = new OrderResults();
@@ -100,6 +122,14 @@ public class OrderDao extends DataAccessObject<Order> {
         return results;
     }
 
+    /**
+     * Loops through all order items and validates them.
+     * @param webOrder The order items to be validated.
+     * @param type The type of order.
+     * @param results The results from the validation.
+     * @param order The order that is being made.
+     * @param orderItems A list of the order items after validation.
+     */
     private void webOrderLoop(Map<String, String> webOrder, String type, OrderResults results, Order order, List<OrderItem> orderItems) {
         float total = 0;
         for (Map.Entry<String, String> item : webOrder.entrySet()) {
@@ -148,24 +178,13 @@ public class OrderDao extends DataAccessObject<Order> {
 
     }
 
-    public List<Order> searchMultipleParam(Map searchParams) {
-        Session session = SessionFactoryProvider.getSessionFactory().openSession();
 
-        List<Order> records;
-
-
-        Criteria criteria = session.createCriteria(Order.class)
-                .createAlias("member", "m")
-                .add(Restrictions.eqProperty("m.firstName", "Example"));
-
-        records = criteria.list();
-
-        //records = (ArrayList<Order>) session.createCriteria(Order.class).add(Restrictions.allEq(searchParams)).list();
-
-        session.close();
-        return records;
-    }
-
+    /**
+     * Searches orders based on their order status and type.
+     * @param orderStatus The order status being search for.
+     * @param type The type being searched for.
+     * @return A set of orders that meet the criteria.
+     */
     public Set<Order> searchOrdersByStatus(String orderStatus, String type) {
 
         Set<Order> orders;
@@ -185,8 +204,7 @@ public class OrderDao extends DataAccessObject<Order> {
             }
         }
 
-
-        orders = new TreeSet<>(criteria.list());
+        orders = new TreeSet<Order>(criteria.list());
 
         session.close();
         return orders;

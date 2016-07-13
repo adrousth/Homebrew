@@ -212,9 +212,7 @@ public class Testing {
         OrderItem item2 = new OrderItem();
         OrderItem item3 = new OrderItem();
 
-        item.setAssetId(366);
-        item2.setAssetId(370);
-        item3.setAssetId(377);
+
 
         item.setQuantity((float) 7.0);
         item2.setQuantity((float) 1.0);

@@ -130,7 +130,7 @@ public class PopulateDatabase {
             int num = faker.number().numberBetween(0, assetList.size());
             if (quantities.get(num2) != 0) {
                 orderItem.setQuantity(quantities.get(num2));
-                orderItem.setAssetId(assetList.get(num).getAssetId());
+                orderItem.setAsset(assetList.get(num));
                 orderItem.setType(type);
                 order.addOrderItem(orderItem);
 
