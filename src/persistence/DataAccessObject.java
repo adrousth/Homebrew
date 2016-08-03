@@ -1,10 +1,9 @@
 package persistence;
 
-import org.apache.log4j.Logger;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
 
-import org.hibernate.Transaction;
+import org.apache.log4j.Logger;
+import org.hibernate.*;
+
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
@@ -22,6 +21,7 @@ public class DataAccessObject<T> {
     private Class<T> type;
 
     public DataAccessObject() {
+
     }
 
     public DataAccessObject(Class<T> type) {
@@ -60,10 +60,7 @@ public class DataAccessObject<T> {
             if (transaction!=null) transaction.rollback();
             objectId = -1;
             log.error(ex);
-        } finally {
-            session.close();
         }
-
         return objectId;
     }
 
@@ -87,11 +84,9 @@ public class DataAccessObject<T> {
         } catch (HibernateException ex) {
             if (transaction!=null) transaction.rollback();
             log.error(ex);
-        } finally {
-            session.close();
         }
 
-    return success;
+        return success;
     }
 
     /**
@@ -101,13 +96,17 @@ public class DataAccessObject<T> {
      */
     public T getRecordById(int id) {
         T record;
-        Session session = SessionFactoryProvider.getSessionFactory().openSession();
+        Session session = createSession();
+        Transaction tx = session.beginTransaction();
 
         record = type.cast(session.get(type, id));
 
-        session.close();
+
+        tx.commit();
         return record;
     }
+
+
 
     /**
      * Searches for all records that are like the search value.
@@ -119,10 +118,12 @@ public class DataAccessObject<T> {
     public TreeSet<T> searchLikeRecords(String searchType, String searchValue) {
         TreeSet<T> records;
         Session session = createSession();
+        Transaction tx = session.beginTransaction();
 
         records = new TreeSet<T>(session.createCriteria(type).add(Restrictions.like(searchType, "%" + searchValue + "%")).list());
 
-        session.close();
+
+        tx.commit();
         return records;
     }
 
@@ -136,12 +137,14 @@ public class DataAccessObject<T> {
     public TreeSet<T> searchRecords(String searchType, Object searchValue) {
         TreeSet<T> records;
         Session session = createSession();
+        Transaction tx = session.beginTransaction();
 
         records = new TreeSet<>(session.createCriteria(type)
                 .setProjection(Projections.distinct(Projections.property(type.getSimpleName().toLowerCase() + "Id")))
                 .add(Restrictions.eq(searchType, searchValue)).list());
 
-        session.close();
+
+        tx.commit();
         return records;
     }
 
@@ -158,14 +161,15 @@ public class DataAccessObject<T> {
     public TreeSet<T> searchNumberOfRecords(int firstResult, int numberOfResults, String searchType, String searchValue) {
         TreeSet<T> records;
         Session session = createSession();
+        Transaction tx = session.beginTransaction();
 
         records = new TreeSet<T>(session.createCriteria(type)
                 .setProjection(Projections.distinct(Projections.property(type.getSimpleName().toLowerCase() + "Id")))
                 .add(Restrictions.like(searchType, "%" + searchValue + "%"))
                 .setFirstResult(firstResult).setMaxResults(numberOfResults).list());
 
-        session.close();
 
+        tx.commit();
         return records;
     }
 
@@ -179,12 +183,14 @@ public class DataAccessObject<T> {
     public TreeSet<T> getNumberOfRecords(int firstResult, int numberOfResults) {
         TreeSet<T> records;
         Session session = createSession();
+        Transaction tx = session.beginTransaction();
 
         records = new TreeSet<T>(session.createCriteria(type)
                 .setProjection(Projections.distinct(Projections.property(type.getSimpleName().toLowerCase() + "Id")))
                 .setFirstResult(firstResult).setMaxResults(numberOfResults).list());
 
-        session.close();
+
+        tx.commit();
         return records;
     }
 
@@ -194,13 +200,13 @@ public class DataAccessObject<T> {
      * @return True or false based on if the record was successfully updated or not.
      */
     public boolean updateRecord(T record) {
-        Session session = SessionFactoryProvider.getSessionFactory().openSession();
+        Session session = createSession();
         Transaction transaction = null;
         boolean success = false;
 
         try {
             transaction = session.beginTransaction();
-            session.update(type.getName(), record);
+            session.update(record);
             transaction.commit();
             success = true;
             log.info(record.getClass().getName() + " updated");
@@ -208,7 +214,7 @@ public class DataAccessObject<T> {
             if (transaction!=null) transaction.rollback();
             log.error(ex);
         } finally {
-            session.close();
+
         }
         return success;
     }
@@ -234,7 +240,7 @@ public class DataAccessObject<T> {
             if (transaction!=null) transaction.rollback();
             log.error(ex);
         } finally {
-            session.close();
+
         }
         return success;
     }
@@ -250,11 +256,12 @@ public class DataAccessObject<T> {
     public TreeSet<T> getRecordsByParam(String property, Set<Object> values) {
         TreeSet<T> records;
         Session session = createSession();
+        Transaction tx = session.beginTransaction();
 
         records = new TreeSet<>(session.createCriteria(type).add(Restrictions.in(property, values)).list());
 
-        session.close();
 
+        tx.commit();
         return records;
 
     }
@@ -286,7 +293,7 @@ public class DataAccessObject<T> {
             }
             log.error(ex);
         } finally {
-            session.close();
+
         }
 
         return success;
@@ -301,10 +308,12 @@ public class DataAccessObject<T> {
     public TreeSet<T> searchMultipleParams(Map searchParams) {
         TreeSet<T> records;
         Session session = createSession();
+        Transaction tx = session.beginTransaction();
 
         records = new TreeSet<T>(session.createCriteria(type).add(Restrictions.allEq(searchParams)).list());
 
-        session.close();
+
+        tx.commit();
         return records;
     }
 
@@ -314,7 +323,7 @@ public class DataAccessObject<T> {
      * @return The newly created session.
      */
     protected Session createSession() {
-        return SessionFactoryProvider.getSessionFactory().openSession();
+        return SessionFactoryProvider.getSessionFactory().getCurrentSession();
     }
 
 }

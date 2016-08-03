@@ -1,10 +1,7 @@
 package persistence;
 
 import entities.*;
-import org.hibernate.Criteria;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+import org.hibernate.*;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 
@@ -26,24 +23,13 @@ public class OrderDao extends DataAccessObject<Order> {
      * @return The new order's id.
      */
     public int createNewOrder(Order order) {
-        Session session = SessionFactoryProvider.getSessionFactory().openSession();
-        Transaction transaction = null;
         int id = 0;
-        try {
-            transaction = session.beginTransaction();
-            if (persistRecord(order)) {
-                id = order.getOrderId();
-                updateAssets(order);
-            }
 
-            transaction.commit();
-        } catch (HibernateException ex) {
-            if (transaction!=null) transaction.rollback();
-            log.error(ex);
-            id = -1;
-        } finally {
-            session.close();
+        if (persistRecord(order)) {
+            id = order.getOrderId();
+            updateAssets(order);
         }
+
         return id;
     }
 
@@ -70,6 +56,24 @@ public class OrderDao extends DataAccessObject<Order> {
         return updateRecord(order);
     }
 
+    public boolean deleteOrder(Order order) {
+        Session session = createSession();
+        Transaction transaction = null;
+        boolean success = false;
+
+        try {
+            transaction = session.beginTransaction();
+            session.delete("Order", order);
+            transaction.commit();
+            success = true;
+            log.info(order.getClass().getName() + " deleted");
+        } catch (HibernateException ex) {
+            if (transaction!=null) transaction.rollback();
+            log.error(ex);
+        }
+        return success;
+    }
+
     /**
      * Adds a order to the database from a web form.
      * @param webOrder The items and quantities for the order.
@@ -85,13 +89,13 @@ public class OrderDao extends DataAccessObject<Order> {
         results.setType("");
         Order order = new Order();
         order.setNotes(notes);
-
-        if (memberEmail == null) {
+        Member member = memberDao.getMemberByEmail(memberEmail);
+        if (member == null) {
             results.addMessage("Must be logged in to place an order");
             results.setType("Error");
             return results;
         }
-        Member member = memberDao.getMemberByEmail(memberEmail);
+
 
         webOrderLoop(webOrder, type, results, order, orderItems);
 
@@ -99,6 +103,7 @@ public class OrderDao extends DataAccessObject<Order> {
             results.setType("Error");
             results.addMessage("No items selected");
         }
+
         if (results.getType().equals("Error")) {
             return results;
         }
@@ -108,7 +113,8 @@ public class OrderDao extends DataAccessObject<Order> {
         order.setType(type);
         member.addMemberOrder(order);
 
-        if (createNewOrder(order) > 0) {
+        int id = createNewOrder(order);
+        if (id > 0) {
             results.setType("Success");
             results.addMessage("Order has been successfully placed");
             results.setSuccess(true);
@@ -188,7 +194,8 @@ public class OrderDao extends DataAccessObject<Order> {
     public Set<Order> searchOrdersByStatus(String orderStatus, String type) {
 
         Set<Order> orders;
-        Session session = SessionFactoryProvider.getSessionFactory().openSession();
+        Session session = createSession();
+        Transaction tx = session.beginTransaction();
 
         Criteria criteria = session.createCriteria(Order.class);
 
@@ -206,7 +213,44 @@ public class OrderDao extends DataAccessObject<Order> {
 
         orders = new TreeSet<Order>(criteria.list());
 
-        session.close();
+        for (Order order : orders) {
+            Hibernate.initialize(order.getOrderItems());
+        }
+
+        tx.commit();
         return orders;
+    }
+
+    /**
+     * Searches for all records that match the properties and values in the passed map.
+     * @param searchParams Map of all the values being searched for and what field to search for them in.
+     * @return A set with all the results found from the search.
+     */
+    @SuppressWarnings("unchecked")
+    public TreeSet<Order> searchMultipleParams(Map searchParams) {
+        TreeSet<Order> records;
+        Session session = createSession();
+        Transaction tx = session.beginTransaction();
+
+        records = new TreeSet<Order>(session.createCriteria(Order.class).add(Restrictions.allEq(searchParams)).list());
+        for (Order order: records) {
+            Hibernate.initialize(order.getOrderItems());
+        }
+
+        tx.commit();
+        return records;
+    }
+
+    @Override
+    public Order getRecordById(int id) {
+        Order record;
+        Session session = createSession();
+        Transaction tx = session.beginTransaction();
+
+        record = Order.class.cast(session.get(Order.class, id));
+        Hibernate.initialize(record.getOrderItems());
+
+        tx.commit();
+        return record;
     }
 }

@@ -1,6 +1,7 @@
 package servlets.Admin;
 
 import entities.Order;
+import entities.Results;
 import persistence.DataAccessObject;
 import persistence.OrderDao;
 import servlets.BaseServlet;
@@ -32,20 +33,22 @@ public class UpdateOrderServlet extends BaseServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        String title = "";
         String orderId = request.getPathInfo();
-
+        System.out.println(orderId);
         if (orderId == null) {
             response.sendRedirect("/");
         } else if (!orderId.equals("")) {
             OrderDao dao = (OrderDao) getServletContext().getAttribute("orderDao");
+
             Order order = dao.getRecordById(Integer.parseInt(orderId.substring(1)));
             request.setAttribute("order", order);
 
             title = "Order Update Form";
         }
-        content = "/admin/orderUpdate.jsp";
+        String content = "/admin/orderUpdate.jsp";
 
-        servletResponse(request, response);
+        servletResponse(request, response, title, content);
     }
 
     /**
@@ -60,12 +63,31 @@ public class UpdateOrderServlet extends BaseServlet {
             throws ServletException, IOException {
         String status = request.getParameter("status");
         String orderId = request.getParameter("orderId");
+        System.out.println(status);
+        System.out.println(orderId);
 
         OrderDao dao = (OrderDao) getServletContext().getAttribute("orderDao");
-        Order order = dao.getRecordById(Integer.parseInt(orderId.substring(1)));
+        Order order = dao.getRecordById(Integer.parseInt(orderId));
+        System.out.println(order.getOrderId());
         order.setOrderStatus(status);
+        Results results = new Results();
+        if (dao.updateOrder(order)) {
 
-        dao.updateOrder(order);
+            results.setType("Success");
+            results.addMessage("Order was updated.");
+            results.setSuccess(true);
+        } else {
+            results.setType("Error");
+            results.addMessage("Order was not updated.");
+        }
+
+        request.setAttribute("order", order);
+        request.setAttribute("results", results);
+
+        String content = "/admin/orderUpdate.jsp";
+        String title = "Order Update Form";
+
+        servletResponse(request, response, title, content);
 
 
 

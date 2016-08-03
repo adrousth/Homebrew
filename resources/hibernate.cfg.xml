@@ -18,9 +18,10 @@
             root
         </property>
         <property name="hibernate.show_sql">
-            true
+            false
         </property>
         <property name="connection.password"></property>
+        <property name="hibernate.current_session_context_class">thread</property>
 
     </session-factory>
 

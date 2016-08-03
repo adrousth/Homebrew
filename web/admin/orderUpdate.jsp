@@ -25,7 +25,7 @@
             <label for="status" class="col-sm-3 control-label">Order Status</label>
             <div class="col-sm-6">
                 <select class="form-control" id="status" name="status">
-                    <option value="unfilled">unfilled</option>
+                    <option value="unfilled">Unfilled</option>
                     <option value="filled">Filled</option>
                     <option value="complete">Complete</option>
                 </select>

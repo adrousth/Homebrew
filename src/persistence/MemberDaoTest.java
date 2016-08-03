@@ -194,6 +194,8 @@ public class MemberDaoTest {
     public void getMemberByEmail() {
         System.out.println("Testing getMemberByEmail");
         Member member = dao.getMemberByEmail("jdoe@domain.com");
+        System.out.println(testMember1.getMemberId());
+        System.out.println(member.getMemberId());
         assertTrue(testMember1.getMemberId() == member.getMemberId());
     }
 
@@ -208,7 +210,12 @@ public class MemberDaoTest {
     public void createNewMemberFromForm() {
         System.out.println("Testing createNewMemberFromForm");
         MemberResults results = dao.createNewMemberFromForm("first", "last", "my@email.net", "");
+        for (String message :
+                results.getMessages()) {
+            System.out.println(message);
+        }
         assertTrue(results.isSuccess());
+        System.out.println("true");
         Member member = dao.getMemberByEmail("my@email.net");
         assertTrue(dao.deleteRecord(member));
 

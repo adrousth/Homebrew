@@ -35,7 +35,8 @@ public class HopFormServlet extends BaseServlet {
 
         String assetId = request.getPathInfo();
         String button = "";
-        content = "/admin/assetForm.jsp";
+        String content = "/admin/assetForm.jsp";
+        String title = "";
         if (assetId == null) {
 
             title = "New Hop Form";
@@ -75,7 +76,7 @@ public class HopFormServlet extends BaseServlet {
 
         request.setAttribute("type", "hop");
         request.setAttribute("button", button);
-        servletResponse(request, response);
+        servletResponse(request, response, title, content);
 
 
     }

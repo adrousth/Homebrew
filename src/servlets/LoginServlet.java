@@ -46,9 +46,9 @@ public class LoginServlet extends BaseServlet {
         request.getSession().setAttribute("url", request.getAttribute("javax.servlet.forward.request_uri"));
 
         if (request.getUserPrincipal() == null) {
-            title = "Login";
-            content = "/login.jsp";
-            servletResponse(request, response);
+            String title = "Login";
+            String content = "/login.jsp";
+            servletResponse(request, response, title, content);
         } else {
             response.sendRedirect("/member");
         }
@@ -68,10 +68,9 @@ public class LoginServlet extends BaseServlet {
 
 
         Results results = new Results();
-
+        String url;
         try {
             request.login(request.getParameter("username"), request.getParameter("password"));
-
 
             results.setSuccess(true);
 
@@ -79,9 +78,7 @@ public class LoginServlet extends BaseServlet {
             if (principal != null) {
                 String user = request.getRemoteUser();
                 MemberDao dao = (MemberDao) getServletContext().getAttribute("memberDao");
-
                 Member member = dao.getMemberByEmail(user);
-
                 request.getSession().setAttribute("user", member);
                 results.setType("Welcome " + member.getFirstName() + " " + member.getLastName());
 

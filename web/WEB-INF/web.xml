@@ -32,8 +32,6 @@
         <role-name>GRAIN CZAR</role-name>
     </security-role>
 
-
-    <!--
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>admin</web-resource-name>
@@ -44,7 +42,7 @@
             <role-name>ADMIN</role-name>
         </auth-constraint>
     </security-constraint>
--->
+
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>member</web-resource-name>

@@ -31,10 +31,10 @@ public class NewMemberServlet extends BaseServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        title = "New Member Form";
-        content = "/admin/newMemberForm.jsp";
+        String title = "New Member Form";
+        String content = "/admin/newMemberForm.jsp";
 
-        servletResponse(request, response);
+        servletResponse(request, response, title, content);
     }
 
     /**

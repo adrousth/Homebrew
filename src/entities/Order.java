@@ -13,7 +13,8 @@ import java.io.Serializable;
 import java.util.*;
 
 /**
- * Created by Alex on 4/4/2016.
+ * @author Alex
+ * 4/4/2016
  */
 @Entity
 @Table(name = "member_order")
@@ -22,6 +23,8 @@ public class Order implements Serializable, Comparable {
     @GeneratedValue
     @Column(name = "order_id")
     private int orderId;
+    @Column(name = "member_id")
+    private int memberId;
     @Column(name = "order_status")
     private String orderStatus;
     @Column(name = "notes")
@@ -35,10 +38,10 @@ public class Order implements Serializable, Comparable {
 
 
     @ManyToOne
-    @JoinColumn(name = "member_id")
+    @JoinColumn(name = "member_id", referencedColumnName = "member_id", insertable = false, updatable = false)
     private Member member;
 
-    @OneToMany(mappedBy = "order", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "order", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST}, orphanRemoval = true)
     private Set<OrderItem> orderItems;
 
 
@@ -54,6 +57,13 @@ public class Order implements Serializable, Comparable {
         this.orderId = orderId;
     }
 
+    public int getMemberId() {
+        return memberId;
+    }
+
+    public void setMemberId(int memberId) {
+        this.memberId = memberId;
+    }
 
     public String getOrderStatus() {
         return orderStatus;
@@ -90,6 +100,7 @@ public class Order implements Serializable, Comparable {
 
     public void setMember(Member member) {
         this.member = member;
+        memberId = member.getMemberId();
     }
 
     public String getType() {
@@ -137,9 +148,15 @@ public class Order implements Serializable, Comparable {
 
     @Override
     public int compareTo(Object o) {
-        if (orderId == ((Order)o).getOrderId()) {
-            return 0;
-        } else if (orderId > ((Order)o).getOrderId()) {
+        if (updatedAt.equals(((Order)o).getUpdatedAt())) {
+            if (orderId == ((Order)o).getOrderId()) {
+                return 0;
+            } else if (orderId > ((Order)o).getOrderId()) {
+                return 1;
+            } else {
+                return -1;
+            }
+        } else if (updatedAt.before(((Order)o).getUpdatedAt())) {
             return 1;
         } else {
             return -1;

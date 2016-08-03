@@ -30,9 +30,9 @@ public class SearchDisplayServlet extends BaseServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        content = "/admin/searchForm.jsp";
-        title = "Search";
+        String content = "/admin/searchForm.jsp";
+        String title = "Search";
 
-        servletResponse(request, response);
+        servletResponse(request, response, title, content);
     }
 }

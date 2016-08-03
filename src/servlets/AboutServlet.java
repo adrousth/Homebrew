@@ -26,9 +26,9 @@ public class AboutServlet extends BaseServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        content = "/about.jsp";
-        title = "About";
+        String content = "/about.jsp";
+        String title = "About";
 
-        servletResponse(request, response);
+        servletResponse(request, response, title, content);
     }
 }

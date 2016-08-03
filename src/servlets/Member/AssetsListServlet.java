@@ -35,6 +35,7 @@ public class AssetsListServlet extends BaseServlet {
         String assetType = request.getRequestURI();
 
         String type = "";
+        String title = "";
 
         if (assetType.equals("/member/hops")) {
             title = "Hop List";
@@ -52,7 +53,7 @@ public class AssetsListServlet extends BaseServlet {
         request.setAttribute("assets", assets);
         request.setAttribute("assetType", type);
 
-        content = "/member/assets.jsp";
-        servletResponse(request, response);
+        String content = "/member/assets.jsp";
+        servletResponse(request, response, title, content);
     }
 }

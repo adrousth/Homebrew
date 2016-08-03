@@ -32,9 +32,12 @@ public class SearchServlet extends BaseServlet {
             throws ServletException, IOException {
 
         String searchType = request.getPathInfo();
+        String title;
+        String content;
 
         if (searchType == null) {
             response.sendRedirect("/admin/search");
+            return;
         } else if (searchType.equals("/members")) {
             MemberDao dao = (MemberDao) getServletContext().getAttribute("memberDao");
 
@@ -69,7 +72,7 @@ public class SearchServlet extends BaseServlet {
             }
 
             Set orderList = dao.searchOrdersByStatus(orderStatus, type);
-
+            System.out.println("orders");
             request.setAttribute("type", type);
             request.setAttribute("orderStatus", orderStatus);
             request.setAttribute("orders", orderList);
@@ -78,9 +81,10 @@ public class SearchServlet extends BaseServlet {
             content = "admin/orders.jsp";
         } else {
             response.sendRedirect("/admin/search");
+            return;
         }
 
-        servletResponse(request, response);
+        servletResponse(request, response, title, content);
 
 
 

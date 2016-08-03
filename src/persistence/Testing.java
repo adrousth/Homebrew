@@ -72,11 +72,11 @@ public class Testing {
 
         assertTrue(order2.getOrderItems().size() > 0);
         for (OrderItem item: order2.getOrderItems()) {
-            System.out.println(item.getOrder().getOrderId());
-            System.out.println(item.getAssetId());
+            System.out.println(item.getOrderId());
+            System.out.println(item.getAsset().getAssetId());
             System.out.println(item.getQuantity());
             System.out.println(item.getAsset().getName());
-            System.out.println(item.getOrder().getOrderStatus());
+            System.out.println(item);
             System.out.println();
         }
     }
@@ -91,7 +91,7 @@ public class Testing {
             System.out.println();
             for (OrderItem item :
                     order1.getOrderItems()) {
-                System.out.println(item.getOrder().getOrderId() + " " + item.getAssetId());
+                System.out.println(item.getOrderId() + " " + item.getAsset().getAssetId());
             }
 
         }
@@ -130,11 +130,11 @@ public class Testing {
         item3.setAsset((Asset) dao.getRecordById(377));
 
         item.setQuantity((float) 7.0);
-        item.setOrder(order);
+
         item2.setQuantity((float) 1.0);
-        item2.setOrder(order);
+
         item3.setQuantity((float) 0.5);
-        item3.setOrder(order);
+
 
         order.addOrderItem(item);
         order.addOrderItem(item2);
@@ -196,7 +196,7 @@ public class Testing {
         System.out.println();
         for (OrderItem item: results.getOrder().getOrderItems()) {
             System.out.println();
-            System.out.println(item.getAssetId() + " " + item.getOrder().getOrderId() + " " + item.getQuantity());
+
         }
 
 
@@ -249,25 +249,50 @@ public class Testing {
 
     @Test
     public void test13() {
-        String firstName = "Jo";
-        String lastName = "Smithson";
-        String phone = "777-777-7777";
-        String email = "hello@yahoo.com";
-        MemberDao memberDao = new MemberDao();
+        MemberDao dao = new MemberDao();
+        dao.getMemberByEmail("dhagenes@gmail.com");
 
-        MemberResults results = memberDao.createNewMemberFromForm(firstName, lastName, email, phone);
+
+    }
+
+    @Test
+    public void test14() {
+        OrderDao dao = new OrderDao();
+        Map<String, String> map = new TreeMap<>();
+        map.put("366", "1.0");
+        map.put("367", "1.0");
+
+        OrderResults results = dao.orderFromWebForm(map, "cmraz@yahoo.com", "HOP", "notes");
+        System.out.println();
         System.out.println(results.getType());
-        for (String message : results.getMessages()) {
-            System.out.println();
+        for (String message :
+                results.getMessages()) {
             System.out.println(message);
         }
-        System.out.println(results.getMember().getRoles().size());
+        Order order = dao.getRecordById(results.getOrder().getOrderId());
+        order.setNotes("new notes here");
+        System.out.println(dao.updateOrder(order));
 
-        assertTrue(results.isSuccess());
-
-        memberDao.deleteRecord(memberDao.getRecordById(results.getMember().getMemberId()));
+        System.out.println(dao.deleteOrder(order));
 
 
+    }
 
+    @Test
+    public void testing15() {
+        OrderDao dao = new OrderDao();
+        Order order = dao.getRecordById(774);
+
+        System.out.println(dao.deleteOrder(order));
+    }
+
+    @Test
+    public void testing16() {
+        OrderDao dao = new OrderDao();
+        Order order = dao.getRecordById(818);
+        System.out.println(order.getOrderId());
+        order.setOrderStatus("filled");
+
+        dao.updateOrder(order);
     }
 }

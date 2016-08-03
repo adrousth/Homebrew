@@ -4,13 +4,12 @@ package persistence;
 import entities.Member;
 import entities.MemberResults;
 import entities.MemberRole;
+import entities.Order;
 import org.apache.commons.lang.RandomStringUtils;
-import org.hibernate.Criteria;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+import org.hibernate.*;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
-import org.opensaml.xml.encryption.P;
+
 
 import java.util.List;
 import java.util.Set;
@@ -38,13 +37,17 @@ public class MemberDao extends DataAccessObject<Member> {
      */
     public Member getMemberByEmail(String email) {
         Member member = null;
-        Session session = SessionFactoryProvider.getSessionFactory().openSession();
-        List members;
-        members = session.createCriteria(Member.class).add(Restrictions.eq("email", email)).list();
+        Session session = createSession();
+        Transaction tx = session.beginTransaction();
+
+        List members = session.createCriteria(Member.class)
+                .setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
+                .add(Restrictions.eq("email", email)).list();
+
         if (members.size() > 0) {
             member = (Member) members.get(0);
         }
-        session.close();
+        tx.commit();
         return member;
     }
 
@@ -56,7 +59,8 @@ public class MemberDao extends DataAccessObject<Member> {
      */
     public Set<Member> searchMemberByName(String firstName, String lastName) {
         Set<Member> members;
-        Session session = SessionFactoryProvider.getSessionFactory().openSession();
+        Session session = createSession();
+        Transaction tx = session.beginTransaction();
         Criteria criteria = session.createCriteria(Member.class);
 
         if (firstName != null) {
@@ -68,7 +72,7 @@ public class MemberDao extends DataAccessObject<Member> {
 
         members = new TreeSet<Member>(criteria.list());
 
-        session.close();
+        tx.commit();
         return members;
     }
 
@@ -79,25 +83,10 @@ public class MemberDao extends DataAccessObject<Member> {
      */
     @Override
     public boolean deleteRecord(Member record) {
-        Session session = createSession();
-        Transaction transaction = null;
-        boolean success = false;
-        try {
-            transaction = session.beginTransaction();
-            for (MemberRole role: record.getRoles()) {
-                dao.deleteRecord(role);
-            }
-            session.delete(record);
-            transaction.commit();
-            success = true;
-            log.info(record.getClass().getName() + " deleted");
-        } catch (HibernateException ex) {
-            if (transaction!=null) transaction.rollback();
-            log.error(ex);
-        } finally {
-            session.close();
+        for (MemberRole role: record.getRoles()) {
+            dao.deleteRecord(role);
         }
-        return success;
+        return super.deleteRecord(record);
 
     }
 
@@ -137,7 +126,6 @@ public class MemberDao extends DataAccessObject<Member> {
             dao.addRecord(role);
 
             if (i > 0) {
-                newMember.setMemberId(i);
                 results.setSuccess(true);
                 results.setType("Success");
                 results.addMessage("New member password: " + newMember.getPassword());
@@ -212,5 +200,17 @@ public class MemberDao extends DataAccessObject<Member> {
                 results.addMessage("Phone number must be less than 15 characters long.");
             }
         }
+    }
+    public Member getRecordById(int id) {
+        Member record;
+        Session session = createSession();
+        Transaction tx = session.beginTransaction();
+
+        record = Member.class.cast(session.get(Member.class, id));
+        for (Order order : record.getMemberOrders()) {
+            Hibernate.initialize(order.getOrderItems());
+        }
+        tx.commit();
+        return record;
     }
 }

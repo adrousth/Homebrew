@@ -15,10 +15,8 @@ import static java.lang.Thread.sleep;
  * 5/18/2016
  */
 public class BaseServlet extends HttpServlet {
-    protected String url;
-    protected String title;
-    protected String content;
-    public void servletResponse(HttpServletRequest request, HttpServletResponse response)
+
+    public void servletResponse(HttpServletRequest request, HttpServletResponse response, String title, String content)
             throws ServletException, IOException {
 
         String url = "/index.jsp";
@@ -30,17 +28,10 @@ public class BaseServlet extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-    public void redirecting(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
-        dispatcher.forward(request, response);
-    }
-
-
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        String url = "/index.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);
     }

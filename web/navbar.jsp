@@ -13,6 +13,9 @@
                         <a class="dropdown-toggle" href="#" data-toggle="dropdown">Account <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="${pageContext.request.contextPath}/member">Profile</a></li>
+                            <c:if test="${user.containsRole(\"ADMIN\")}">
+                                <li><a href="${pageContext.request.contextPath}/admin">Admin</a></li>
+                            </c:if>
                             <li><a href="#">Settings</a></li>
                             <li><a>Order</a></li>
                             <li><a href="${pageContext.request.contextPath}/member/orderForm?form=hops"> - Hops</a></li>

@@ -28,9 +28,9 @@ public class AdminServlet extends BaseServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        content = "/admin/admin.jsp";
-        title = "Admin Home";
+        String content = "/admin/admin.jsp";
+        String title = "Admin Home";
 
-        servletResponse(request, response);
+        servletResponse(request, response, title, content);
     }
 }

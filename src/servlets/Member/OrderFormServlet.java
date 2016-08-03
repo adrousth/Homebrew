@@ -35,14 +35,14 @@ public class OrderFormServlet extends BaseServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        content = "/member/orderForm.jsp";
-        title = "Order Form";
+        String content = "/member/orderForm.jsp";
+        String title = "Order Form";
         AssetDao dao = (AssetDao) getServletContext().getAttribute("assetDao");
 
         TreeSet<Asset> hops = dao.searchLikeRecords("type", "HOP");
 
         request.setAttribute("hops", hops);
-        servletResponse(request, response);
+        servletResponse(request, response, title, content);
     }
 
     /**
@@ -65,10 +65,11 @@ public class OrderFormServlet extends BaseServlet {
             if (!orderItems.containsKey(request.getParameter("hop" + (i + 1))) || request.getParameter("hop" + (i + 1)).equals("")) {
                 orderItems.put(request.getParameter("hop" + (i + 1)), request.getParameter("hop" + (i + 1) + "Qty"));
             } else {
-                results.setSuccess(false);
+                results.setType("Error");
                 results.addMessage("Please do not select a hop more than once");
                 request.setAttribute("results", results);
                 doGet(request, response);
+                return;
             }
         }
         results = orderDao.orderFromWebForm(orderItems, request.getRemoteUser(), "HOP", notes);

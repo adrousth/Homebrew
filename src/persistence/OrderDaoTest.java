@@ -87,7 +87,8 @@ public class OrderDaoTest {
         dao.deleteRecord(testOrder2);
         dao.deleteRecord(testOrder3);
         MemberDao memberDao = new MemberDao();
-        memberDao.deleteRecord(testMember);
+
+        memberDao.deleteRecord(memberDao.getMemberByEmail("jdoe@domain.com"));
     }
 
 

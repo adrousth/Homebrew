@@ -2,6 +2,7 @@ package entities;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.openjpa.persistence.ReadOnly;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -14,6 +15,11 @@ import java.io.Serializable;
 @Table(name = "order_item")
 public class OrderItem implements Serializable, Comparable  {
 
+
+    @Transient
+    @Column(name = "order_id")
+    private int orderId;
+
     @Id
     @Column(name = "asset_id")
     private int assetId;
@@ -24,9 +30,12 @@ public class OrderItem implements Serializable, Comparable  {
     @Column(name = "type")
     private String type;
 
+
+    @Id
     @ManyToOne
-    @JoinColumn(name = "order_id")
+    @JoinColumn(name = "order_id", insertable = false, updatable = false, referencedColumnName = "order_id")
     private Order order;
+
 
     @ManyToOne
     @JoinColumn(name = "asset_id", insertable = false, updatable = false, referencedColumnName = "asset_id")
@@ -38,15 +47,26 @@ public class OrderItem implements Serializable, Comparable  {
 
     public OrderItem(Asset asset, float quantity, String type) {
         this.asset = asset;
-        this.assetId = asset.getAssetId();
+        assetId = asset.getAssetId();
         this.quantity = quantity;
         this.type = type;
+    }
+
+    public int getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
     }
 
     public int getAssetId() {
         return assetId;
     }
 
+    public void setAssetId(int assetId) {
+        this.assetId = assetId;
+    }
 
     public Asset getAsset() {
         return asset;
@@ -54,7 +74,7 @@ public class OrderItem implements Serializable, Comparable  {
 
     public void setAsset(Asset asset) {
         this.asset = asset;
-        this.assetId = asset.getAssetId();
+        assetId = asset.getAssetId();
     }
 
     public Order getOrder() {
@@ -63,6 +83,7 @@ public class OrderItem implements Serializable, Comparable  {
 
     public void setOrder(Order order) {
         this.order = order;
+        orderId = order.getOrderId();
     }
 
     public float getQuantity() {
@@ -104,7 +125,7 @@ public class OrderItem implements Serializable, Comparable  {
     @Override
     public int compareTo(Object o) {
 
-        if (assetId == ((OrderItem)o).getAssetId() && order.getOrderId() == ((OrderItem)o).getOrder().getOrderId()) {
+        if (assetId == ((OrderItem)o).getAssetId() && orderId == ((OrderItem)o).getOrderId()) {
             return 0;
         } else if (assetId > ((OrderItem)o).getAssetId()) {
             return 1;

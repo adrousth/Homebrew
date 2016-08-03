@@ -21,35 +21,42 @@ import java.util.TreeSet;
  */
 @WebServlet(
         name = "admin-member-orders",
-        urlPatterns = {"/admin/member/orders/*"}
+        urlPatterns = {"/admin/member       String content;" +
+                "String title;/orders/*"}
 )
 public class MemberOrdersServlet extends BaseServlet {
     /**
      * Handles HTTP GET requests.
      *
      * @param request  the HttpServletRequest object
-     * @param response the HttpServletResponse object
+     * @param response the HttpServletResponse objec        String content;
+     *                 String title;t
      * @throws ServletException if there is a Servlet failure
      * @throws IOException      if there is an IO failure
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String memberId = request.getPathInfo();
+        String content;
+        String title;
 
-        System.out.println(memberId);
         if (memberId == null) {
             content = "error.jsp";
+            title = "Error";
         } else {
             memberId = memberId.substring(1);
             MemberDao dao = (MemberDao) getServletContext().getAttribute("memberDao");
             Member member = dao.getRecordById(Integer.parseInt(memberId));
+
             request.setAttribute("orders", member.getMemberOrders());
+
             request.setAttribute("member", member);
-            content = "/admin/memberOrders.jsp";
+            content = "/admin/orders.jsp";
             title = member.getFirstName() + " " + member.getLastName() + "'s Orders";
         }
 
-        servletResponse(request, response);
+        servletResponse(request, response, title, content);
+
     }
 
     /**

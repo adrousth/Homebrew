@@ -4,6 +4,7 @@ package servlets.Member;/**
 
 import entities.Member;
 import entities.Order;
+import org.hibernate.Hibernate;
 import persistence.DataAccessObject;
 import persistence.OrderDao;
 import servlets.BaseServlet;
@@ -33,17 +34,17 @@ public class MemberServlet extends BaseServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        title = "Member Home";
-        content = "/member/member.jsp";
+
+        String title = "Member Home";
+        String content = "/member/member.jsp";
         OrderDao dao = (OrderDao) getServletContext().getAttribute("orderDao");
 
         Map<String, Object> map = new TreeMap<>();
         Member member = (Member) request.getSession().getAttribute("user");
         map.put("memberId", member.getMemberId());
-        map.put("orderStatus", "unfilled");
         Set<Order> orders = new TreeSet<>(dao.searchMultipleParams(map));
         request.setAttribute("orders", orders);
-        servletResponse(request, response);
+        servletResponse(request, response, title, content);
 
     }
 

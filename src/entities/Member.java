@@ -37,7 +37,7 @@ public class Member implements Serializable, Comparable {
     @OneToMany(mappedBy = "member", fetch = FetchType.EAGER)
     private Set<MemberRole> roles;
 
-    @OneToMany(mappedBy = "member", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "member", fetch = FetchType.EAGER, orphanRemoval = true)
     private Set<Order> memberOrders;
 
 

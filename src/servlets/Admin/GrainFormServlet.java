@@ -33,8 +33,8 @@ public class GrainFormServlet extends BaseServlet {
             throws ServletException, IOException {
 
         String assetId = request.getPathInfo();
-        content = "/admin/assetForm.jsp";
-
+        String content = "/admin/assetForm.jsp";
+        String title = "";
         String button = "";
 
         if (assetId == null) {
@@ -74,7 +74,7 @@ public class GrainFormServlet extends BaseServlet {
 
         request.setAttribute("type", "grain");
         request.setAttribute("button", button);
-        servletResponse(request, response);
+        servletResponse(request, response, title, content);
 
 
     }

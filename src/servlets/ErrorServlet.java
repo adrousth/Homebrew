@@ -26,9 +26,9 @@ public class ErrorServlet extends BaseServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        content = "error.jsp";
-        title = "error";
-        servletResponse(request, response);
+        String content = "error.jsp";
+        String title = "error";
+        servletResponse(request, response, title, content);
     }
 
     /**
